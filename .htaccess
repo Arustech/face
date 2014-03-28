@@ -1,0 +1,10 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)$ $1.php
+RewriteRule ^([a-zA-Z0-9_-]+)$ visit_user_wall.php?user_name=$1
+ErrorDocument 404 /404
+
+# Use PHP 5.4
+AddHandler application/x-httpd-php54 .php 

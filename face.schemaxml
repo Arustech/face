@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">face_db</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="tbl_admin" view="colnames">
+<left>753</left>
+<top>66</top>
+<width>137</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `tbl_admin` (
+  `admin_id` int(12) NOT NULL AUTO_INCREMENT,
+  `admin_username` varchar(100) DEFAULT NULL,
+  `admin_password` varchar(250) DEFAULT NULL,
+  `admin_email` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_album" view="colnames">
+<left>785</left>
+<top>277</top>
+<width>126</width>
+<height>174</height>
+<sql_create_table>CREATE TABLE `tbl_album` (
+  `album_id` int(13) NOT NULL AUTO_INCREMENT,
+  `user_id` int(13) DEFAULT NULL,
+  `album_name` varchar(150) DEFAULT NULL,
+  `album_loc` text,
+  `cover_photo_id` int(13) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`album_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_album_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_country" view="colnames">
+<left>64</left>
+<top>66</top>
+<width>129</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `tbl_country` (
+  `country_id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_symbol` varchar(3) NOT NULL,
+  `country_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`country_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_friend" view="colnames">
+<left>58</left>
+<top>164</top>
+<width>120</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `tbl_friend` (
+  `friend_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(13) DEFAULT NULL,
+  `user_friend_id` int(13) DEFAULT NULL,
+  `friend_type` enum('family','friends') DEFAULT 'friends',
+  PRIMARY KEY (`friend_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_friend_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_hobbies" view="colnames">
+<left>244</left>
+<top>452</top>
+<width>112</width>
+<height>94</height>
+<sql_create_table>CREATE TABLE `tbl_hobbies` (
+  `hobby_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`hobby_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_photo" view="colnames">
+<left>956</left>
+<top>281</top>
+<width>120</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `tbl_photo` (
+  `photo_id` int(13) NOT NULL AUTO_INCREMENT,
+  `album_id` int(13) DEFAULT NULL,
+  `photo_src` varchar(150) DEFAULT NULL,
+  `photo_created` datetime DEFAULT NULL,
+  PRIMARY KEY (`photo_id`),
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `tbl_photo_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `tbl_album` (`album_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_post" view="colnames">
+<left>920</left>
+<top>465</top>
+<width>146</width>
+<height>158</height>
+<sql_create_table>CREATE TABLE `tbl_post` (
+  `post_id` int(13) NOT NULL AUTO_INCREMENT,
+  `post_data` text,
+  `post_date_time` datetime DEFAULT NULL,
+  `posted_on_user_id` int(13) DEFAULT NULL,
+  `posted_by_user_id` int(13) DEFAULT NULL,
+  `post_type` enum('video','link','msg','album','photo') DEFAULT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `posted_by_user_id` (`posted_by_user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_post_comment" view="colnames">
+<left>413</left>
+<top>485</top>
+<width>144</width>
+<height>142</height>
+<sql_create_table>CREATE TABLE `tbl_post_comment` (
+  `comment_id` int(13) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `comment_on_date` datetime DEFAULT NULL,
+  `comment_by` int(13) DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`comment_id`),
+  KEY `comment_by` (`comment_by`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `tbl_post_comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `tbl_post` (`post_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_profile_basic" view="colnames">
+<left>164</left>
+<top>593</top>
+<width>127</width>
+<height>206</height>
+<sql_create_table>CREATE TABLE `tbl_profile_basic` (
+  `profile_basic_id` int(13) NOT NULL AUTO_INCREMENT,
+  `user_id` int(13) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `first_name` varchar(150) DEFAULT NULL,
+  `last_name` varchar(150) DEFAULT NULL,
+  `religion` enum('Muslim','Hindu','Christian','Jew','Unspecified') DEFAULT 'Unspecified',
+  `gender` enum('Male','Female','Unspecified') DEFAULT 'Unspecified',
+  `relation` enum('Engaged','InAnOpenRelationship','InARelationship','IsSingle','ItsComplicated','Married','Unspecified') DEFAULT 'Unspecified',
+  `lookingfor` enum('Dating','Friendship','RandomPlay','Relationship','Unspecified','WhateverIcanGet') DEFAULT 'Unspecified',
+  PRIMARY KEY (`profile_basic_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_profile_basic_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_profile_contact" view="colnames">
+<left>358</left>
+<top>25</top>
+<width>122</width>
+<height>238</height>
+<sql_create_table>CREATE TABLE `tbl_profile_contact` (
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `land_line` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `state_province` varchar(255) NOT NULL,
+  `country_id` int(13) NOT NULL DEFAULT '1',
+  `zip_code` varchar(255) NOT NULL,
+  `website` text NOT NULL,
+  `last_updated` date NOT NULL,
+  PRIMARY KEY (`contact_id`),
+  KEY `country_id` (`country_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_profile_contact_ibfk_3` FOREIGN KEY (`country_id`) REFERENCES `tbl_country` (`country_id`),
+  CONSTRAINT `tbl_profile_contact_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_profile_education" view="colnames">
+<left>215</left>
+<top>27</top>
+<width>111</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `tbl_profile_education` (
+  `education_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) NOT NULL,
+  `high_school` varchar(255) NOT NULL,
+  `last_updated` date NOT NULL,
+  PRIMARY KEY (`education_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_profile_personal" view="colnames">
+<left>44</left>
+<top>343</top>
+<width>142</width>
+<height>222</height>
+<sql_create_table>CREATE TABLE `tbl_profile_personal` (
+  `personal_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `activities` text NOT NULL,
+  `favorite_music` text NOT NULL,
+  `favorite_tv_shows` text NOT NULL,
+  `favorite_movies` text NOT NULL,
+  `favorite_books` text NOT NULL,
+  `favorite_quotes` text NOT NULL,
+  `about_me` text NOT NULL,
+  `last_updated` date NOT NULL,
+  PRIMARY KEY (`personal_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_profile_personal_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_user" view="colnames">
+<left>576</left>
+<top>228</top>
+<width>146</width>
+<height>238</height>
+<sql_create_table>CREATE TABLE `tbl_user` (
+  `user_id` int(13) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) DEFAULT NULL,
+  `user_pwd` varchar(255) DEFAULT NULL,
+  `user_email` varchar(150) DEFAULT NULL,
+  `user_online` enum('Online','Offline') DEFAULT 'Offline',
+  `user_register_date` date DEFAULT NULL,
+  `user_last_login` date DEFAULT '0000-00-00',
+  `user_avatar` varchar(150) DEFAULT 'default.png',
+  `user_status` enum('pending','approved') DEFAULT 'pending',
+  `user_key` varchar(255) DEFAULT NULL,
+  `user_type` enum('business','personal') DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_user_hobbies" view="colnames">
+<left>979</left>
+<top>93</top>
+<width>122</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `tbl_user_hobbies` (
+  `user_hobby_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_hobby_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_video" view="colnames">
+<left>621</left>
+<top>573</top>
+<width>119</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `tbl_video` (
+  `video_id` int(13) NOT NULL AUTO_INCREMENT,
+  `user_id` int(13) DEFAULT NULL,
+  `video_src` varchar(250) DEFAULT NULL,
+  `video_created` datetime DEFAULT NULL,
+  PRIMARY KEY (`video_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

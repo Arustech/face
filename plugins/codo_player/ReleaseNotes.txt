@@ -1,0 +1,53 @@
+Codo Player
+Copyright (C) Donato Software House
+
+RELEASE NOTES
+
+1.9
+Date: 22 03 2014
+- Centre play button redesigned
+
+1.8
+Date: 25 01 2014
+- Support for VAST Ads plugin
+
+1.7
+Date: 11 01 2014
+- RTMP streaming improvements
+
+1.6
+Date: 13 10 2013
+- Default loading bar replaced for a player PRO version
+- Stability improvements
+- Several critical bug fixes
+
+1.5
+Date: 14 09 2013
+- Control bar elements drawn in SVG
+- New config options added
+
+1.4
+Date: 12 09 2013
+- HTTP Live Streaming for HTML5
+
+1.3.1
+Date: 03 09 2013
+- Control bar improvements (auto-hide on fullscreen)
+
+1.3
+Date: 01 09 2013
+- Clip timing events added (onClipBegin, onClipFirstQuarter, onClipSecondQuarter, onClipThirdQuarter, onClipEnd)
+- Cuepoints support (onCuepoint)
+
+1.2
+Date: 27 08 2013
+- 'Youtube' support added
+
+1.1
+Date: 27 07 2013
+- Improved stability & performance
+- 'Captions' and 'Share' plugins created
+
+1.0
+Date: 01 05 2013
+- FIRST RELEASE

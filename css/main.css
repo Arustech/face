@@ -1,0 +1,820 @@
+@import url(../fonts/fonts.css);
+
+body{
+
+  margin: 0;
+  font-family: open_sans;
+
+}
+
+
+
+.topbar{
+
+  width: 100%;
+
+  height: 5px;
+
+  margin: 0 auto;  
+
+}
+
+.one{
+
+  width: 12.5%;
+
+  background-color: #88d8f2;
+
+  height: 5px;
+
+  float: left;  
+
+}
+
+.two{
+
+  width: 12.5%;
+
+  background-color: #0897b9;
+
+  height: 5px;
+
+  float: left;
+
+}
+
+.bottombar{
+
+  width: 100%;
+
+  height: 5px;
+
+  margin: 0 auto;  
+
+}
+
+.header-wrraper{
+
+  width: 100%;
+
+  height: 88px;
+
+  background-image: url(../img/header-bg.jpg);
+
+  background-repeat: repeat-x;
+
+  background-position: left center;
+
+  border-bottom: 1px solid #fff;
+
+}
+
+.header-wrraper-login{
+
+  width: 100%;
+
+  height: 103px;
+
+  background-image: url(../img/header-bg.jpg);
+
+  background-repeat: repeat-x;
+
+  background-position: left center;
+
+  border-bottom: 1px solid #fff;
+
+}
+
+.container{
+
+  max-width: none !important;
+
+  width: 970px;
+
+}
+
+.logo{
+
+  padding-top: 24px;
+
+  padding-bottom: 10px;
+
+  padding-left: 0px;
+  float: left;
+
+}
+
+.header .col-lg-12{
+
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+
+.header .login-panel{
+
+  width: 420px;
+
+  float: right;
+
+  padding-right: 0px;
+
+  padding-top: 8px;
+
+}
+
+.email-phone{
+
+  padding: 0;
+
+  margin: 0;
+
+  float: left;
+
+  width: 165px;
+
+  margin-right: 2px;
+
+}
+
+.pasword{
+
+  padding: 0;
+
+  margin: 0;
+
+  float: left;
+
+  width: 165px;
+
+  margin-right: 2px;
+
+  margin-left: 2px;
+
+}
+
+.login{
+
+  padding: 0;
+
+  margin: 0;
+
+  float: left;
+
+  width: 66px;
+
+  margin-left: 2px;
+
+  margin-top: 23px;
+
+}
+
+.form-control {
+
+  display: block;
+
+  width: 100%;
+
+  height: 34px;
+
+  padding: 6px 12px;
+
+  font-size: 14px;
+
+  line-height: 1.428571429;
+
+  color: #555555;
+
+  vertical-align: middle;
+
+  background-color: #ffffff;
+
+  background-image: none;
+
+  border: 1px solid #c9ecf5;
+
+  border-radius: 4px;
+
+  behavior: url(/knownfaces/css/PIE.htc);
+
+  position: relative;
+
+}
+
+.form-group{
+
+  margin-bottom: 5px;
+
+}
+
+button, input {
+
+  line-height: normal;
+
+}
+
+.login-panel label{
+
+  font-size: 13px;
+
+  color: #fff;
+
+  font-weight: normal;
+
+}
+
+/*--checkbox css--*/
+
+
+
+.squared{
+
+  display: block;
+
+  overflow: hidden;
+
+  position: relative;
+
+}
+
+.squared > input {
+
+  padding: 0;
+
+  margin: 0;
+
+  height: 20px;
+
+  width: 20px;
+
+  float: left;
+
+  position: absolute;
+
+  left: 0px;
+
+  opacity: 0;
+
+  border: 1px solid #13aad0;
+
+  border-radius: 5px;
+
+  behavior: url(PIE.htc);
+
+}
+/*
+.squared:not(#foo) > input + label {
+
+  background: url(../img/check-box.png) no-repeat;
+
+  height: 20px;
+
+  width: 20px;
+
+}*/
+/*
+.squared label {
+
+  line-height: 16px;
+
+  color: #fff;
+
+  padding: 0 0 0 18px;
+
+}*/
+/*
+.squared:not(#foo) > input[type=checkbox]:hover:checked + label,
+.squared:not(#foo) > input[type=checkbox]:focus:checked + label, 
+.squared:not(#foo) > input[type=checkbox]:checked + label:hover, 
+.squared:not(#foo) > input[type=checkbox]:focus:checked + label {
+
+  background: url(../img/check.png) no-repeat;
+  height: 20px;
+  width: 20px;
+
+}
+*/
+
+
+.btnn{
+
+  background: #f89924;
+
+  color: #fff;
+
+  font-size: 12px;
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  behavior: url(PIE.htc);
+
+  position: relative;
+
+}
+
+
+
+.help-block{
+
+  width: 163px;
+
+  position: absolute;
+
+  top: -4px;
+
+  left: 24px;
+
+  color: #fff;
+
+}
+
+.note{
+
+  display: none;
+
+}
+
+/*---- content css---*/
+
+
+
+.content{
+
+  width: 100%;
+
+  min-height: 610px;
+
+  border-top: 3px solid #e4e3e3;
+
+  margin-top:89px;
+
+  padding-bottom: 55px;
+
+}
+
+.top_0{
+  margin-top:0px;
+}
+
+.content .col-lg-12, .content .col-lg-7{
+
+  padding-left: 0px;
+
+  padding-right: 0px;
+
+}
+
+.content .col-lg-5{
+
+  padding-right: 0px;
+
+}
+
+.col-left p{
+
+  color: #7f7f7f;
+
+  font-size: 33px;
+
+  margin: 0;
+
+  padding: 40px 0px 5px 0;
+
+  font-weight: normal;
+
+  padding-bottom: 5px;
+
+  font-family: Eurostile;
+
+}
+
+.col-left h1{
+
+  color: #36bee2;
+
+  font-size: 39px;
+
+  margin: 0;
+
+  padding: 40px 10px 0 0;
+
+  float: left;
+
+  font-weight: bold;
+
+  font-family: Eurostile;
+
+}
+
+.col-left p strong{
+
+  font-weight: bold;
+
+  color: #6d6d6d;
+
+  font-family: Eurostile;
+
+}
+
+.col-right .top-heading {
+
+  padding: 0;
+
+  margin: 0;
+
+  background: url(../img/col-right-border.png);
+
+  background-position: left bottom;
+
+  background-repeat: repeat-x;
+
+  padding-bottom: 10px;
+
+  text-align: center;
+
+}
+
+.top-heading h1{
+
+  color:#6d6d6d;
+
+  font-weight: bold;
+
+  font-size: 35px;
+
+  line-height: 36px;
+
+  font-family: Eurostile;
+
+  padding: 25px 0 7px 0;
+
+  margin: 0;
+
+}
+
+.top-heading p{
+
+  color: #929292;
+
+  font-size: 16px;
+
+  line-height:17px;
+
+  font-weight: normal;
+
+  padding: 0px 0 0px 0;
+
+  margin: 0;
+
+}
+
+/*-----sign in form css---*/
+
+.col-right .sign-form{
+
+  padding: 0;
+
+  margin: 0;
+
+}
+
+.sign-form .col-lg4, .sign-form .col-lg-8{
+
+  padding-right: 0;
+
+  padding-left: 0;
+
+}
+
+.sign-form .form-group{
+
+  margin-top: 15px;
+
+  float: left;
+
+  width: 100%;
+
+}
+
+.sign-form .control-label{
+
+  padding: 10px 10px 0 0;
+
+  font-weight: lighter;
+
+  font-size: 14px;
+
+  color: #535353;
+
+  text-align: right;
+
+}
+
+.sign-form .form-control{
+
+  padding-left: 0;
+
+  padding-right: 0;
+
+}
+
+.sign-form .select {
+
+  width: 125px;
+
+}
+
+.sign-form  .input{
+
+  padding: 0;
+
+  margin: 0;
+
+}
+
+.input ul{
+
+  list-style: none;
+
+  padding: 10px 0 0 0;
+
+}
+
+.input ul li{
+
+  float: left;
+
+  padding-left: 5px;
+
+}
+
+.input span {
+
+  line-height: 16px;
+
+  color: #929292;
+
+  padding: 0 0 0 5px;
+
+  font-weight: normal;
+
+  font-size: 14px;
+
+  font-family: tahoma;
+
+}
+
+.round{
+
+  display: block;
+
+  overflow: hidden;
+
+  position: relative;
+
+}
+
+.round > input {
+
+  padding: 0;
+
+  margin: 0;
+
+  height: 22px;
+
+  width: 22px;
+
+  float: left;
+
+  position: absolute;
+
+  left: 0px;
+
+  opacity: 0;
+
+  border: 1px solid #13aad0;
+
+  border-radius: 15px;
+
+  behavior: url(/knownfaces/css/PIE.htc);
+
+}
+
+.round:not(#foo) > input[type='radio'] + label {
+
+  background: url(../img/radio.png) no-repeat;
+
+  height: 26px;
+
+  width: 100px;
+
+  padding-left: 24px;
+
+  padding-top: 2px;
+
+}
+
+.round label {
+
+  line-height: 16px;
+
+  color: #929292;
+
+  padding: 0 0 0 24px;
+
+  font-size: 12px;
+
+  font-family: tahoma;
+
+  font-weight: normal;
+
+}
+
+.round:not(#foo) > input[type=radio]:hover:checked + label, .round:not(#foo) > input[type=radio]:focus:checked + label, .round:not(#foo) > input[type=radio]:checked + label:hover, .round:not(#foo) > input[type=radio]:focus:checked + label {
+
+  background: url(../img/r-check.png) no-repeat;
+
+  height: 26px;
+
+  width: 100px;
+
+}
+
+.signin{
+
+  text-align: center;
+
+}
+
+.signin button{
+
+  border: none;
+
+  background: none;
+
+}
+
+.signin button:hover{
+
+  opacity:0.9 ;
+
+  filter: alpha(opacity=50);
+
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+}
+
+
+
+/*----footer css----*/
+
+
+
+.footer-1{
+
+  width: 100%;
+
+  min-height: 62px;
+
+  border-top: 3px dashed #cccccc;
+
+	background: #dfdfdf; /* Old browsers */
+
+      /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2YxZjFmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZmRmZGYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+
+      background: -moz-linear-gradient(top,  #dfdfdf 0%, #f1f1f1 50%, #dfdfdf 50%, #dfdfdf 100%); /* FF3.6+ */
+
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(50%,#f1f1f1), color-stop(50%,#dfdfdf), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */
+
+      background: -webkit-linear-gradient(top,  #dfdfdf 0%,#f1f1f1 50%,#dfdfdf 50%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */
+
+      background: -o-linear-gradient(top,  #dfdfdf 0%,#f1f1f1 50%,#dfdfdf 50%,#dfdfdf 100%); /* Opera 11.10+ */
+
+      background: -ms-linear-gradient(top,  #dfdfdf 0%,#f1f1f1 50%,#dfdfdf 50%,#dfdfdf 100%); /* IE10+ */
+
+      background: linear-gradient(to bottom,  #dfdfdf 0%,#f1f1f1 50%,#dfdfdf 50%,#dfdfdf 100%); /* W3C */
+
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#dfdfdf',GradientType=0 ); /* IE6-8 */
+
+
+
+}
+
+.footer1-content{
+
+  border: none;
+
+padding: 10px 9px 0 0;
+
+background: transparent;
+
+}
+
+.btn-1{
+
+  float: left;
+
+width: 332px;
+
+}.
+
+.btn-2{
+
+float: left;
+
+width: 272px;
+
+}
+
+.btn-3{
+
+float: left;
+
+width: 303px;
+
+}
+
+.footer-2{
+
+  width: 100%;
+
+  min-height: 122px;
+
+  background: url(../img/footer-2.jpg);
+
+  background-position: left bottom;
+
+  background-repeat: repeat-x;
+
+}
+
+.footer-menu{
+
+  background: transparent;
+
+  width: 100%;
+
+  padding: 33px 0 22px 0;
+
+  margin:0;
+
+}
+
+.footer-menu ul{
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0px;
+
+}
+
+.footer-menu ul li{
+
+  float: left;
+
+  padding-right: 24px;
+
+}
+
+.footer-menu ul li a{
+
+color: #4b4b4b;
+
+font-size: 13px;
+
+font-family: sans-serif;
+
+}
+
+.copy-right{
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-family: sans-serif;
+
+  color:#4b4b4b;
+
+}
+
+.hideit
+{
+   display:none;
+}
+
+.li_bot
+{
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 5px;
+    padding-bottom: 4px !important;
+}

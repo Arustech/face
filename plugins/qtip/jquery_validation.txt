@@ -1,0 +1,42 @@
+  $(document).ready(function () {
+
+    $('#frm_register').validate({
+        rules: {
+            //
+        },
+        success: function (error) {
+            setTimeout(function () { // Use a mini timeout to make sure the tooltip is rendred before hiding it
+                $('#frm_register').find('.valid').qtip('destroy');
+             }, 1);
+        },
+       /* submitHandler: function (form) {
+             // my ajax
+            return false;
+        },*/
+        errorPlacement: function (error, element) {
+            var cornersAt = ['right center', 'right left'], // Set positioning based on the elements position in the form
+                cornersMy = ['right bottom', 'bottom left'],
+                flipIt = $(element).parents('div.left').length > 0,
+                position = {
+                    at: cornersAt[flipIt ? 0 : 1],
+                    my: cornersMy[flipIt ? 0 : 1]
+                },
+                offset = flipIt ? 6 : 35;
+            $(element).filter(':not(.valid)').qtip({ // Apply the tooltip only if it isn't valid
+                overwrite: false,
+                content: error,
+                position: position,
+                show: {
+                    event: false,
+                    ready: true
+                },
+                hide: false,
+                style: {  classes: 'qtip-green' ,
+                    tip: {
+                        corner: true,
+                        offset: offset
+                    }
+                }
+            }).qtip('option', 'content.text', error);
+        } // closes errorPlacement
+    }); // closes validate()

@@ -1,0 +1,43 @@
+[27-Mar-2014 12:57:30 America/Chicago] PHP Fatal error:  Cannot redeclare Main::$config in /home3/arustech/public_html/face/lib/Main.php on line 69
+[27-Mar-2014 22:58:33 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 22:58:33 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 22:58:33 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[27-Mar-2014 23:01:20 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 23:01:20 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 23:01:20 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[27-Mar-2014 23:32:56 Asia/Karachi] PHP Notice:  Undefined variable: fields in /home3/arustech/public_html/face/lib/Member.php on line 197
+[27-Mar-2014 23:59:20 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 23:59:20 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[27-Mar-2014 23:59:20 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 00:39:06 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 00:39:06 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 00:39:06 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 01:39:51 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 01:39:51 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 01:39:51 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 01:51:19 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 01:51:19 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 01:51:19 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 06:04:14 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 06:04:14 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 06:04:14 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 07:16:25 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:16:25 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:16:25 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 07:17:42 Asia/Karachi] PHP Notice:  Undefined variable: fields in /home3/arustech/public_html/face/lib/Member.php on line 197
+[28-Mar-2014 07:26:54 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:26:54 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:26:54 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 07:30:52 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:30:52 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:30:52 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 07:59:17 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:59:17 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 07:59:17 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 16:18:00 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 16:18:00 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 16:18:00 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295
+[28-Mar-2014 16:18:51 Asia/Karachi] PHP Notice:  Undefined variable: fields in /home3/arustech/public_html/face/lib/Member.php on line 197
+[28-Mar-2014 16:26:19 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 16:26:19 Asia/Karachi] PHP Notice:  Undefined offset: 0 in /home3/arustech/public_html/face/lib/Db.php on line 239
+[28-Mar-2014 16:26:19 Asia/Karachi] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home3/arustech/public_html/face/lib/Db.php on line 295

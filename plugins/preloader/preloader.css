@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.content.after { width:50px; height:20px; float:left; margin-right:5px; }
+.content_box {  width:478px; height:300px; border:solid 1px #ddd; float:left; margin:10px; font:12px / 18px Arial, Helvetica, sans-serif; color:#333; }
+.pad { padding:10px; }
+.ls_outer {
+   background-color: rgba(255,255,255,0.5);
+   /* background:url(transparent.png); */
+}
+
+.ld_box { padding-top:20px; height:70px; width:30%; float:left; border:solid 1px #ddd; margin:2px; background:#fff; }
+.start_button { display:inline-block; padding:5px 10px; background:#3083A7; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0 10px; font-weight:bold; float:left; vertical-align:middle; cursor:pointer; }
+.cancel_button { display:inline-block; padding:5px 10px; background:#aaa; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0 10px; font-weight:bold; float:left; vertical-align:middle; cursor:pointer; }
+
+.table { border-collapse:collapse; background:#fff; }
+.table tr.heading td { font-weight:bold; text-transform:uppercase; }
+.table td { border:solid 1px #eee; padding:10px; vertical-align:top; }
+.table td textarea.code { width:500px; height:110px; background:#f9f9f9; border:none; color:#999; font-family:Tahoma, Geneva, sans-serif; font-size:12px; line-height:15px; padding:5px; }
+.table td.example { padding:4px; background:#eee; }
+.table td.example table { background:#fff; }
+.table td.example table td { border:none; padding-bottom:0; }
+.table td.title { background:#3083A7; border:solid 1px #3083A7; border-bottom:solid 1px #fff; color:#fff; font-size:18px; }
+.table td span.inside { display:block; background:#f9f9f9; border:solid 1px #ccc; margin:5px 0; padding:5px; }
+.table td strong { color:#b41616; }
+
+.method_list { position:fixed; right:0; top:10px;  font-weight:bold; color:#333; list-style:none; }
+.method_list a { color:#fff; text-decoration:none; display:block; padding:3px 10px; background:#3083A7; margin-bottom:1px; width:80px; border-radius:2px 0 0 2px; }
+.method_list a:hover { width:90px; margin-left:-10px; }
+.method_list a.active { width:100px; margin-left:-20px; border-radius:20px 0 0 20px; }

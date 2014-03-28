@@ -1,0 +1,68 @@
+/*==========================================================/*
+ 	 			time and date Style Sheet
+/*==========================================================*/
+
+
+
+.mainWrapper{
+	height: 4em;
+    width: auto;
+	
+	
+}
+
+.CalenderWrapper{	
+	background-image: url("../images/for_date.png");
+    background-repeat: no-repeat;
+    background-size: 51px 51px;
+    float: left;
+    padding: 1px;
+	height:51px;
+	width:51px
+}
+
+.CalenderWrapper h4{
+	
+	color: #FFFFFF;
+    font-family: 'Droid Serif',serif;
+    font-size: 14px;
+    margin: -1px 9px;
+
+}
+	
+.Date{
+	
+	text-align:center;
+	line-height:1;
+	
+}
+
+.Date span {
+	font:Georgia, "Times New Roman", Times, serif;
+	font-size:20px;
+	
+	font-family:Comic Sans MS;
+}
+
+
+
+.Date h1 {
+	
+	font-size:10px;
+	text-transform:uppercase;
+	font-weight:bold;
+
+	
+
+}
+
+.ContentWrapper{
+
+	float: left;
+    padding: 3px 19px;
+    width: 27em;	
+}
+
+
+
+	

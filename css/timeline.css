@@ -1,0 +1,316 @@
+   .header_link 
+    {
+    background: none repeat scroll 0 0 #009AEF !important;
+    border: 1px solid #009AEF !important;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25) !important;
+    margin-right: 6px;
+   height: 35px !important;
+    line-height: 32px !important;
+    padding: 0 12px !important;
+    
+    }
+    .header_link:hover
+    {
+    background: none repeat scroll 0 0 #007BBF !important;
+    border: 1px solid #009AEF !important;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25) !important;
+    margin-right: 6px;
+   height: 35px !important;
+    line-height: 32px !important;
+    padding: 0 12px !important;
+    
+    }
+    
+    .header_link a
+    {
+        color:white !important;
+    }
+    .header_link a:hover
+    {
+        color:white !important;
+        text-decoration:none !important;
+    }
+    .header_links_wrapper
+    {
+        float:right;
+        display: flex;
+        display: -ms-flexbox;
+        bottom:49px;
+        
+    }
+    .navi
+    {
+    bottom: 73px;
+    right: 37px;
+    }
+    .navigation ul 
+    {
+        	list-style:none;
+                display: flex;
+                display: -ms-flexbox;
+    }
+    .navigation li 
+    {
+        float:left;
+        margin-left: 6px;
+        margin-right: 6px;
+        height:25px ;
+    }
+    
+    .navigation li:hover
+    {
+        float:left;
+        margin-left: 6px;
+        margin-right: 6px;
+        border-bottom: 4px solid #009AEF !important;
+    }
+    .navigation a:hover{
+        text-decoration: none;
+    }
+    ul > .active {
+        border-bottom: 4px solid #009AEF !important;
+    }
+    .navigation a{
+        font-size: 13px;
+        
+    }
+    .container_border
+    {
+       border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    bottom: 189px;
+    height: 111px;
+    position: relative;
+    width: 970px;
+    z-index: -1;
+    
+    }
+    
+.glyphicon:empty {
+      width: 1.3em;
+   }
+   .status_wrapper{
+      bottom: 100px;
+      width: 103%;
+      min-height: 62px;
+      margin: 5px 0 10px 0; 
+      //border-bottom: 0.05px solid #E4E3E3;
+
+   }
+   .status_footer{
+
+      float: right;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: 100%;
+   }
+   .status_post{
+
+      width: 70px;
+      float: right;
+      margin-left: 5px;
+   }
+   .status-image-panel {
+
+      float: left;
+      height: 29px;
+      margin-left: 14px;
+      margin-top: 3px;
+   }
+   .status-image-panel ul
+   {
+      list-style-type: none;
+   }
+   .status-image-panel img
+   {
+      height: 25px !important;
+      width: 25px !important;
+   }
+   .status-image-panel a {
+      margin-right: 5px;
+   }
+
+   .dropdown_{
+      width: 75px;
+      float: right;
+   }
+
+   .btn-xlarge {
+      padding: 8px 21px;
+      line-height: normal;
+   }
+
+   .form-group {
+      margin-bottom: 5px!important;
+   }
+
+   .update{
+
+      font-family: sans-serif;
+      color: #016E88 ;
+   }
+   .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-submenu:hover>a,.dropdown-submenu:focus>a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #0081c2;
+      background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+      background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+      background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+      background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+      background-repeat: repeat-x;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+   }
+   .glyphicon.active{
+      color:#C0C0C0;
+
+   }
+   .contents
+   {
+    bottom: 184px;
+    position: relative;
+    right: 16px;
+    
+   }
+   .adjustment
+   {
+       bottom: 190px !important;
+    position: relative !important;
+    right: 15px;
+    width: 970px;
+   }
+   .info_content
+   {
+   border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    padding-top: 5px;
+   }
+   .basic_info
+   {
+       height:30px;
+       background-color: #ECECEC;
+       margin-top: 10px;
+       font-size: 14px;
+       line-height: 24px;
+   }
+   .spacing
+   {
+        margin-left:15px;
+        margin-top:15px;
+   }
+   .spacing p
+   {
+       font-size:12px;
+       color:#808080;
+   }
+   
+   .navigation2 ul 
+    {           
+        	list-style:none;
+                display: flex;
+                display: -ms-flexbox;
+                margin-right: 30px;
+                
+    }
+    .navigation2 li 
+    {
+        
+        width:50%;
+        margin-left: 6px;
+        margin-right: 6px;
+        height:35px ;
+    }
+    
+    .navigation2 li:hover
+    {
+        float:left;
+        margin-left: 6px;
+        margin-right: 6px;
+        border-bottom: 4px solid #009AEF !important;
+    }
+    .navigation2 a:hover{
+        text-decoration: none;
+    }
+    ul > .active {
+        border-bottom: 4px solid #009AEF !important;
+    }
+    .navigation2 a{
+        font-size: 13px;
+        text-align: center;
+        margin-left: 207px;
+      
+    }
+    .nav_top_space
+    {
+        margin-top:20px;
+    }
+     .change_dp_button
+   {
+    
+    bottom: 20px;
+    background-color: #009AEF !important;
+   color: #ffffff !important;
+    font-size: 12px;
+    left: 5px;
+    position: relative;
+    opacity: 60%;
+    
+   }
+   
+    .change_dp_button:hover
+   {
+    
+    bottom: 20px;
+    background-color: #007BBF !important;
+    color: #ffffff !important;
+    font-size: 12px;
+    left: 5px;
+    position: relative;
+    opacity: 60%;
+   
+   }
+   
+   
+   .btn-file {
+    position: relative;
+    overflow: hidden;
+    background-color: #009AEF !important;
+    border-color: #009AEF !important;
+    color: #FFFFFF;
+    bottom:1px;
+}
+.btn-file:hover {
+    position: relative;
+    overflow: hidden;
+    background-color: #007BBE !important;
+    border-color: #007BBE !important;
+    color: #FFFFFF;
+    bottom:1px;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.loop-container {
+    border: 1px solid #E4E3E3;
+    float: left;
+    margin-top: 1px;
+    padding: 10px 10px 50px;
+    right: 16px;
+    width: 969px;
+}
+
+ 

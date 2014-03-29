@@ -11,7 +11,8 @@ if(isset($_REQUEST['mod']) && $_REQUEST['mod']=='images_process')
 {
     $imgz           = isset($_REQUEST['images']) ? $_REQUEST['images'] : ""; 
     $post_title     = isset($_REQUEST['post_title']) ? $_REQUEST['post_title'] : ""; 
-    $post_access     = isset($_REQUEST['post_access']) ? $_REQUEST['post_access'] : "0"; 
+    $post_access     = isset($_REQUEST['post_access']) ? $_REQUEST['post_access'] : "";
+     $user_access     = isset($_REQUEST['user_access']) ? $_REQUEST['user_access'] : "0"; 
     //$imgz   = !empty($imgz)? json_decode($imgz) : "";
    
 }
@@ -49,6 +50,7 @@ if(isset($_REQUEST['mod']) && $_REQUEST['mod']=='images_process')
         
         <input type="hidden" name="user_id" value="<?=$user['user_id']?>"/>
         <input type="hidden" name="post_access" value="<?=$post_access?>"/>
+        <input type="hidden" name="user_access" value="<?=$user_access?>"/>
         <input type="hidden" name="post_title" value="<?=$post_title?>"/>
         <input type="hidden" name="action" value="post_imgz"/>
     

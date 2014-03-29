@@ -242,7 +242,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       $html.= "<div>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 425px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 491px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>
@@ -296,7 +296,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       $html.= "<div>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 425px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 491px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>

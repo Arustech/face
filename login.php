@@ -118,7 +118,7 @@ if ($member->check_user())
    }
    ?>
    <body>
-      <div class="topbar">
+      <!--<div class="topbar">
          <div class="one"></div>
          <div class="two"></div>
          <div class="one"></div>
@@ -127,7 +127,7 @@ if ($member->check_user())
          <div class="two"></div>
          <div class="one"></div>
          <div class="two"></div>
-      </div>
+      </div>-->
       <div class="header-wrraper-login">
          <div class="container">
             <div class="header">

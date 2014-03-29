@@ -320,7 +320,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
        if($loginuser_id==$posted_by_user_id)  {    
       $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
       }
-      $html.='</div><div class="main-img" style="margin-top:7px;margin-right:44px;margin-bottom:10px"><script>CodoPlayer({title: "Knownfaces video",poster: "",src: "'.$this->get_uurl('videos').$video.'"
+      $html.='</div><div class="main-img" style="margin-top:7px;margin-right:37px;margin-bottom:10px"><script>CodoPlayer({title: "Knownfaces video",poster: "",src: "'.$this->get_uurl('videos').$video.'"
 		}, {	width: 400,
 			height: 225,
 			volume: 80,
@@ -358,7 +358,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       $html.= "<div>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 425px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 476px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>

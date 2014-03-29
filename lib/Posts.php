@@ -240,9 +240,9 @@ WHERE tbl_post_comment.post_id = '$post_id'";
               . "<img  style='padding-right:3px'  src='" . $this->get_uurl('thumbs_small') . $user_avatar . "' alt=''>"
               . "</a>";
 
-      $html.= "<div>
+      $html.= "<div style='display:flex;display: -ms-flexbox;'>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 491px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 475px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>
@@ -294,9 +294,9 @@ WHERE tbl_post_comment.post_id = '$post_id'";
               . "<img  style='padding-right:3px'  src='" . $this->get_uurl('thumbs_small') . $user_avatar . "' alt=''>"
               . "</a>";
 
-      $html.= "<div>
+      $html.= "<div style='display:flex;display: -ms-flexbox;'>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 491px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 475px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>
@@ -356,9 +356,9 @@ WHERE tbl_post_comment.post_id = '$post_id'";
               . "<img  style='padding-right:3px'  src='" . $this->get_uurl('thumbs_small') . $user_avatar . "' alt=''>"
               . "</a>";
 
-      $html.= "<div>
+      $html.= "<div style='display:flex;display: -ms-flexbox;'>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
-         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 476px;'></textarea>
+         style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 475px;'></textarea>
       </div>
       <div style = 'margin-top: 5px;margin-left:32px;margin-bottom:5px'>
       <a href = '#' class = 'btn btn-info btn_comment' data-comment-by='$user_id' data-post-id='$post_id' style = 'font-size: 10px;height: 26px;color:white; width: 86px;'>
@@ -400,7 +400,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
               . "<img  style='padding-right:3px'  src='" . $this->get_uurl('thumbs_small') . $user_avatar . "' alt=''>"
               . "</a>";
 
-      $html.= "<div>
+      $html.= "<div style='display:flex;display: -ms-flexbox;'>
          <textarea id = 'post_comment' placeholder = 'Write a comment...' name = 'textarea' class = 'form-control' cols = '30'
          style = 'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 31px; width: 853px;'></textarea>
       </div>

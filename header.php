@@ -20,7 +20,6 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 <html>
 
    <head>
-
       <meta charset="utf-8">
 
       <meta name="description" content="">

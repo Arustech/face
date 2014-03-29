@@ -101,7 +101,7 @@ $(function() {
            var post_title   =$("#status_area_photo").val();    
            
            var user_access = $("#selected_users").val();
-           
+           alert(user_access);
            var postData = {mod:'images_process',images:myfiles,post_access:post_access,post_title:post_title,user_access:user_access};
            CallAjaxPW('', postData, 'upload_process.php', function callBack(data){   
               
@@ -189,7 +189,7 @@ $(function() {
            });
         
         $.fancybox({closeClick:true});
-        location.reload(); 
+       // location.reload(); 
     });
     
 

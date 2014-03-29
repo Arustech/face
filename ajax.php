@@ -153,6 +153,7 @@ if (isset($_POST['action'])) {
    {
        $obj_post   = $main->load_model('Posts'); 
        $obj_post->post_photo($_POST);
+      
     }
      if ($_POST['action'] == 'get_msg') {
        

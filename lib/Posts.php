@@ -481,7 +481,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
    // post_photo... process images uploaded and add to album and also in post table.
    public function post_photo($data)
    {
-      
+      var_dump($data);exit;
        $album   = array();
        $posts   = array();
        $photo   = array();
@@ -538,6 +538,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
                     $posts['post_access'] = isset($data['post_access']) ? $data['post_access'] : "";
                     $posts['post_user_access'] = isset($data['user_access']) ? $data['user_access'] : "0";
                     $posts['post_title'] = isset($data['post_title']) ? $data['post_title'] : "";
+                    var_dump($_POST);exit;                    
                     
                     $this->db->insert('tbl_post',$posts);
                     

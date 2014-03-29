@@ -312,7 +312,7 @@ class Member Extends Main {
    
    public function search($search, $user_id, $start = 0, $limit = 10) {
 
-      $sql = "SELECT 
+  $sql = "SELECT 
   tbl_user.`user_avatar`,
   tbl_user.`user_name`,
   tbl_user.`user_id`,
@@ -336,7 +336,8 @@ FROM
     ON tbl_user.`user_id` = tbl_profile_basic.`user_id`
     
 WHERE (tbl_user.user_name LIKE '%$search%' 
-  OR tbl_user.user_email LIKE '%$search%' )
+  OR tbl_user.user_email LIKE '%$search%' 
+  OR tbl_profile_basic.first_name LIKE '%$search%')
   AND tbl_user.user_id != '$user_id' LIMIT  $limit  OFFSET $start";
 
 

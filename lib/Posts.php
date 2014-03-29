@@ -536,7 +536,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
                     $posts['posted_by_user_id'] = $data['user_id'];
 //                    $posts['post_title'] = isset($data['post_title']) ? $data['post_title'] : "";
                     $posts['post_access'] = isset($data['post_access']) ? $data['post_access'] : "";
-                    $posts['post_user_access'] = isset($data['user_access']) ? $data['user_access'] : "";
+                    $posts['post_user_access'] = isset($data['user_access']) ? $data['user_access'] : "0";
                     $posts['post_title'] = isset($data['post_title']) ? $data['post_title'] : "";
                     
                     $this->db->insert('tbl_post',$posts);

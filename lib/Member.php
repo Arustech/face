@@ -437,8 +437,7 @@ WHERE (tbl_user.user_name LIKE '%$search%'
 
       $check = $this->check_already_friend($self_id, $friend_id);
       if (!$check['is_friend']) {
-
-
+     
          $res_1 = $this->db->insert('tbl_friend', $data);
 
          $data['user_id'] = $friend_id;
@@ -447,11 +446,26 @@ WHERE (tbl_user.user_name LIKE '%$search%'
          $res_2 = $this->db->insert('tbl_friend', $data);
 
          if ($res_1 && $res_2) {
+
+                //// adding notification '
+               $noti_obj    = $this->load_model('Notification');
+               $noti['noti_type']   = 'friend_request_accept';
+               $noti['noti_data']   = $data['user_id'];
+               $noti['noti_from_user']   = $data['user_friend_id'];
+               $noti['noti_date']   = $this->current_date_time();
+               $noti_obj->getAddNoti($noti);
+                           
+               /* End of noti area..........*/
+               
+               
             $this->remove_request($self_id, $friend_id);
             if ($ajax) {
                return true;
             } else {
+              
+               
                $this->alert('success', "Friend added with success.");
+               
             }
          } else {
             return false;

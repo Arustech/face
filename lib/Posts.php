@@ -618,6 +618,25 @@ WHERE tbl_post_comment.post_id = '$post_id'";
          
         }
    
+        public function getSinglePost($post_id)
+        {
+            $sql = "SELECT 
+                tbl_post.*,
+                tbl_user.user_avatar,
+                `tbl_profile_basic`.`first_name`,
+                `tbl_profile_basic`.`last_name` 
+              FROM
+                tbl_post 
+                LEFT JOIN tbl_user 
+                  ON tbl_post.posted_by_user_id = tbl_user.user_id 
+                LEFT JOIN tbl_profile_basic 
+                  ON tbl_post.posted_by_user_id = tbl_profile_basic.user_id 
+                  where
+                  tbl_post.post_id=$post_id
+              ";
+            return $this->db->ex($sql);
+            
+        }
    
 }
 

@@ -58,11 +58,12 @@ class Member Extends Main {
       $email = $data['user_email'];
       $pwd = md5($data['user_pwd']);
 
-
-
       $cond = array('user_email' => $email, 'user_pwd' => $pwd);
       $res = $this->db->get_row($this->tbl, $cond);
       if ($res) {
+          
+          if ($res['user_status'] == 'approved')
+          {
 
          if (isset($data['remember'])) {
 
@@ -76,7 +77,13 @@ class Member Extends Main {
          }
          $this->log_in_user($res['user_id'], $res['user_name'], $res['user_pwd']);
       } else {
-         $this->alert('error', 'Invalid Email or Password');
+          //$this->alert('error', 'Please verify your email first ');
+          header('Location:varify_email.php?varify='.$email.'');
+      }}
+      else{
+          
+           $this->alert('error', 'Invalid Email or Password');
+          
       }
    }
 
@@ -203,7 +210,7 @@ class Member Extends Main {
              'kfc_user_pwd' => $user['user_pwd'],
          );
          $this->set_session($session_arr);
-         $this->go('index');
+         $this->go('logout');
       } else {
          $this->alert('error', 'Some error occurred.Please try again later');
       }
@@ -643,6 +650,45 @@ WHERE user_id=$user_id";
          echo "No more messages";
       }
    }
+   
+         public function user_varify($varify_code) {
+
+   
+      //$this->db->tail = " Order By request_id DESC LIMIT 6";
+      $code = $this->db->get_row('tbl_user', array('user_key' => $varify_code));
+      
+  
+      if ($code) {
+         $this->db->update('tbl_user', array('user_status' => 'approved'), array('user_id' => $code['user_id']));
+     
+         return 'approved';
+      } else {
+          return ;
+      }
+    
+
+   }
+         public function re_varify_email($email) {
+
+   
+      //$this->db->tail = " Order By request_id DESC LIMIT 6";
+      $data = $this->db->get_row('tbl_user', array('user_email' => $email));
+      
+  
+      if ($data) {
+        $subject = 'Account Verification Email';
+         $msg = 'Hi <br><br>';
+         $msg.= 'Please click <a href="' . $this->config['web_path'] . 'login.php?uc=' . $data['user_key'] . '">Here</a> to activate your account at Knownfaces.';
+         $result = $this->sendEmail($data['user_email'], $subject, $msg);
+      }
+      else{
+          
+          $this->alert('warning', 'Your Email is incorrect');
+      }
+   }
+   
+   
+   
    
    /* end of class */}
 

@@ -15,7 +15,7 @@
                      </p>
 
                      <p><a href="">1new message</a></p>
-                        <p><a href="">My Friends (<?= $obj_user->friend_count($profile_basic['user_id'])?>) </a></p>
+                     <p><a href="friends.php">My Friends (<?= $obj_user->friend_count($profile_basic['user_id'])?>) </a></p>
                   </div>
 
 

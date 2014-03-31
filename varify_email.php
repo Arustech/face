@@ -2,9 +2,23 @@
 require('lib/Main.php');
 $main = new Main;
 $member = $main->load_model('Member');
-if ($member->check_user())
-   $main->go('index');
+
+
+if (isset($_GET['submit_email'])){
+    
+ 
+ $member->re_varify_email($_GET['email_verify']);  
+ header('Location:login.php?email_verify');
+
+    
+}
+$varify ='';
+if (isset($_GET['varify'])){
+$varify = $_GET['varify'];
+}
 ?>
+
+
 <!doctype html>
 <html>
    <head>
@@ -62,87 +76,30 @@ if ($member->check_user())
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
 
+      <style>
+          .Verification{
+              
+    background-color: #E5E5E5;
+    border-radius: 13px;
+    color: #4D7397;
+    margin: 0 auto 55px;
+    padding: 25px 32px 50px 36px;
+    width: 70%;
+              
+          }
+          
 
+          
+      </style>
 
 
 
 
    </head>   
-   <style>
-      .modal-dialog {
-         margin: 0;
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         width:500px;
-      }
 
-      .btn-primary {
-         background-color: #2BB9DD;
-         border-color: #357EBD;
-         color: #FFFFFF;
-      }
 
-      .btn-primary:hover {
-         background-color: #F89924;
-
-      }
-      .radio-inline{
-         margin-left: 20px;
-         padding-left: 0;
-         vertical-align: text-top;
-         
-      }
-      .radio-label
-      {
-        font-size:12px;
-        vertical-align: middle;
-        margin-left:-10px
-      }
-      .uniform
-      {
-         cursor: pointer;
-      }
-      
- 
-   </style>
-   <?php
-   if (isset($_POST['btn_login'])) {
-      $user = $member->check_login($_POST);
-   }
-   if (isset($_POST['btn_register'])) {
-      $member->register_member($_POST);
-   }
-   if (isset($_POST['btn_forgot'])) {
-      $member->forgot_member($_POST['user_email']);
-   }
-      if (isset($_GET['uc'])) {
-      $result = $member->user_varify($_GET['uc']);
-      
-     
-      if($result)  { 
-      $main->alert('success', 'congratulations! your account is activated');
-      }
-      else{
-          
-        $main->alert('warning', 'Sorry some error occurred! try angain later');  
-      }
-   }
-      if (isset($_GET['email_verify'])) {
-      $main->alert('success', 'Check Your Email for Verification E-mail !');  
-   }
-   ?>
    <body>
-      <!--<div class="topbar">
-         <div class="one"></div>
-         <div class="two"></div>
-         <div class="one"></div>
-         <div class="two"></div>
-         <div class="one"></div>
-         <div class="two"></div>
-         <div class="one"></div>
-         <div class="two"></div>
-      </div>-->
+
       <div class="header-wrraper-login">
          <div class="container">
             <div class="header">
@@ -213,76 +170,46 @@ if ($member->check_user())
       <div class="content top_0">
          <div class="container">
             <div class="col-lg-12">
-               <div class="col-lg-7 col-left">
-                  <h1>Knownfaces</h1>
-                  <p> helps you connect and<br />
-                     share with the people in your<br />
-                     <strong>business &amp; life.</strong>
-                  </p>
-                  <img src="img/content-bg.jpg" alt="">
-               </div>
-               <div class="col-lg-5 col-right">
-                  <div class="top-heading">
-                     <h1>Sign Up Now</h1>
-                     <p>It's free and always will be.
-                     </p>
-                  </div>
-                  <form action="login" method="POST" name="frm_register" id="frm_register" class="sign-form">
-                     <div class="form-group">
-                        <label for="First Name" class="col-lg-4 control-label">First Name:</label>
-                        <div class="col-lg-8"><input id="user_first_name" name="user_first_name" type="text" size="" maxlength="12" class="form-control required"></div>
-                     </div>
-                     <div class="form-group">
-                        <label for="Last Name" class="col-lg-4 control-label">Last Name:</label>
-                        <div class="col-lg-8"><input id="user_last_name" name="user_last_name" type="text" size="" maxlength="" class=" form-control required"></div>
-                     </div>
-                     <div class="form-group">
-                        <label for="Your Email" class="col-lg-4 control-label">Your Email:</label>
-                        <div class="col-lg-8"><input id="user_email_o" name="user_email" type="email" size="" maxlength="" class=" form-control required"></div>
-                     </div>
-                     <div class="form-group">
-                        <label for="Re-enter Email" class="col-lg-4 control-label">Re-enter Email:</label>
-                        <div class="col-lg-8"><input id="user_email_c" name="user_email_c" type="email" size="" maxlength="" class=" form-control"></div>
-                     </div>
-                     <div class="form-group">
-                        <label for="Password" class="col-lg-4 control-label">Password:</label>
-                        <div class="col-lg-8"><input id="user_pwd" name="user_pwd" type="password" size="" maxlength="" class=" form-control required"></div>
-                     </div>
+              
+                            <form class="form-horizontal">
+<fieldset>
 
-                     <div class="form-group">
-                        <label for="I am" class="col-lg-4 control-label">I am:</label>
-                        <div class="col-lg-8">
-                           <select name="gender" class="select form-control" id="gender">
-                              <option value="Unspecified">Please select</option>
-                              <option  value="Male">Male</option>
-                              <option  value="Female">Female</option>
-                           </select>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <div class="col-lg-12">
-                           <label class="col-lg-4 control-label" id="optionsRadio">Account Type:</label>
-                           <div class="col-lg-8" style="margin-left: -23px;margin-top: 9px;">
-
-                              <label class="radio-inline">
-                                 <input type="radio" class="uniform required"  style="padding:0px;margin:0px" name="user_type" value="Personal">
-                                 <span class="radio-label">Personal</span>
-                              </label>
-                              <label class="radio-inline">
-                                 <input type="radio"  class="uniform required" style="padding:0px;margin:0px" name="user_type" value="" >
-                                 <span class="radio-label">Business</span></label>
+<!-- Form Name -->
+<legend>Verify Your email address</legend>
 
 
-                           </div>
+<div class="Verification">
+<p>
+<ul><b>If you have trouble receiving your Inbox Verification E-mail, try the following:</b>
+<br><br>
+    <li>Wrong Address Make sure that you have typed in the correct e-mail address.</li>
+    <li>Junk Mail Filter Make sure that the Verification E-mail did not get filtered into the junk mail folder of your e-mail application.</li>
+</ul>
+</p>
 
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="email_verify">Resend Verification E-mail</label>
+  <div class="controls">
+      <input id="email_verify" name="email_verify" value="<?=$varify?>" class="input-large form-control" type="text">
+    
+  </div>
+</div>
 
-                        </div>
-                     </div>
-                     <div class="col-lg-12">
-                        <div class="signin"><button type="image" name="btn_register" class=""> <img src="img/signgup.png" alt="Search"></button></div>
-                     </div>
-                  </form> 	
-               </div>
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit_email" class="btn btn-primary">Send E-mail</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+
+    
+    
 
             </div>
          </div>

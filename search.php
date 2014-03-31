@@ -24,7 +24,7 @@ if (isset($_POST['search'])) {
    .firend_wrapper{
 
       min-height: 200px;
-      width: 69%;
+      width: 100%;
       float: left;
    }
 
@@ -235,7 +235,7 @@ if (isset($_POST['search'])) {
 
 </div><!-- firend_wrapper -->
 
-<div class="search_wrapper">
+<!--<div class="search_wrapper">
    <div class="sff">
       Advertise Here
    </div>
@@ -251,7 +251,7 @@ if (isset($_POST['search'])) {
       <div style="margin-top: 10px;" ></div>
       <div class="center-block thumbnail">
          <img  width="250" src="img/advertise-here.gif">
-      </div>
+      </div>-->
 <!--      <p>Find friends</p>-->
 
 <!--      <div class="form-group">
@@ -283,9 +283,9 @@ if (isset($_POST['search'])) {
       </div>
 
       <div class="search_btn">
-         <button id="search" name="search" class="btn btn-primary">Search</button>-->
+         <button id="search" name="search" class="btn btn-primary">Search</button>
 
-      </div>
+      </div> 
 
    </div> <!-- search_friends -->
 

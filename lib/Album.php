@@ -178,7 +178,10 @@ public $error;
             $data1['post_data']=$album_id;
             $data1['post_type']="album";
             $data1['post_title']="Added a new Album $album_name";
-            $data1['post_user_access']=$user_access;
+            if($user_access!="")
+             $data1['post_user_access']=$user_access;
+            else
+             $data1['post_user_access']="0";   
             $this->db->insert('tbl_post', $data1);
             
         }
@@ -222,7 +225,11 @@ public $error;
             $data1['post_date_time']=$this->current_date_time();
             $data1['post_data']=$photo_id;
             $data1['post_title']="$photos_count new photo Added to the Album $album_name";
-            $data1['post_user_access']=$user_access;
+            //$data1['post_user_access']=$user_access;
+            if($user_access!="")
+             $data1['post_user_access']=$user_access;
+            else
+             $data1['post_user_access']="0";   
             $this->db->insert('tbl_post', $data1);
             }
          else{

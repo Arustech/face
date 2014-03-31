@@ -391,11 +391,14 @@ require('top_panel.php');
                         $(function() {
 
 
-                           $('.banner-fade').bjqs({
-                              height: 367,
-                              width: 365,
-                              responsive: true
-                           });
+                            $('.banner-fade').each(function(){
+                                            
+                                       $(this).bjqs({
+                                        height: 367,
+                                        width: 365,
+                                        responsive: true
+                                        });
+                                        });
 
 
                            //var div = {'icon_msg':'canvas_msg','icon_picture':'canvas_picture','icon_video':'canvas_video'};

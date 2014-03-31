@@ -44,6 +44,17 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
       <link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css" media="screen" />
     <link href="plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet">
     <script type="text/javascript" src="plugins/bootstrap-tag/bootstrap-tagsinput.js"></script>
+    
+        <link rel="stylesheet" href="plugins/rollbar/css/jquery.rollbar.css" />
+<!--        <script type="text/javascript" src="plugins/rollbar/js/jquery-1.7.2.min.js"></script>-->
+	<script type="text/javascript" src="plugins/rollbar/js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="plugins/rollbar/js/jquery.rollbar.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	  	$('.user-comm').rollbar({zIndex:80}); 
+//	  	$('body').rollbar({zIndex:80});
+	  });
+	</script>
    
 
 

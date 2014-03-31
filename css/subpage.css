@@ -619,13 +619,15 @@ float: right;
 
 .user-comm{
 
-  height: 265px;
+max-height: 265px;
 
 overflow-x: hidden;
 
-overflow-y: scroll;
+overflow-y: auto;
 
 margin: 35px 0 0 13px;
+
+width: 495px;
 
 }
 
@@ -643,7 +645,7 @@ background-color: #ffffff;
 
  box-shadow: none; 
 
- padding-right: 10px;
+ padding-right: 24px;
 
 }
 
@@ -673,7 +675,7 @@ margin-bottom: 1px;
 
 font-weight: normal;
 
-font-size: 12px;
+font-size: 11px;
 
 color: #828282;
 

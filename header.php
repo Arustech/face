@@ -4,6 +4,7 @@ $main = new Main;
 $member = $main->load_model('Member');
 $profile = $main->load_model('BasicProfile');
 $obj_user = $main->load_model("User");
+$obj_noti = $main->load_model("Notification");
 
 $user = $member->check_user();
 if (!$user)
@@ -366,7 +367,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             $(".popover-noti").popover({
                placement: 'bottom',
                html: 'true',
-               content: '<div class="popOverBox"><li><a href=""><span><img src="img/profilefr.jpg" width="50px" height="50px"></span><span class="message">New user registration.</span><span class="time">1 mins</span></a></li><li><a href=""><span><img src="img/profilefr.jpg" width="50px" height="50px"></span>  <span class="message">New user registration.</span><span class="time">1 mins</span></a></li><li><div class="footer"><a href="">View all notifications</a></div></li>'
+               content: "<?= $obj_noti->getUserNoti()?>"
 
             });
 

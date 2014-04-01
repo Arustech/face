@@ -201,16 +201,17 @@ class Member Extends Main {
          $subject = 'Account Verification Email';
          $msg = 'Hi <br><br>';
          $msg.= 'Please click <a href="' . $this->config['web_path'] . 'login.php?uc=' . $user['user_key'] . '">Here</a> to activate your account at Knownfaces.';
-         $result = $this->sendEmail($fields['user_email'], $subject, $msg);
+         $result = $this->sendEmail($user['user_email'], $subject, $msg);
          $custom = array('tbl_profile_contact', 'tbl_profile_education', 'tbl_profile_personal', 'tbl_profile_work');
          $this->userToEach($personal['user_id'], $custom);
-         $session_arr = array(
-             'kfc_user_id' => $personal['user_id'],
-             'kfc_user_name' => $user['user_name'],
-             'kfc_user_pwd' => $user['user_pwd'],
-         );
-         $this->set_session($session_arr);
-         $this->go('logout');
+//         $session_arr = array(
+//             'kfc_user_id' => $personal['user_id'],
+//             'kfc_user_name' => $user['user_name'],
+//             'kfc_user_pwd' => $user['user_pwd'],
+//         );
+//         $this->set_session($session_arr);
+//         $this->go('logout');
+         $this->alert('success', 'Check your email for verify your account! Thanks');
       } else {
          $this->alert('error', 'Some error occurred.Please try again later');
       }

@@ -7,16 +7,33 @@ class Posts Extends Main {
    private $tbl = 'tbl_post'; 
 
    public function post_message($post) {
-          
+      
       $post['post_type'] = $this->type_msg;
+      $post['post_user_access'] = 0;
       $post['post_date_time'] = $this->current_date_time();
-
       $result = $this->db->insert($this->tbl, $post);
-      if ($result)
+      if ($result){
+          
+          
+           //// adding notification '
+                    $this->load_model('member');
+                    $noti_obj    = $this->load_model('Notification');
+                    $noti['noti_type']          = 'post';
+                    $noti['noti_data']          = $this->db->last_id;
+                    $noti['noti_from_user']     = $post['posted_by_user_id'];
+                    $noti['noti_date']          = $this->current_date_time();
+                    $noti['post_type']          = 'status';
+                    
+                    $noti_obj->getAddNoti($noti);
+
+                    /* End of noti area..........*/  
+          
          return true;
-      else
+      }else{
          return false;
-   }
+   
+        }
+    }
 
    # ************* Member Posts  Methods Here******************
    # Get User Posts
@@ -82,7 +99,6 @@ class Posts Extends Main {
    }
 
    public function get_after_post() {
-
       $str = '</div>
                </div>';
       return $str;
@@ -536,19 +552,31 @@ WHERE tbl_post_comment.post_id = '$post_id'";
                     $posts['posted_by_user_id'] = $data['user_id'];
 //                    $posts['post_title'] = isset($data['post_title']) ? $data['post_title'] : "";
                     $posts['post_access'] = isset($data['post_access']) ? $data['post_access'] : "";
-                    $posts['post_user_access'] = isset($data['user_access']) ? $data['user_access'] : "0";
+                    $posts['post_user_access'] = isset($data['user_access']) && $data['user_access']!="" ? $data['user_access'] : "0";
                     $posts['post_title'] = isset($data['post_title']) ? $data['post_title'] : "";
                     
-                    $this->db->insert('tbl_post',$posts);
+                    $add_post   = $this->db->insert('tbl_post',$posts);
                     
-                   
-                    foreach($data['images'] as $img)
+                  if($add_post)  
+                  {
+                    //// adding notification '
+                    $this->load_model('member');
+                    $noti_obj    = $this->load_model('Notification');
+                    $noti['noti_type']          = 'post';
+                    $noti['noti_data']          = $this->db->last_id;
+                    $noti['noti_from_user']     = $data['user_id'];
+                    $noti['noti_date']          = $this->current_date_time();
+                    $noti['post_type']         = 'image';
+                    if($posts['post_user_access']!="" || $posts['post_user_access']!='0')
                     {
-                                              
-
-                        
+                        $noti['specific_friends']   = $posts['post_user_access'];
                     }
-                  
+
+                    $noti_obj->getAddNoti($noti);
+
+                    /* End of noti area..........*/                 
+                  } 
+                        
           }
    }
    /* * ******* End of post_photo */ 
@@ -586,9 +614,9 @@ WHERE tbl_post_comment.post_id = '$post_id'";
            $post    = array();
            if(count($data)>0 && !empty($data))
            {
-               $post['post_title']  = $data['post_title'];               
-               $post['post_access']  = $data['post_access'];               
-               $post['post_user_access']  = $data['user_access'];               
+               $post['post_title']          = $data['post_title'];               
+               $post['post_access']         = $data['post_access'];               
+               $post['post_user_access']    = isset($data['user_access']) && $data['user_access']!="" ? $data['user_access'] : "0";               
                $data    = $this->unsetA($data, 'post_title,post_access,user_access');
                               
                $data['video_created']   = $this->current_date_time();
@@ -604,6 +632,26 @@ WHERE tbl_post_comment.post_id = '$post_id'";
                    $post_res    = $this->db->insert('tbl_post',$post);
                    if($post_res)
                    {
+                       
+                    //// adding notification '
+                    $this->load_model('member');
+                    $noti_obj    = $this->load_model('Notification');
+                    $noti['noti_type']          = 'post';
+                    $noti['noti_data']          = $this->db->last_id;
+                    $noti['noti_from_user']     = $data['user_id'];
+                    $noti['noti_date']          = $this->current_date_time();
+                    $noti['post_type']         = 'video';
+                    if($post['post_user_access']!="" || $post['post_user_access']!='0')
+                    {
+                        $noti['specific_friends']   = $post['post_user_access'];
+                    }
+
+                    $noti_obj->getAddNoti($noti);
+
+                    /* End of noti area..........*/    
+                       
+                       
+                       
                        return true;
                    }
                    
@@ -638,6 +686,45 @@ WHERE tbl_post_comment.post_id = '$post_id'";
             
         }
    
+public function getPostById($post_id,$user_id) {
+
+      $sql = "SELECT 
+                tbl_post.*,
+                tbl_user.user_avatar,
+                `tbl_profile_basic`.`first_name`,
+                `tbl_profile_basic`.`last_name` 
+              FROM
+                tbl_post 
+                LEFT JOIN tbl_user 
+                  ON tbl_post.posted_by_user_id = tbl_user.user_id 
+                LEFT JOIN tbl_profile_basic 
+                  ON tbl_post.posted_by_user_id = tbl_profile_basic.user_id 
+                  where tbl_post.post_id    = $post_id;
+              ";
+      
+      
+    
+      $posts = $this->db->ex($sql);
+
+      // $posts = $this->db->get_rows($this->tbl, array('posted_by_user_id'));
+
+      if ($posts) {
+         $html = "";
+         foreach ($posts as $post) {
+            switch ($post['post_type']) {
+               case $this->type_msg :$html.=$this->get_post_message($post, $user_id);break;
+               case $this->type_photo :$html.=$this->get_post_photo($post, $user_id);break;
+               case $this->type_album :$html.=$this->get_post_album($post, $user_id);break;
+               case $this->type_video :$html.=$this->get_post_video($post, $user_id);break;
+            }
+         }
+         return $html;
+      }
+   }
+   
+        
+        
+        
 }
 
 // end of class

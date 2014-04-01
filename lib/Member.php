@@ -686,9 +686,7 @@ WHERE user_id=$user_id";
           $this->alert('warning', 'Your Email is incorrect');
       }
    }
-   
-   
-   
+ 
    
    /* end of class */}
 

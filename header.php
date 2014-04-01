@@ -273,8 +273,9 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                               </li>
                               
                               <li>
-                                 <a href="#" class="button popover-noti" data-toggle="popover" title="Friend Requests"  >
-                                    <span style="font-size: 17px" class="glyphicon glyphicon-globe"></span> <span class="badgee">5</span></a>
+                                 <a class="noti_count" href="#" class="button popover-noti" data-toggle="popover" title="Notifications"  >
+                                    
+                                    <span style="font-size: 17px" class="glyphicon glyphicon-globe"></span> <span class="badgee"> <?=$obj_noti->getUserNotiCount();?></span></a>
 
                               </li>
 
@@ -344,6 +345,22 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                
                <script type="text/javascript">
          $(document).ready(function() {
+             
+             $(document).on('click','.noti_count',function(){
+                  $.ajax(
+                          {
+                             async: false,
+                             url: 'ajax.php',
+                             type: "POST",
+                             data: {action:'noti_count',user_id:<?=$user['user_id']?>},
+                             success: function(data)
+                             {
+
+                             }
+                          });
+             });
+             
+             
 
             $(".popover-request").popover({
                placement: 'bottom',
@@ -367,7 +384,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             $(".popover-noti").popover({
                placement: 'bottom',
                html: 'true',
-               content: "<?= $obj_noti->getUserNoti()?>"
+               content: "<?=$obj_noti->getUserNoti()?>"
 
             });
 

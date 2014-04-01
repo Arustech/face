@@ -403,5 +403,12 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
     }
       
    
+    if($_REQUEST['action']=='noti_count')
+    {
+        $user_id    = $_REQUEST['user_id'];
+        $res        = $main->db->update('tbl_noti_user',array('noti_flag'=>'1'),array('noti_user_to'=>$user_id));        
+    }
+    
+    
    
 }

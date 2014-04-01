@@ -404,7 +404,7 @@ class Main {
 
 
 
-      return mail($to, $subject, $message, $header);
+      return mail(trim($to), $subject, $message, $header);
    }
 
    /// sending email to admin...

@@ -127,7 +127,7 @@ class Notification Extends Member {
                     LEFT JOIN tbl_noti_user 
                       ON tbl_noti.noti_id = tbl_noti_user.noti_id 
                   WHERE tbl_noti.`noti_id` = tbl_noti_user.`noti_id` 
-                    AND tbl_noti_user.`noti_user_to` = $user_id ";
+                    AND tbl_noti_user.`noti_user_to` = $user_id  order by tbl_noti.noti_id desc limit 5";
         $rows   = $this->db->ex($sql);
        
         
@@ -161,7 +161,7 @@ class Notification Extends Member {
            
         }
         }
-       $html.="</div>";
+       $html.="</div><li><div class='footer'><a href='javascript:;'></a></div> </li>";
        //<!--<li><div class='footer'><a href='requests'>View all Notifications</a></div> </li>-->
        echo $html;
      }

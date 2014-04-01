@@ -273,10 +273,20 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                               </li>
                               
                               <li>
-                                 <a class="noti_count" href="#" class="button popover-noti" data-toggle="popover" title="Notifications"  >
-                                    
-                                    <span style="font-size: 17px" class="glyphicon glyphicon-globe"></span> <span class="badgee"> <?=$obj_noti->getUserNotiCount();?></span></a>
-
+                                 <a href="#" class="button popover-noti noti_count" data-toggle="popover" title="Notifications"  >
+                                  <span style="font-size: 17px" class="glyphicon glyphicon-globe">
+                              <?php 
+                                            
+                                            $noti_count = $obj_noti->getUserNotiCount();
+                                    if($noti_count > 0)
+                                    {
+                                         ?>
+                                  </span> <span class="badgee"><?=$noti_count;?></span></a>
+                                  <?php
+                                    }
+                                            
+                                    ?>
+                                   
                               </li>
 
                               <!--                        <li><a href="./">Home</a></li>-->
@@ -346,7 +356,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                <script type="text/javascript">
          $(document).ready(function() {
              
-             $(document).on('click','.noti_count',function(){
+             $(".noti_count").click(function(){
                   $.ajax(
                           {
                              async: false,

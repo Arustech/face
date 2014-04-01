@@ -149,13 +149,13 @@ class Notification Extends Member {
                {
                 $html.="<li><a href='javascript:;'>";
                 $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
-                $html.="<span class='message'>".$row['noti_title']."</span><BR><span class='time'>".$row['noti_date']."</span></a></li>";
+                $html.="<span class='message noti_message'>".$row['noti_title']."</span><BR><span class='time time_noti'>".$row['noti_date']."</span></a></li>";
         
                 }
                 if($row['noti_type']=='post' ){
                     $html.="<li><a href='".$this->config['web_path']."single_post.php?mod=sp&p_id=".$row['noti_data']."&nid=".$row['noti_user_id']."'>";
                     $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$user_data['user_avatar']."' width='50px' height='50px'></span>";
-                    $html.="<span class='message'>".$row['noti_title']."</span><BR><span class='time'>".$row['noti_date']."</span></a></li>";
+                    $html.="<span class='message noti_message'>".$row['noti_title']."</span><BR><span class='time time_noti'>".$row['noti_date']."</span></a></li>";
                         
                 }
            

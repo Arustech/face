@@ -155,7 +155,13 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
          color: #3d4e60;
       }
+      .noti_message{
 
+        //color: #3D4E60;
+        font-size: 12px;
+        font-weight: normal;
+        margin-left: 9px;
+      }
 
       .footer a
       {
@@ -178,6 +184,13 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
          color: #0070a3;
       }
+      
+      .time_noti{
+        float: right;
+         font-size: 11px;
+      }
+      
+      
       .top-panel ul li {
          float: left;
          padding: 0 2px;

@@ -129,13 +129,15 @@ if (isset($_POST['action'])) {
                   $text = 'Add as friend';
                   $disabled = '';
                   $class = 'btn_friend';
+                  $add_frd = '<span class="glyphicon glyphicon-plus add_frd"></span>';
                   if ($is_['is_friend'] || $is_['is_request']):
                      $text = $is_['is_request'] ? 'Request sent already.' : 'Already Friend';
                      $class = '';
                      $disabled = "disabled";
+                     $add_frd = '';
                   endif;
                   ?>
-                  <button  <?= $disabled ?>  class="btn btn-primary btn_friend" name="post_status" id="<?= $users['user_id'] ?>"><?= $text ?></button>
+                  <button <?= $disabled ?>  class="btn btn-primary btn_friend" name="post_status" id="<?= $users['user_id'] ?>"><?=$add_frd?><?= $text ?></button> 
 
                   <!--<a href="#" class="btn btn-default">Delete Request</a>-->
                </div>

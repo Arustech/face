@@ -205,6 +205,28 @@ if (isset($_POST['search'])) {
    .search_btn{
 
       float: right;
+     
+   }
+   
+   .add_friend_btn{
+       
+        background-image: url('img/add_friend_btn.PNG');
+        background-size:89px 23px;
+        background-repeat:no-repeat;
+   }
+   
+   .btn-primary {
+    background-color: #E4E3E3 !important;
+    border-color: #808080 !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+   }
+   
+   .add_frd{
+       
+       margin-right: 6px;
+       color: #4D7397;
+       
    }
 
 </style>

@@ -16,10 +16,6 @@ if (isset($_POST['search'])) {
 <script src="plugins/preloader/jquery.isloading.js"></script>
 <script src="plugins/jscroll/jscroll.js"></script>
 
-
-
-
-
 <style>
    .firend_wrapper{
 

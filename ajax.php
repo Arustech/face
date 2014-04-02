@@ -90,14 +90,14 @@ if (isset($_POST['action'])) {
 
       $member = $main->load_model("Member");
       $user_id = $_GET['user_id'];
-      $rows = $member->search($_GET['search'], $user_id, $_POST['offset'], $_POST['limit']);
-
+      $rows = $member->search(strtolower($_GET['search']), $user_id, $_POST['offset'], $_POST['limit']);
+//      var_dump($rows);exit;
       if ($rows) {
          foreach ($rows as $users) {
             ?>
             <div class="frd_request">
                <div class="thumbnail_img"><img src="<?= $main->config['thumb_path'] . $users['user_avatar'] ?>" width="75px" height="75px"></img> </div>
-               <div class="biodate"> <a href="#"><?= ucfirst($users['first_name'] . ' ' . $users['last_name']) ?></a>
+               <div class="biodate"> <a href="<?=$main->config['web_path'].$users['user_name']?>"><?= ucfirst($users['first_name'] . ' ' . $users['last_name']) ?></a>
 
 
                   <?php

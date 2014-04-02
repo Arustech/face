@@ -345,7 +345,10 @@ FROM
     
 WHERE (tbl_user.user_name LIKE '%$search%' 
   OR tbl_user.user_email LIKE '%$search%' 
-  OR tbl_profile_basic.first_name LIKE '%$search%')
+  OR lower(tbl_profile_basic.first_name) LIKE '%$search%'
+  OR lower(tbl_profile_basic.last_name) LIKE '%$search%' 
+  OR CONCAT(tbl_profile_basic.first_name, ' ', tbl_profile_basic.last_name) LIKE '%$search%'    
+)
   AND tbl_user.user_id != '$user_id' LIMIT  $limit  OFFSET $start";
 
 

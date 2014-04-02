@@ -202,6 +202,14 @@ $member = $main->load_model("Member");
 
       float: right;
    }
+   .message_private{
+       
+       margin-left: 5px;
+           color: #959FA9;
+    font-size: 11px;
+    font-weight: normal;
+    word-spacing: -7px;
+   }
 
 </style>
 

@@ -158,13 +158,16 @@ if (isset($_POST['action'])) {
      if ($_POST['action'] == 'get_msg') {
        
        $obj_Inbox = $main->load_model('Inbox');
+       
 
        $msg = $obj_Inbox->getAllMsg($_POST['user_id'],$_POST['from']);
  //        $msg = $obj_Inbox->getAllMsg($_POST['user_id']);
 
         foreach ($msg as $msgs){
   $sender = $obj_Inbox->getUserName($msgs['msg_send_by']);
-       echo "<li class='left clearfix'><span class='chat-img pull-left'>
+
+   $obj_Inbox->Set_read_flag($msgs['msg_id']);
+        "<li class='left clearfix'><span class='chat-img pull-left'>
                             <img src='img/profile.jpg' alt='User Avatar' c />
                         </span>
                             <div class='chat-body clearfix'>
@@ -217,6 +220,8 @@ if (isset($_POST['action'])) {
        $obj_Inbox = $main->load_model('Inbox');
 
        $msg = $obj_Inbox->getAllMsg($_POST['user_id'],$_POST['from']);
+       $get_msg_sender = $obj_Inbox->getAllMsg($_POST['from'],$_POST['user_id']);
+    
 $obj_mbr = $main->load_model('Member');
 
         foreach ($msg as $msgs){
@@ -236,9 +241,26 @@ $obj_mbr = $main->load_model('Member');
                                 
                                 <p>$msgs[msg_data]</p>
                             </div>
-                        </li>";
-        }        
- 
+                        </li>";}
+       ////////////////// sender/////////////////
+        foreach ($get_msg_sender as $get_msg_sender_row){
+            $time2 =$main->get_time_diff($get_msg_sender_row['msg_send_date']);
+       echo  '<li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="img/profile.jpg" />
+                        </span>
+                        <div class="rcv" id=""></div>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>'.$time2.'</small>
+                                    <strong class="pull-right primary-font">Me</strong>
+                                </div>
+                                <p>
+                      '.$get_msg_sender_row["msg_data"].'
+                 </p>
+            </div> </li>';
+        }
+       ////////////////////////////////////////
+          
    }
 
         if ($_POST['action'] == 'send_msg') {
@@ -272,6 +294,8 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
 else
      
      {
+  
+   if($_POST["msg"]){ 
 $msg = $obj_Inbox->sendMsg($_POST["sender"],$_POST["rcvr_id"], $_POST["msg"]);
        
 
@@ -289,7 +313,7 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
                                 </p>
                             </div> </li>';
 
-
+   }
  }
 }
    

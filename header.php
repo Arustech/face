@@ -209,6 +209,38 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 .modal {
     z-index: 1033333 !important;
 }
+
+.make_btn{
+    
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    margin: -2px;
+    
+    color: #4D7397 !important;
+    padding: 2px 4px;
+    border-color: #CCCCCC;
+   
+}
+.make_btn:hover{
+    text-decoration:none;
+     background-color: #0897B9;
+     color:#FFFFFF  !important;
+}
+
+.make_btn_home{
+    background-color: #0897B9;
+    border-radius: 3px;
+    color:#FFFFFF  !important;
+    padding: 2px 4px;
+    margin: -2px;
+    border-color: #CCCCCC;
+
+}
+.make_btn_home:hover{
+    text-decoration:none;
+    background-color: #0897B9;
+    color:#FFFFFF  !important;
+}
       
       </style>
       <?php
@@ -312,12 +344,12 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
                         <li class="last"><a href=""><img src="img/setting.png" alt="" title="setting"></a></li>-->
                               <div class="user_name" >
-                                  <li><a style="color:rgba(219, 45, 42, 0.8)" href="index">Home</a></li>
-                                 <li><a href="friends">Friends</a></li>
+                                  <li><a class="make_btn_home" href="index">Home</a></li>
+                                 <li><a  class="make_btn" href="friends">Friends</a></li>
+                                 <li><a  class="make_btn" href="timeline_wall.php">Settings</a></li>
 
                                  <li><a href="" class="active"><?= $main->truncate(ucfirst($profile_basic['first_name']), 5, false) ?></a></li>
-
-                                 <li><a href="<?=$main->config['web_path']?>logout.php">Logout</a></li>
+                                 <li><a class="make_btn" href="<?=$main->config['web_path']?>logout.php">Logout</a></li>
 <!--                                 <li><a href="logout.php"><span style="font-size:16px " class="glyphicon glyphicon-off"></span></a></li>-->
 
 <!--                                 <li class="last"><a href=""><img src="img/setting.png" alt="" title="setting"></a></li>-->

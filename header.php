@@ -412,6 +412,10 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             });
 
 
+            $(document).on('click','.btn_accept',function(){
+               $(this).replaceWith('<select name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
+            });
+
 
             $("#Go").click(function(e) {
                e.preventDefault();

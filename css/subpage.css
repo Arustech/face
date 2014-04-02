@@ -305,7 +305,7 @@ width: 100%;
 
 float: left;
 
-font-size: 20px;
+font-size: 18px;
 
 color: #fefefe;
 
@@ -561,7 +561,7 @@ float: right;
 
   color: #0a9abc;
 
-  font-size: 20px;
+  font-size: 18px;
 
   font-weight:bolder;
 
@@ -581,7 +581,7 @@ float: right;
 
   font-weight: normal;
 
-  font-size: 14px;
+  font-size: 13px;
 
   color: #828282;
 
@@ -625,7 +625,7 @@ overflow-x: hidden;
 
 overflow-y: auto;
 
-margin: 35px 0 0 13px;
+margin: 15px 0 0 13px;
 
 width: 495px;
 
@@ -651,7 +651,9 @@ background-color: #ffffff;
 
 .user-comm  .panel-body {
 
-padding: 10px;
+padding: 4px;
+
+
 
 background: #edf8fb;
 
@@ -661,7 +663,7 @@ margin-bottom: 1px;}
 
 .user-comm  .panel-body1{
 
-  padding: 10px;
+  padding: 4px;
 
 background: #fff;
 
@@ -674,6 +676,8 @@ margin-bottom: 1px;
 .user-comm  .panel-body p, .user-comm  .panel-body1 p {
 
 font-weight: normal;
+
+margin: 0 0 3px !important;
 
 font-size: 11px;
 
@@ -722,7 +726,7 @@ background-color: #ffffff;
 
 .user-comm-msg  .panel-body {
 
-padding: 10px;
+padding: 4px;
 
 background: #edf8fb;
 
@@ -732,7 +736,7 @@ margin-bottom: 1px;}
 
 .user-comm-msg  .panel-body1{
 
-  padding: 10px;
+  padding: 4px;
 
 background: #fff;
 
@@ -746,17 +750,19 @@ margin-bottom: 1px;
 
 font-weight: normal;
 
-font-size: 12px;
+font-size: 11px;
 
 color: #828282;
 
 font-family: tahoma;
 
+margin: 0 0 2px !Important;
+
 }
 
 .user-comm-msg  .panel-body span, .user-comm-msg  .panel-body1 span{ 
 
- font-size: 12px;
+ font-size: 11px;
 
   font-weight: bolder;
 

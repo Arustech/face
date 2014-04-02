@@ -102,7 +102,7 @@ if (isset($_POST['action'])) {
                                 
                                 ?>
              
-             <p><span value  class="glyphicon glyphicon-envelope"><a href="new_message.php?send_to=<?=$users['user_id']?>"><span>Message</span></a></p>
+             <p><span value  class="glyphicon glyphicon-envelope"><a href="new_message.php?send_to=<?=$users['user_id']?>"><span class="message_private">Private Message</span></a></p>
              
                                 <p><span class="glyphicon glyphicon-home"></span> <?=$place?></p>
                                 <?php if($users['company_name']):?>

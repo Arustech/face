@@ -407,7 +407,7 @@ $contact = $contact_->get_contact($user['user_id']);
             
             <div class="row " id="header_content">
                <div class="col-md-2  display_pic" id="dp">
-                   <a class=" fancybox" rel="ligthbox" style=" text-decoration:none !important;" data-image-id="146" title=" " href="<?= $main->config['avatar_web'].$user['user_avatar']?>">
+                   <a style=" text-decoration:none !important;" data-image-id="146" title="Profile Picture" >
                           <img width="140px" height="140" src="<?= $main->config['avatar_web'].$user['user_avatar']?>"  title="Display Picture">
 <!--                          <a href="upload_new.php" id="change_dp" class="change_dp_button" hidden>Change Picture </a>-->
 <span>   

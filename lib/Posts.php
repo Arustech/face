@@ -580,7 +580,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       $html.= '</div>';//pre 
 
-      $html.='<div class="main-img" style="margin-right:21px;margin-top: 0;"> <a  rel="ligthbox"   href="'.$this->get_uurl('thumbs_wall').$photo.'" class="thumbnail fancybox" style="margin-top:7px;"> <img src="'.$this->get_uurl('thumbs_wall').$photo.'" alt=""> </a> </div></div>';//pre 
+      $html.='<div class="main-img" style="margin-right:21px;margin-top: 0;"> <a  rel="ligthbox"   href="'.$this->get_uurl('albums').$photo.'" class="thumbnail fancybox" style="margin-top:7px;"> <img src="'.$this->get_uurl('thumbs_wall').$photo.'" alt=""> </a> </div></div>';//pre 
 
       $html.='<div class="lt-content">';
 

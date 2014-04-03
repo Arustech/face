@@ -191,7 +191,7 @@ $varify = $_GET['varify'];
 <div class="control-group">
   <label class="control-label" for="email_verify">Resend Verification E-mail</label>
   <div class="controls">
-      <input disabled="" id="email_verify" name="email_verify" value="<?=$varify?>" class="input-large form-control" type="text">
+      <input readonly="" id="email_verify" name="email_verify" value="<?=$varify?>" class="input-large form-control" type="text">
     
   </div>
 </div>

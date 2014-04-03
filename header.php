@@ -52,6 +52,8 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 	<script type="text/javascript">
 	  $(document).ready(function(){
 	  	$('.user-comm').rollbar({zIndex:80}); 
+                
+                $('.user-comm-msg').rollbar({zIndex:80}); 
 //	  	$('body').rollbar({zIndex:80});
 	  });
 	</script>

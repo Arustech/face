@@ -700,7 +700,8 @@ font-family: tahoma;
 }
 
 .user-comm-msg{
- height: 86px;
+ height: auto;
+ max-height:150px;
     margin: 13px 0 0 13px;
     overflow-x: hidden;
     overflow-y: scroll;

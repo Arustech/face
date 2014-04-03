@@ -397,7 +397,7 @@ WHERE (tbl_user.user_name LIKE '%$search%'
                $html.="<li class='li_bot' ><div style='float:left'>";
                $html.="<img src='$img' width='50px' height='50px'></div>";
                $html.="<span class='message' style='margin-left:5px'>$name</span>";
-               $html.="<div style='float:left;margin-left:5px;margin-top:6px;'><span><a style='background-color:#24BEE2' href='javascript:;' class='btn btn-xs btn-success btn_accept' id='req_$user[request_by]'><span class='glyphicon glyphicon-ok'></span> Accept</a></span>";
+               $html.="<div style='float:left;margin-left:5px;margin-top:6px;'><span id='$user[request_by]'><a style='background-color:#24BEE2' href='javascript:;' class='btn btn-xs btn-success btn_accept_top' ><span class='glyphicon glyphicon-ok'></span> Accept</a></span>";
                $html.="<span style='margin-left:5px'><a href='index?r=$user[request_by]' class='btn btn-xs btn-danger'><span class='glyphicon glyphicon-remove'></span> Reject</a></div></span>";
                $html.="</li>";
                //href='index?a=$user[request_by]'
@@ -442,6 +442,14 @@ WHERE (tbl_user.user_name LIKE '%$search%'
 
    public function make_friends($self_id, $friend_id, $type = 'friends', $ajax = false) {
 
+       if(strstr($friend_id, '_'));
+       {
+           $getSplit    = explode('_',$friend_id);
+           $friend_id   = $getSplit[1];
+           $type        = $getSplit[0];
+       }
+       
+       
       $data['user_id'] = $self_id;
       $data['user_friend_id'] = $friend_id;
       $data['friend_type'] = $type;

@@ -412,8 +412,22 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             });
 
 
-            $(document).on('click','.btn_accept',function(){
-               $(this).replaceWith('<select name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
+            $(document).on('click','.btn_accept_top',function(){
+                  
+                    $(this).replaceWith('<select class="add_to_type" name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
+            });
+            
+            $(document).on('change','.add_to_type',function(){
+               var parent       =  $(".add_to_type").parents("span:first");
+               var request_by   =   parent.attr('id');
+               var access_val  = $(this).val();
+                if(access_val!=-1)
+                {
+                    var data    = access_val+'_'+request_by;
+                    window.location.href="index?a="+data;
+                }
+                
+               
             });
 
 
@@ -538,6 +552,9 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                    noty({type: 'error', text: 'Our support team is working on it ! Thanks'});
                 }
           }); 
+           
+           
+           
            
            
          });

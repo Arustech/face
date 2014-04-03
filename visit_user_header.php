@@ -471,6 +471,7 @@ $contact = $contact_->get_contact($visit_user_id);
                         <li><a href="<?= $main->config['web_path'] ?>visit_user_info.php?user_name=<?=$visit_username?>">Info</a></li>
                         <li ><a  href="<?= $main->config['web_path'] ?>visit_user_friends.php?user_name=<?=$visit_username?>">Friends</a></li>
                         <li><a href="<?= $main->config['web_path'] ?>visit_user_timeline_photos.php?user_name=<?=$visit_username?>">Photos</a></li>
+                        <li><a href="<?= $main->config['web_path'] ?>new_message.php?send_to=<?=$visit_user_id?>">Send Message</a></li>
                 	
                 </ul>
              

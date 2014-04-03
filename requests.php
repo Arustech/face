@@ -254,33 +254,45 @@ $member = $main->load_model("Member");
    {
 
       $(document).on('click', '.btn_accept', function() {
-
-         var btn = $(this);
-         var id = btn.attr('id');
-         var postData = {action: 'accept_request', friend_id: id, user_id:<?= $user['user_id'] ?>};
-         CallAjaxPW('', postData, 'ajax.php', function callBack(data) {
-            if (data == 'true')
-            {
-               noty({type: 'success', text: 'Friend added to  your list.'});
-             btn.parent().parent().fadeOut(500, function(){
-               $(this).remove();
-            });
-
-            }
-            else
-            {
-               noty({type: 'error', text: 'Some error occurred'});
-
-            }
-         }, function b() {
-            preload_start('.firend_wrapper');
-         }, function c() {
-            preload_stop('.firend_wrapper');
-         });
-
+          
+             var btn = $(this);
+             var id = btn.attr('id');
+            $(this).replaceWith('<select id="'+id+'" class="add_to_type_all" name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
       });
       
       
+      
+            $(document).on('change','.add_to_type_all',function(){
+                
+                   var btn = $(this);
+                    var request_by   =   btn.attr('id');
+                    var access_val   =   btn.val();
+                    if(access_val!=-1)
+                    {
+                        var id    = access_val+'_'+request_by;
+                        var postData = {action: 'accept_request', friend_id: id, user_id:<?= $user['user_id'] ?>};
+                        CallAjaxPW('', postData, 'ajax.php', function callBack(data) {
+                        if (data == 'true')
+                        {
+                        noty({type: 'success', text: 'Friend added to  your list.'});
+                        btn.parent().parent().fadeOut(500, function(){
+                        $(this).remove();
+                        });
+
+                        }
+                        else
+                        {
+                        noty({type: 'error', text: 'Some error occurred'});
+
+                        }
+                        }, function b() {
+                        preload_start('.firend_wrapper');
+                        }, function c() {
+                        preload_stop('.firend_wrapper');
+                        });
+                     
+                    }
+            });
       
       
       

@@ -107,6 +107,8 @@ class Posts Extends Main {
    public function get_comment($comment) {
       $html = "";
       extract($comment);
+     
+      
       $html.='
                      <div class="panel-body" id="comment_div_'.$comment_id.'"><a href="#"><img src="'.$this->get_uurl('thumbs_small').$user_avatar.'" alt=""></a>
                         <p><span>' . ucfirst($first_name . ' ' . $last_name) . '</span> '.$description.' </p>
@@ -207,6 +209,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
    public function create_wall_slider($photos) {
       $html="";
       $html.='<div class="banner-fade"><ul class="bjqs">';
+      
       foreach($photos as $photo)
       {
            $html.='<li><img src="'.$this->get_uurl('thumbs_wall').$photo['photo_src'].'"></li>';
@@ -236,7 +239,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $html.='<div class="lt-content">';
       $html.='<div class="comments">';
       $html.="<a href='#'><img src='" . $this->get_uurl('thumbs') . $user_avatar . "' alt=''></a>";
-      $html.="<h4>" . ucfirst($first_name . ' ' . $last_name) . "</h4>";
+      $html.="<h4><a href=".$this->config['web_path'].$user_name.">". ucfirst($first_name . ' ' . $last_name) . "</a></h4>";
       $html.="<div style='width:515px;min-height:22px'>" . ucfirst($this->truncate_lines($post_title, 116, 100)) . "</div>";
       $html.="<p class='links'>
                      <a class='red' href=''>".$this->get_time_diff($post_date_time)."</a>-
@@ -285,11 +288,11 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
       }
       $html.= '</div>';//pre 
-      $html.='<div class="main-img" style="margin-right:21px;margin-top: 0;"> <a href="#" class="thumbnail" style="margin-top:7px;"> <img src="'.$this->get_uurl('thumbs_wall').$photo.'" alt=""> </a> </div></div>';//pre 
+      $html.='<div class="main-img" style="margin-right:21px;margin-top: 0;"> <a  rel="ligthbox"   href="'.$this->get_uurl('thumbs_wall').$photo.'" class="thumbnail fancybox" style="margin-top:7px;"> <img src="'.$this->get_uurl('thumbs_wall').$photo.'" alt=""> </a> </div></div>';//pre 
       $html.='<div class="lt-content">';
       $html.='<div class="comments">';
       $html.="<a href='#'><img src='" . $this->get_uurl('thumbs') . $user_avatar . "' alt=''></a>";
-      $html.="<h4>" . ucfirst($first_name . ' ' . $last_name) . "</h4>";
+      $html.="<h4><a href=".$this->config['web_path'].$user_name.">". ucfirst($first_name . ' ' . $last_name) . "</a></h4>";
       $html.="<div style='width:515px;min-height:22px'><p>" . ucfirst($this->truncate_lines($post_title, 116, 100)) . "</p></div>";
      
       $html.="<p class='links'>
@@ -352,7 +355,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $html.='<div class="lt-content">';
       $html.='<div class="comments">';
       $html.="<a href='#'><img src='" . $this->get_uurl('thumbs') . $user_avatar . "' alt=''></a>";
-      $html.="<h4>" . ucfirst($first_name . ' ' . $last_name) . "</h4>";
+      $html.="<h4><a href=".$this->config['web_path'].$user_name.">". ucfirst($first_name . ' ' . $last_name) . "</a></h4>";
       $html.="<div style='width:515px;min-height:22px'>" . ucfirst($this->truncate_lines($post_title, 116, 100)) . "</div>";
       $html.="<p class='links'>
                      <a class='red' href=''>".$this->get_time_diff($post_date_time)."</a>-
@@ -396,7 +399,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $html.=$this->get_pre_post($data);
       $html.='<div class="comments">';
       $html.="<a href='#'><img src='" . $this->get_uurl('thumbs') . $user_avatar . "' alt=''></a>";
-      $html.="<h4>" . ucfirst($first_name . ' ' . $last_name) . "</h4>";
+      $html.="<h4><a href=".$this->config['web_path'].$user_name.">". ucfirst($first_name . ' ' . $last_name) . "</a></h4>";
       $html.="<div style='width:918px;min-height:22px'>" . ucfirst($this->truncate_lines($post_data, 116, 100)) . "</div>";
       $html.="<p class='links'>
                      <a class='red' href=''>".$this->get_time_diff($post_date_time)."</a>-
@@ -461,6 +464,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $sql = "SELECT 
                 tbl_post.*,
                 tbl_user.user_avatar,
+                tbl_user.user_name,
                 `tbl_profile_basic`.`first_name`,
                 `tbl_profile_basic`.`last_name` 
               FROM
@@ -481,6 +485,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       if ($posts) {
          $html = "";
          foreach ($posts as $post) {
+                     
             switch ($post['post_type']) {
                case $this->type_msg :$html.=$this->get_post_message($post, $user_id);break;
                case $this->type_photo :$html.=$this->get_post_photo($post, $user_id);break;

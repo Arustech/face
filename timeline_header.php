@@ -386,8 +386,6 @@ $contact = $contact_->get_contact($user['user_id']);
    
             <div class="row cover" id="cover">
              <!-- Add Source for cover photo here-->
-             
-             
              <a class=" fancybox" rel="ligthbox" data-image-id="146" title=" " href="<?= $main->config['cover_web'].$user['user_cover']?>">
                 <img id="img_cover" width="970px" height="315" src="<?= $main->config['cover_web'].$user['user_cover']?>"  title="Cover Photo">
             </a>

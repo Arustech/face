@@ -124,7 +124,8 @@ background: #fff;
 
   background-position: top left;
 
-  padding: 23px 0px 30px 10px;
+  padding: 23px 0px 21px 10px;
+  /*padding: 23px 0px 30px 10px;*/
 
   margin-top: 2px;
 
@@ -179,14 +180,16 @@ float: left;
 
   background-position: top left;
 
- padding: 0px 0 30px 0px;
+ padding: 0px 0 18px 0px;
+/* padding: 0px 0 30px 0px;*/
 
 margin-top: 13px;
 
 width: 498px;
 
 float: left;
-min-height: 157px;
+min-height: 133px;
+/*min-height: 144px;*/
 
 }
 
@@ -307,7 +310,8 @@ width: 100%;
 
 float: left;
 
-font-size: 18px;
+font-size: 17px;
+/*font-size: 18px;*/
 
 color: #fefefe;
 
@@ -563,7 +567,8 @@ float: right;
 
   color: #0a9abc;
 
-  font-size: 18px;
+  font-size: 17px;
+  /*font-size: 18px;*/
 
   font-weight:bolder;
 
@@ -583,7 +588,8 @@ float: right;
 
   font-weight: normal;
 
-  font-size: 13px;
+  font-size: 12px;
+/*  font-size: 13px;*/
 
   color: #828282;
 

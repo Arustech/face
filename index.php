@@ -159,7 +159,7 @@ require('top_panel.php');
 
       font-family: sans-serif;
       color: #016E88 ;
-      font-size : 19px !important;
+      font-size : 18px !important;
       
    }
    .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-submenu:hover>a,.dropdown-submenu:focus>a {

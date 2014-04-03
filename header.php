@@ -354,8 +354,9 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                                  <li><a  class="make_btn" href="friends">Friends</a></li>
                                  <li><a  class="make_btn" href="timeline_wall.php">Settings</a></li>
 
-                                 <li><a href="" class="active"><?= $main->truncate(ucfirst($profile_basic['first_name']), 5, false) ?></a></li>
+                                 
                                  <li><a class="make_btn" href="<?=$main->config['web_path']?>logout.php">Logout</a></li>
+                                 <li><a href="" class="active"><?= $main->truncate(ucfirst($profile_basic['first_name']), 10, false) ?></a></li>
 <!--                                 <li><a href="logout.php"><span style="font-size:16px " class="glyphicon glyphicon-off"></span></a></li>-->
 
 <!--                                 <li class="last"><a href=""><img src="img/setting.png" alt="" title="setting"></a></li>-->

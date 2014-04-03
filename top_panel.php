@@ -57,7 +57,7 @@
 
                         <h1>Grow your network</h1>
 
-                        <p style="font-size: 11px;; margin-bottom: 5px">Login to your email to invite people</p>
+                        <p style="font-size: 12px;font-weight: normal; margin-bottom: 5px">Login to your email to invite people</p>
 
                         <div class="input-group custom-email">
 

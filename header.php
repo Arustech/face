@@ -371,14 +371,14 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
                            <div class="col-lg-12">
                               <form method="POST" action="search">
-                                 <div class="input-group custom-search-form">
+                                  <div  class="input-group custom-search-form">
 
-                                    <input name="search" type="text" class="form-control" placeholder="Search for People...">
+                                    <input style="height: 27px;" name="search" type="text" class="form-control" placeholder="Search for People...">
 
 
                                     <span class="input-group-btn">
 
-                                       <button class="btn" type="submit"> <span class=""><img src="img/search.png" height="20" alt=""></span> </button>
+                                       <button style="height: 27px; padding:3px 3px" class="btn" type="submit"> <span class=""><img src="img/search.png" height="20" alt=""></span> </button>
 
                                     </span> </div></form>
 

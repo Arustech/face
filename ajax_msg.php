@@ -4,6 +4,7 @@ if (isset($_POST['action'])) {
 
    require('lib/Main.php');
    $main = new Main;
+   $main->load_model('Member');
 $data   = array();
 $data['posted_by_user_id']    = isset($_REQUEST['posted_by_user_id'])? $_REQUEST['posted_by_user_id'] : "";
 $data['post_data'] = isset($_REQUEST['msg'])? $_REQUEST['msg'] : "";

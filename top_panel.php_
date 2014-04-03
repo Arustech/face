@@ -28,25 +28,11 @@
                             echo $events; }
                             else {
                         ?>
-                   <style>
-                       .events1 {  margin-left: 47px;
-                                    padding-top: 9px;
-                                    width: 419px;
-                                    height: 113px;
-                       }
-                       
-                   </style>
-                   <div class="events1">
-                   <img src="img/cake.png">
-                   <img src="img/Valentine.jpg">
-                   <img src="img/happy-birthday.jpg">
-                   <img src="img/events.jpg">
-                   </div>
-<!--                     <p><a href=""><strong> <u>Complete your Profile</u></strong> and make it even easier to find you!</a></p>
+                     <p><a href=""><strong> <u>Complete your Profile</u></strong> and make it even easier to find you!</a></p>
 
                      <p><a href=""><strong> <u>Find your Profile</u></strong> and make it even easier to find you!</a></p>
 
-                     <p><a href="">Change your <strong> <u>Privacy Settings</u></strong> here.</a></p>-->
+                     <p><a href="">Change your <strong> <u>Privacy Settings</u></strong> here.</a></p>
                      <?php } ?>
 
                   </div>

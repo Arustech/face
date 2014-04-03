@@ -26,8 +26,7 @@ section, footer, header, aside{
     background-image:linear-gradient(top, #373a3d, #313437);
 
 /*    width:250px;*/
-  //  padding:30px;
-    padding:10px;
+    padding:30px;
     border-radius:3px;
     margin-top:5px;
     
@@ -37,11 +36,11 @@ section, footer, header, aside{
 
 #drop{
     background-color: #2E3134;
-    //padding: 40px 50px;
-   // margin-bottom: 30px;
-    //border: 20px solid rgba(0, 0, 0, 0);
-  //  border-radius: 3px;
-   // border-image: url('../img/border-image.png') 25 repeat;
+    padding: 40px 50px;
+    margin-bottom: 30px;
+    border: 20px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    border-image: url('../img/border-image.png') 25 repeat;
     text-align: center;
     text-transform: uppercase;
 
@@ -52,7 +51,7 @@ section, footer, header, aside{
 
 #drop a{
     background-color:#007a96;
-    padding:6px 22px;
+    padding:12px 26px;
     color:#fff;
     font-size:14px;
     border-radius:2px;
@@ -72,7 +71,7 @@ section, footer, header, aside{
 
 #upload ul{
     list-style:none;
-    //margin:0 -30px;
+    margin:0 -30px;
     border-top:1px solid #2b2e31;
     border-bottom:1px solid #3d4043;
 }

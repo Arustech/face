@@ -23,7 +23,7 @@ $(function() {
          var type = data.files[0].type;
          var size = data.files[0].size;
          if (type == 'image/jpeg' || type == 'image/png' || type == 'image/gif') {
-            // alert(size);
+           // alert(size);
             if (size < 5242880)
             {
                //   var preview = '<img src="' + URL.createObjectURL(data.files[0]) + '"/>';

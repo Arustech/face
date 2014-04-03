@@ -85,7 +85,7 @@ if (isset($_POST['action'])) {
          ?>
           <div class="frd_request">
          <div class="thumbnail_img"><img src="<?=$main->config['thumb_path'].$users['user_avatar']?>" width="75px" height="75px"></img> </div>
-         <div class="biodate"> <a href="#"><?=ucfirst($users['first_name'].' '.$users['last_name'])?></a>
+         <div class="biodate"> <a href="<?php $this->config['web_path'].$user_name ?>"><?=ucfirst($users['first_name'].' '.$users['last_name'])?></a>
                               
             
                                 <?php 

@@ -16,15 +16,15 @@ $(function() {
               .test(window.navigator && navigator.userAgent),
       imageMaxWidth: 100,
       imageMaxHeight: 100,
-      maxFileSize: 5120,
+      maxFileSize: 5242880,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       dropZone: $('#drop'),
       add: function(e, data) {
          var type = data.files[0].type;
          var size = data.files[0].size;
          if (type == 'image/jpeg' || type == 'image/png' || type == 'image/gif') {
-
-            if (size > 5120)
+            // alert(size);
+            if (size < 5242880)
             {
                //   var preview = '<img src="' + URL.createObjectURL(data.files[0]) + '"/>';
                var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"' +

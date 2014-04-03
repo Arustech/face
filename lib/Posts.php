@@ -111,7 +111,7 @@ class Posts Extends Main {
       
       $html.='
                      <div class="panel-body" id="comment_div_'.$comment_id.'"><a href="#"><img src="'.$this->get_uurl('thumbs_small').$user_avatar.'" alt=""></a>
-                        <p><span>' . ucfirst($first_name . ' ' . $last_name) . '</span> '.$description.' </p>
+                        <p class="comment_get"><span>' . ucfirst($first_name . ' ' . $last_name) . '</span> '.$description.' </p>
 
                         <p class="links">
 

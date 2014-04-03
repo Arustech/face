@@ -178,6 +178,15 @@ require('top_panel.php');
       color:#C0C0C0;
 
    }
+   .comment_get{
+       
+       padding: 0 10px;
+       text-align: justify;
+       word-wrap: break-word;
+       font-weight: normal !important;
+   }
+   
+ 
 
 </style>
 

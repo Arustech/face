@@ -241,6 +241,10 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
     background-color: #0897B9;
     color:#FFFFFF  !important;
 }
+.top_ico {
+    min-width: 8%;
+    text-align: left !important;
+}
       
       </style>
       <?php
@@ -292,7 +296,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                      <div class="col-lg-6 top-panel">
                         <ul>
 
-                           <li>
+                           <li class="top_ico">
                               <a href="#" class="button popover-request" data-toggle="popover" title="Friend Requests"  >
                                  <span style="font-size: 15px ; right: -12px ;position: relative" class="glyphicon glyphicon-user"></span>
                                     <span style="font-size: 17px" class="glyphicon glyphicon-user"></span>
@@ -304,7 +308,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                                  <?php endif ?>
                               </li>
 
- <li>
+ <li class="top_ico">
                                   <a href="#" class="button popover-messages" data-toggle="popover" title="<a style='color:#333333' href='message.php'>New Messages</a>"  >
                                     <span style="font-size: 17px" class="glyphicon glyphicon-comment"></span>
                                     
@@ -317,7 +321,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                                  <?php endif ?>
                               </li>
                               
-                              <li>
+                              <li class="top_ico">
                                  <a href="#" class="button popover-noti noti_count" data-toggle="popover" title="Notifications"  >
                                   <span style="font-size: 17px" class="glyphicon glyphicon-globe">
                               <?php 

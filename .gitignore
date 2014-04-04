@@ -214,11 +214,14 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-#Netbeans
-nbproject/
+#netbeans specific
+core
+nbproject/*
+!nbproject/project.properties
+!nbproject/project.xml
 
 #knownfaces
-uploads/
+uploads/*
 
 
 nbproject/private/private.xml

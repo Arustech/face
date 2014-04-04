@@ -212,6 +212,14 @@ $member = $main->load_model("Member");
    }
 
 </style>
+<script>
+$('.frnds').css("background-color", "#0897B9");
+$('.frnds').css("color", "#FFFFFF");
+$('.make_btn_home').css("background-color", "#fff");
+$('.make_btn_home').css("color", "#0897B9");
+$('.make_btn_home:hover').css("color", "#0897B9");
+
+</script>
 
 <div class="strip"> <span class="lt"></span>
 

@@ -218,7 +218,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
     border-radius: 3px;
     margin: -2px;
     
-    color: #4D7397 !important;
+   // color: #4D7397;
     padding: 2px 4px;
     border-color: #CCCCCC;
    
@@ -232,7 +232,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 .make_btn_home{
     background-color: #0897B9;
     border-radius: 3px;
-    color:#FFFFFF  !important;
+    color:#FFFFFF;
     padding: 2px 4px;
     margin: -2px;
     border-color: #CCCCCC;
@@ -351,11 +351,11 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                         <li class="last"><a href=""><img src="img/setting.png" alt="" title="setting"></a></li>-->
                               <div class="user_name" >
                                   <li><a class="make_btn_home" href="index">Home</a></li>
-                                 <li><a  class="make_btn" href="friends">Friends</a></li>
-                                 <li><a  class="make_btn" href="timeline_wall.php">Settings</a></li>
+                                  <li><a style="color: #4D7397"  class="make_btn frnds" href="friends">Friends</a></li>
+                                 <li><a style="color: #4D7397" class="make_btn" href="timeline_wall.php">Settings</a></li>
 
                                  
-                                 <li><a class="make_btn" href="<?=$main->config['web_path']?>logout.php">Logout</a></li>
+                                 <li><a style="color: #4D7397" class="make_btn" href="<?=$main->config['web_path']?>logout.php">Logout</a></li>
                                  <li><a href="" class="active"><?= $main->truncate(ucfirst($profile_basic['first_name']), 10, false) ?></a></li>
 <!--                                 <li><a href="logout.php"><span style="font-size:16px " class="glyphicon glyphicon-off"></span></a></li>-->
 

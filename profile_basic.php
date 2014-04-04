@@ -132,7 +132,7 @@ $basic =$basic_->getBasicProfileByID($user['user_id']);
       </div>
       
       <div class="form-group">
-         <p for="relation" class="col-lg-4 control-label">Relation:</p>
+         <p for="relation" class="col-lg-4 control-label">Status:</p>
          <div class="col-lg-8">
             <select name="relation" class="select form-control" id="relation">
                <option value="Unspecified">Please select</option>

@@ -3,7 +3,8 @@ $work_ =$main->load_model('Work');
 if(isset($_POST['btn_work']))
 {
 
-   
+//    var_dump($_POST);
+//    exit;
    
    $work_->update_profile_work($main->unsetA($_POST,'btn_work'),$user['user_id']); 
    $main->show_tab('tab_work');
@@ -41,7 +42,7 @@ $work = $work_->get_work_data($user['user_id']);
                 
               <?php 
               $arr = array('tbl'=>'tbl_country','field_id'=>'country_id','field_text'=>'country_name');
-              echo $main->get_select_c($arr, $sel = $work['country'], $name = 'country', $class = 'class="form-control required"')
+              echo $main->get_select_c($arr, $sel = $work['country'], $name = 'country', $class = 'class="form-control required"');
               ?>
               
                </div>
@@ -58,7 +59,7 @@ $work = $work_->get_work_data($user['user_id']);
              
         <div class="form-group" style="margin-bottom: 5px">
                <p for="company_name" class="col-lg-4 control-label">Start Date:</p>
-               <div class="col-lg-8"><input  name="start_date" type="text" value="<?=$work['start_date']?>" class="form-control  mydatepicker"></div>
+               <div class="col-lg-8"><input  name="start_date" type="text" value="<?=date("d M,Y", strtotime($work['start_date']));?>" class="form-control  mydatepicker"></div>
                 <div class="clear"></div>    
         </div>
         

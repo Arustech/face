@@ -274,11 +274,26 @@ public $error;
     
         public function creating_thumb($img)
         {
+            
              $obj_img  = $this->load_model('Image');
              $obj_img->dirPath   = 'thumbs_wall/';
-             $obj_img->w=367;
-             $obj_img->h=365;
+             //getting folder path
+             $path=$this->get_uurl('albums');
+             list($width, $height, $type, $attr) = getimagesize($path.$img);
+             $largestSide=375;
+             $smalestSide=250;
+             if($width > $height)
+             {//? $largestSide = $width : $largestSide = $height;
+             $obj_img->w=$largestSide;
+             $obj_img->h=$smalestSide;
+              }
+              else if($width < $height){
+               $obj_img->w=$smalestSide;
+               $obj_img->h=$largestSide;
+              }
+             
              $obj_img->create_thumb($img,$this->get_path('albums'));
+             $obj_img->set_default();
         }
      
 	

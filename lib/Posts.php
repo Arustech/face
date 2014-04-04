@@ -1185,13 +1185,25 @@ WHERE tbl_post_comment.post_id = '$post_id'";
              $obj_img  = $this->load_model('Image');
 
              $obj_img->dirPath   = 'thumbs_wall/';
-
-             $obj_img->w=367;
-
-             $obj_img->h=365;
-
+//
+//             $obj_img->w=367;
+//
+//             $obj_img->h=365;
+             $path=$this->get_uurl('temp');
+             list($width, $height, $type, $attr) = getimagesize($path.$img);
+             $largestSide=375;//375
+             $smalestSide=250;//250
+             if($width > $height)
+             {//? $largestSide = $width : $largestSide = $height;
+             $obj_img->w=$largestSide;
+             $obj_img->h=$smalestSide;
+              }
+              else if($width < $height){
+               $obj_img->w=$smalestSide;
+               $obj_img->h=$largestSide;
+              }
              $obj_img->create_thumb($img,$this->get_path('temp'));
-
+             
 
 
              $dirs   = array('basic','thumbs');

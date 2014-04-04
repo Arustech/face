@@ -25,7 +25,7 @@ class Image extends Main
    {
       
       $layer = ImageWorkshop::initFromPath($path.$file_name);
-      $layer->cropMaximumInPixel(0, 0, "MM");
+      //$layer->cropMaximumInPixel(0, 0, "MM");
       $layer->resizeInPixel($this->w, $this->h);
       $image = $layer->getResult();
       $layer->save($this->config['upload_path'].$this->dirPath, $file_name, $this->createFolders, $this->backgroundColor, $this->imageQuality);

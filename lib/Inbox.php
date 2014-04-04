@@ -47,7 +47,14 @@ FROM
         public function getAllMsg($msg_send_to,$msg_send_by){
             
             
-             $sql = "SELECT * FROM tbl_msgs WHERE msg_send_by = '$msg_send_by' AND msg_send_to = '$msg_send_to' ORDER BY msg_send_date ASC;";
+//             $sql = "SELECT * FROM tbl_msgs WHERE msg_send_by = '$msg_send_by' AND msg_send_to = '$msg_send_to' ORDER BY msg_send_date ASC;";
+            
+            $sql = "SELECT * 
+                    FROM tbl_msgs 
+   
+                    WHERE msg_send_by = $msg_send_to 
+                    OR (msg_send_to = $msg_send_to AND msg_send_by = $msg_send_by) 
+                    ORDER BY msg_send_date ASC";
       
           $arr = $this->db->ex($sql);
 

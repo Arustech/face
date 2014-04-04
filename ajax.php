@@ -231,6 +231,9 @@ $obj_mbr = $main->load_model('Member');
              $rcvr =$_POST['from'];
    $sender = $obj_mbr->get_full_name($msgs['msg_send_by']);
   $time =$main->get_time_diff($msgs['msg_send_date']);
+  
+  if(($_POST['user_id'])!= $msgs['msg_send_by']  )
+  {
        echo "<li class='left clearfix'><span class='chat-img pull-left'>
                             <img src='img/profile.jpg' alt='User Avatar' c />
                         </span>
@@ -243,23 +246,24 @@ $obj_mbr = $main->load_model('Member');
                                 
                                 <p>$msgs[msg_data]</p>
                             </div>
-                        </li>";}
+                        </li>";
+  }
        ////////////////// sender/////////////////
-        foreach ($get_msg_sender as $get_msg_sender_row){
-            $time2 =$main->get_time_diff($get_msg_sender_row['msg_send_date']);
+    else{                    
+          
        echo  '<li class="right clearfix"><span class="chat-img pull-right">
                             <img src="img/profile.jpg" />
+                            <div class="rcv" id="'.$rcvr.'"></div>
                         </span>
                         <div class="rcv" id=""></div>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>'.$time2.'</small>
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>'.$time.'</small>
                                     <strong class="pull-right primary-font">Me</strong>
                                 </div>
-                                <p>
-                      '.$get_msg_sender_row["msg_data"].'
-                 </p>
+                                <p>'.$msgs['msg_data'].'</p>
             </div> </li>';
+    }
         }
        ////////////////////////////////////////
           

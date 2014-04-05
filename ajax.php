@@ -19,7 +19,7 @@ if (isset($_POST['action'])) {
       $data['comment_on_date']=$main->current_date_time();
       if ($main->load_model('Posts')->post_comment($data)) {
          $tpl='<div class="panel-body"><a href="#"><img alt="" src="'.$img.'"></a>
-               <p class="comment_get"><span>'.$main->load_model('Member')->get_full_name($data['comment_by']).'</span> '.$data['description'].'</p>
+               <p class="comment_get"><span style="display:inline-block">'.$main->load_model('Member')->get_full_name($data['comment_by']).'</span> '.$data['description'].'</p>
                         <p class="links">
                            <a href="" class="red">'.$main->get_time_diff($data['comment_on_date']).'</a>-
                            <a href="">Like</a>-

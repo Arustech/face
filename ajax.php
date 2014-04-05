@@ -157,32 +157,32 @@ if (isset($_POST['action'])) {
        $obj_post->post_photo($_POST);
       
     }
-     if ($_POST['action'] == 'get_msg') {
-       
-       $obj_Inbox = $main->load_model('Inbox');
-       
-
-       $msg = $obj_Inbox->getAllMsg($_POST['user_id'],$_POST['from']);
- //        $msg = $obj_Inbox->getAllMsg($_POST['user_id']);
-
-        foreach ($msg as $msgs){
-  $sender = $obj_Inbox->getUserName($msgs['msg_send_by']);
-
-   $obj_Inbox->Set_read_flag($msgs['msg_id']);
-        "<li class='left clearfix'><span class='chat-img pull-left'>
-                            <img src='img/profile.jpg' alt='User Avatar' c />
-                        </span>
-                            <div class='chat-body clearfix'>
-                                <div class='header'>
-                                    <strong class='primary-font'>$sender</strong> <small class='pull-right text-muted'>
-                                        <span class='glyphicon glyphicon-time'></span>12 mins ago</small>
-                                </div>
-                                <p>$msgs[msg_data]</p>
-                            </div>
-                        </li>";
-        }        
- 
-   }
+//     if ($_POST['action'] == 'get_msg') {
+//       
+//       $obj_Inbox = $main->load_model('Inbox');
+//       
+//
+//       $msg = $obj_Inbox->getAllMsg($_POST['user_id'],$_POST['from']);
+// //        $msg = $obj_Inbox->getAllMsg($_POST['user_id']);
+//
+//        foreach ($msg as $msgs){
+//  $sender = $obj_Inbox->getUserName($msgs['msg_send_by']);
+//
+//   $obj_Inbox->Set_read_flag($msgs['msg_id']);
+//        "<li class='left clearfix'><span class='chat-img pull-left'>
+//                            <img src='img/profile.jpg' alt='User Avatar' c />
+//                        </span>
+//                            <div class='chat-body clearfix'>
+//                                <div class='header'>
+//                                    <strong class='primary-font'>$sender</strong> <small class='pull-right text-muted'>
+//                                        <span class='glyphicon glyphicon-time'></span>12 mins ago</small>
+//                                </div>
+//                                <p>$msgs[msg_data]</p>
+//                            </div>
+//                        </li>";
+//        }        
+// 
+//   }
    
    if($_REQUEST['action']=='del_post')
    {
@@ -231,11 +231,13 @@ $obj_mbr = $main->load_model('Member');
              $rcvr =$_POST['from'];
    $sender = $obj_mbr->get_full_name($msgs['msg_send_by']);
   $time =$main->get_time_diff($msgs['msg_send_date']);
+   $user_own=$main->db->get_row('tbl_user',array('user_id'=>$msgs['msg_send_by']));
+   $user_own_to=$main->db->get_row('tbl_user',array('user_id'=>$_POST['user_id']));
   
   if(($_POST['user_id'])!= $msgs['msg_send_by']  )
   {
        echo "<li class='left clearfix'><span class='chat-img pull-left'>
-                            <img src='img/profile.jpg' alt='User Avatar' c />
+                            <img src='".$main->get_uurl('thumbs_small').$user_own['user_avatar']."' alt='User Avatar' c />
                         </span>
                         <div class='rcv' id='$rcvr'></div>
                             <div class='chat-body clearfix'>
@@ -252,7 +254,7 @@ $obj_mbr = $main->load_model('Member');
     else{                    
           
        echo  '<li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="img/profile.jpg" />
+                            <img src="'.$main->get_uurl('thumbs_small').$user_own_to['user_avatar'].'" />
                             <div class="rcv" id="'.$rcvr.'"></div>
                         </span>
                         <div class="rcv" id=""></div>
@@ -303,10 +305,11 @@ else
   
    if($_POST["msg"]){ 
 $msg = $obj_Inbox->sendMsg($_POST["sender"],$_POST["rcvr_id"], $_POST["msg"]);
+$user_own=$main->db->get_row('tbl_user',array('user_id'=>$_POST["sender"]));
        
 
 echo  '<li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="img/profile.jpg"  />
+                            <img src="'.$main->get_uurl('thumbs_small').$user_own['user_avatar'].'"  />
                         </span>
                         <div class="rcv" id="'.$_POST["rcvr_id"].'"></div>
                             <div class="chat-body clearfix">
@@ -330,6 +333,8 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
        $user_id =  isset($_POST['user_id'])? $_POST['user_id'] : "";
        $from =  isset($_POST['from'])? $_POST['from'] : "";
        $msg = $obj_Inbox->getlatestMsg($user_id,$from);
+      
+      
  //        $msg = $obj_Inbox->getAllMsg($_POST['user_id']);
 $obj_mbr = $main->load_model('Member');
         foreach ($msg as $msgs){
@@ -338,8 +343,9 @@ $obj_mbr = $main->load_model('Member');
   $sender = $obj_mbr->get_full_name($msgs['msg_send_by']);
 
   $time =$main->get_time_diff($msgs['msg_send_date']);
+   $user_own=$main->db->get_row('tbl_user',array('user_id'=>$_POST['from']));
        echo "<li class='left clearfix'><span class='chat-img pull-left'>
-                            <img src='img/profile.jpg' alt='User Avatar' c />
+                            <img src='".$main->get_uurl('thumbs_small').$user_own['user_avatar']."' alt='User Avatar' c />
                         </span>
                         <div class='rcv' id='rcvr'></div>
                             <div class='chat-body clearfix'>

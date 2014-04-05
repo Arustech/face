@@ -200,7 +200,10 @@ $obj_Inbox = $main->load_model('Inbox');
 $obj_mbr = $main->load_model('Member');
 
  $msg = $obj_Inbox->getAllmsgList($user['user_id']);
+ 
+ //var_dump($main->get_uurl('thumbs_small')$user_avatar);
 
+ //'.$this->get_uurl('thumbs_small')$user_avatar
  ?>
 
 
@@ -229,9 +232,11 @@ $obj_mbr = $main->load_model('Member');
            $time =$main->get_time_diff($msgs['msg_send_date']);
            $username = $obj_mbr->get_full_name($msgs['msg_send_by']);
            $name = $main->truncate($username,'12', $ellipsis = true);
+           $user_own=$main->db->get_row('tbl_user',array('user_id'=>$msgs['msg_send_by'])); 
             ?>
             <li class="act" data-id="<?=$user['user_id']?>" from="<?=$msgs['msg_send_by']?>">
-                <img src="img/profile.jpg">
+                <!--<img src="img/profile.jpg">-->
+                <img src="<?=$main->get_uurl('thumbs').$user_own['user_avatar'] ?>">
                 <p><a href="" title="<?=$username?>"><?=$name?> </a></p>
                 <span><?=$time?></span>
                 <p><?=$have_msg?></p>
@@ -419,7 +424,7 @@ $obj_mbr = $main->load_model('Member');
 
 
 $('.panel-body').scrollTop($('.panel-body').height())
-
+//$(".panel-body").animate({ scrollTop: $(document).height() }, 1000);
  
 //$('.panel-body').scrollTop($('.panel-body').height())
 //$(".panel-body").animate({ scrollTop: 0 }, "slow");

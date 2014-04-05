@@ -16,6 +16,12 @@ $member = $main->load_model("Member");
    .firend_wrapper{
 
       min-height: 200px;
+      width: 70%;
+      float: left;
+   }
+      .firend_wrapper2{
+
+      min-height: 200px;
       width: 100%;
       float: left;
    }
@@ -233,14 +239,68 @@ $('.make_btn_home:hover').css("color", "#0897B9");
 
 
 <div class="firend_wrapper">
-   
-</div><!-- firend_wrapper -->
+    
+    
 
-<!--<div class="search_wrapper">
+</div><!-- firend_wrapper -->
+<!-------------------------------------------->
+
+
+<div class="search_wrapper">
    <div class="sff">
-      Advertise Here
+    People you might know
    </div>
-   <div class="search_friends thumbnail">
+    
+     
+    
+ <?php $friend_list =($member->get_frnds_sugg($_SESSION['kfc_user_id']));
+         
+ foreach ($friend_list as $frd){
+     
+    $asd = $member->get_users_data($frd['user_friend_id']);
+     //var_dump($asd);
+     
+     
+
+         
+         
+         
+         
+         
+         ?>
+          <div class="frd_request">
+         <div class="thumbnail_img"><img src="<?=$main->config['thumb_path'].$asd['user_avatar']?>" width="75px" height="75px"></img> </div>
+         <div class="biodate"> <a href="<?=$main->config['web_path'].$asd['user_name'] ?>"><?=ucfirst($asd['first_name'].' '.$asd['last_name'])?></a>
+                              
+            
+                                <?php 
+                                $place ='';
+                                $city = $asd['city'];
+                                $country = $asd['country_name'];
+                                
+                                if($city =='' ||$country =='')
+                                $place = $city.$country; 
+                                
+                                if ($city!='' && $country !='')
+                                $place = $city.' , '.$country;   
+                                   
+                                
+                                ?>
+             
+             <p><span value  class="glyphicon glyphicon-envelope"><a href="new_message.php?send_to=<?=$asd['user_id']?>"><span class="message_private">Private Message</span></a></p>
+             
+                                <p><span class="glyphicon glyphicon-home"></span> <?=$place?></p>
+                                <?php if($asd['company_name']):?>
+                                <p> Works at <?=  ucfirst($asd['company_name'])?></p>
+                                <?php endif;?>
+         
+         
+         
+         </div>
+ 
+         </div><?php  } ?> 
+   <!---------------------------------------------> 
+<!--   <div class="search_friends thumbnail">
       <div style="margin-top: 10px;" ></div>
       <div class="center-block ">
          <img width="250" src="img/ADVERTISE_HERE.jpg">
@@ -254,9 +314,9 @@ $('.make_btn_home:hover').css("color", "#0897B9");
          <img  width="250" src="img/advertise-here.gif">
       </div>
 
-      </div>
+      </div>-->
 
-   </div>  search_friends -->
+   </div> <!-- search_friends -->
 
 
 </div><!--search_wrapper --> 

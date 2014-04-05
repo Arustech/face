@@ -699,6 +699,34 @@ WHERE user_id=$user_id";
           $this->alert('warning', 'Your Email is incorrect');
       }
    }
+   
+            public function get_frnds_sugg($user_id) {
+
+               
+      $sql="SELECT `user_friend_id` FROM `tbl_friend` WHERE `user_id` = $user_id ";
+      $friend = $this->db->ex($sql);
+      
+    if ($friend) {
+
+   
+         foreach ($friend as $friend_of_friends) {
+            // var_dump($friend_of_friends['user_friend_id']);exit;
+                $sql2="SELECT `user_friend_id` FROM `tbl_friend` WHERE `user_id` = ".$friend_of_friends['user_friend_id']." ";
+                return $friends = $this->db->ex($sql2);
+              
+            }
+         }
+
+     else {
+        return  False;
+      }
+      
+      
+      
+      
+      
+      
+   }
  
    
    /* end of class */}

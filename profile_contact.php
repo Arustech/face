@@ -14,7 +14,7 @@ $contact = $contact_->get_contact($user['user_id']);
     <form action="profile" method="POST" name="frm_contact" id="frm_contact">
        
        
-        <div class="form-group">
+<!--        <div class="form-group">
                <p for="" class="col-lg-4 control-label">Phone:</p>
                <div class="col-lg-8"><input id="" name="land_line" type="text"  value="<?=$contact['land_line']?>" class=" form-control required"></div>
                <div class="clear"></div>
@@ -32,7 +32,7 @@ $contact = $contact_->get_contact($user['user_id']);
            <p for="address" class="col-lg-4 control-label">Address</p>
                  <div class="col-lg-8"><input id="address" name="address" value="<?=$contact['address']?>" type="text"  class="form-control required"></div>
             <div class="clear"></div>
-        </div>
+        </div>-->
         
         <div class="form-group">
            <p for="city" class="col-lg-4 control-label">City:</p>

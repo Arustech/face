@@ -467,6 +467,20 @@ $('.panel-body').scrollTop($('.panel-body').height())
 
  $(document).ready(function() {
      
+     
+        $('#btn-input').click(function(){
+            
+            var sender_id = $(".rcv").attr('id');
+            console.log(sender_id);
+            if(sender_id){
+             var postData = {action: 'remove_message_badge', user_id: sender_id};
+                                CallAjaxPW('', postData, 'ajax.php', function callBack(data) {
+                                  
+                                });
+                            }
+        });
+     
+     
           var CallAjax = function(){
 
 //                                var li = $(this);

@@ -605,6 +605,9 @@ var Trigger = function(){
                                         }
                                           
                                       }
+                                     else if(parsed_data[0].messages==0){
+                                           $('#msg1').hide();
+                                        }
                                        if(parsed_data[0].friend_requests>0){
                                           
                                           if($('#friend_requests').css('display')=='none'){

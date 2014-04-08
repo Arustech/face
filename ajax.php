@@ -460,6 +460,13 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
                
     }
     
-    
+    if($_REQUEST['action']=='remove_message_badge')
+    {
+        $noti_by_user_id    = $_REQUEST['user_id'];
+        
+        $trigger_obj=$main->load_model('Trigger');
+        $trigger_obj->remove_single_message_log($noti_by_user_id);
+               
+    }
    
 }

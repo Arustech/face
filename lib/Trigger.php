@@ -62,6 +62,16 @@ class Trigger extends Main{
         $data4['log_type']="message";
         $this->db->delete('tbl_log',$data4);
     }
+     function remove_single_message_log($noti_by_user_id)
+    {
+        session_start();
+        $noti_to_user_id=$_SESSION['kfc_user_id']; 
+        $data6="";
+        $data6['noti_by_user_id']=$noti_by_user_id;
+        $data6['noti_to_user_id']=$noti_to_user_id;
+        $data6['log_type']="message";
+        $this->db->delete('tbl_log',$data6);
+    }
      
     
 }// end of class

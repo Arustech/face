@@ -313,7 +313,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                               </li>
 
  <li class="top_ico">
-     <a href="#" class="button popover-messages " data-remotecontent="popover.php?type=messages" id="msg_a"  data-toggle="/popover" title="<a style='color:#333333' href='message.php'>New Messages</a>"  >
+     <a href="#" class="button popover-messages " data-remotecontent="popover.php?type=messages" id="msg_a"  data-toggle="popover" title="<a style='color:#333333' href='message.php'>New Messages</a>"  >
                                     <span style="font-size: 17px" class="glyphicon glyphicon-comment"></span>
                                    
                                    

@@ -115,7 +115,7 @@ if (isset($_POST['submit'])){
     <label for="rating-input-1-1" class="rating-star"></label>
 </span>
 <br><br>
-<p class="text">Your Feedback</p>
+<p class="text">Your Feedback and Suggestions</p>
 <textarea name="feedback_text" rows="5" cols="46"></textarea> 
 <br><br>
 

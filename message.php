@@ -229,7 +229,9 @@ $obj_mbr = $main->load_model('Member');
              <?php foreach ($msg as $msgs)
              { 
            $have_msg = $main->truncate($msgs['msg_data'], '15', false);
-           $time =$main->get_time_diff($msgs['msg_send_date']);
+           $time2 =$main->get_time_diff($msgs['msg_send_date']);
+           $time =$main->truncate($time2, '13', false);
+           
            $username = $obj_mbr->get_full_name($msgs['msg_send_by']);
            $name = $main->truncate($username,'12', $ellipsis = true);
            $user_own=$main->db->get_row('tbl_user',array('user_id'=>$msgs['msg_send_by'])); 

@@ -320,10 +320,11 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                                     
                                                                        <?php
                                     
-                                      $msg_counts = $member->get_count_message($user['user_id']);
-                                    if ($msg_counts) {
-                                        $hide="";}
-                                        else{$hide="style='display:none'";}
+//                                      $msg_counts = $member->get_count_message($user['user_id']);
+//                                    if ($msg_counts) {
+//                                        $hide="";}
+//                                        else{$hide="style='display:none'";}
+                                         $hide="style='display:none'";
                                        ?>
                                 <span class="badgee" id="msg1" <?=$hide?> style="right:11px"><?=$msg_counts?></span></a>
 <!--                                       <span class="badgee" style="right:11px"><?=$msg_counts?></span></a>-->

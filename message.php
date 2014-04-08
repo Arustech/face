@@ -289,7 +289,7 @@ $obj_mbr = $main->load_model('Member');
                         </ul>-->
                     </div>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" id="live_chat">
                     <ul class="chat">
  <p id="msg"></p>
 <!--                       <li class="right clearfix"><span class="chat-img pull-right">
@@ -405,7 +405,8 @@ $obj_mbr = $main->load_model('Member');
                                    {
                                      
                                        $('#msg').html(data);
-                                  
+//                                       var elem = document.getElementById('live_chat');
+//                                            elem.scrollTop = elem.scrollHeight;
 
                                    }
                                    else
@@ -425,7 +426,7 @@ $obj_mbr = $main->load_model('Member');
   
 
 
-$('.panel-body').scrollTop($('.panel-body').height())
+//$('.panel-body').scrollTop($('.panel-body').height())
 //$(".panel-body").animate({ scrollTop: $(document).height() }, 1000);
  
 //$('.panel-body').scrollTop($('.panel-body').height())

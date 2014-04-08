@@ -42,7 +42,7 @@
 
         <li><a href="">Why Knownfaces</a></li>
 
-        <li><a href="">Knownfaces network</a></li>
+<!--        <li><a href="">Knownfaces network</a></li>-->
 
         <li><a href="">Trading Activity</a></li>
 
@@ -52,11 +52,15 @@
 
         <li><a href="">Find Help</a></li>
 
+        <li><a href="feedback.php">Feedback</a></li>
+        
         <li><a href="">Members</a></li>
 
         <li><a href="">Blog</a></li>
 
         <li><a href="">Contact Us</a></li>
+        
+        
 
       </ul>
 

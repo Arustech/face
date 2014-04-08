@@ -224,15 +224,15 @@ if (isset($_POST['action'])) {
        $msg = $obj_Inbox->getAllMsg($_POST['user_id'],$_POST['from']);
        $get_msg_sender = $obj_Inbox->getAllMsg($_POST['from'],$_POST['user_id']);
     
-$obj_mbr = $main->load_model('Member');
+       $obj_mbr = $main->load_model('Member');
 
         foreach ($msg as $msgs){
             $obj_Inbox->Set_read_flag($msgs['msg_id']);
              $rcvr =$_POST['from'];
-   $sender = $obj_mbr->get_full_name($msgs['msg_send_by']);
-  $time =$main->get_time_diff($msgs['msg_send_date']);
-   $user_own=$main->db->get_row('tbl_user',array('user_id'=>$msgs['msg_send_by']));
-   $user_own_to=$main->db->get_row('tbl_user',array('user_id'=>$_POST['user_id']));
+        $sender = $obj_mbr->get_full_name($msgs['msg_send_by']);
+        $time =$main->get_time_diff($msgs['msg_send_date']);
+        $user_own=$main->db->get_row('tbl_user',array('user_id'=>$msgs['msg_send_by']));
+        $user_own_to=$main->db->get_row('tbl_user',array('user_id'=>$_POST['user_id']));
   
   if(($_POST['user_id'])!= $msgs['msg_send_by']  )
   {
@@ -442,7 +442,22 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
     if($_REQUEST['action']=='noti_count')
     {
         $user_id    = $_REQUEST['user_id'];
-        $res        = $main->db->update('tbl_noti_user',array('noti_flag'=>'1'),array('noti_user_to'=>$user_id));        
+        
+
+        $trigger_obj=$main->load_model('Trigger');
+        $trigger_obj->remove_noti($user_id);
+        $res        = $main->db->update('tbl_noti_user',array('noti_flag'=>'1'),array('noti_user_to'=>$user_id));  
+        
+    }
+    
+    
+    if($_REQUEST['action']=='msg_count')
+    {
+        $user_id    = $_REQUEST['user_id'];
+       
+        $trigger_obj=$main->load_model('Trigger');
+        $trigger_obj->remove_message_log($user_id);
+               
     }
     
     

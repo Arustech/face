@@ -125,12 +125,10 @@ class Posts Extends Main {
 
 
     public function post_comment($data){
-
+       // $this->db->insert('tbl_log',array());
        return $this->db->insert('tbl_post_comment',$data);
 
-       
-
-    }
+      }
 
     
 
@@ -553,7 +551,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
    public function get_post_photo($data, $user_id) {
       $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 
-
+      //var_dump($data);exit;
       extract($data);
 
       $photo = $this->db->get_one('tbl_photo',array('photo_id'=>$post_data),'photo_src');
@@ -795,7 +793,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
       $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 		
 
       extract($data);
-
+               
       $html = '';
 
       $html.=$this->get_pre_post($data);
@@ -1409,6 +1407,7 @@ public function getPostById($post_id,$user_id) {
                 tbl_post.*,
 
                 tbl_user.user_avatar,
+                tbl_user.user_name,
 
                 `tbl_profile_basic`.`first_name`,
 

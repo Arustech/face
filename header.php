@@ -299,44 +299,51 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                         <ul>
 
                            <li class="top_ico">
-                              <a href="#" class="button popover-request" data-toggle="popover" title="Friend Requests"  >
+                               <a href="#" class="button popover-request" data-remotecontent="popover.php?type=friends" id="friends_a" data-toggle="popover" title="Friend Requests"  >
                                  <span style="font-size: 15px ; right: -12px ;position: relative" class="glyphicon glyphicon-user"></span>
                                     <span style="font-size: 17px" class="glyphicon glyphicon-user"></span>
                                     <?php
                                     $friend_counts = $member->get_count_requests($user['user_id']);
-                                    if ($friend_counts) :
+                                    if ($friend_counts){
+                                      $hide2="";}
+                                        else{$hide2="style='display:none'";}
                                        ?>
-                                       <span class="badgee" style="right:11px"><?= $friend_counts ?></span></a>
-                                 <?php endif ?>
+                                    <span id="friend_requests" class="badgee"  <?=$hide2?>  style="right:11px"><?= $friend_counts ?></span></a>
+                                 
                               </li>
 
  <li class="top_ico">
-                                  <a href="#" class="button popover-messages" data-toggle="popover" title="<a style='color:#333333' href='message.php'>New Messages</a>"  >
+     <a href="#" class="button popover-messages " data-remotecontent="popover.php?type=messages" id="msg_a"  data-toggle="/popover" title="<a style='color:#333333' href='message.php'>New Messages</a>"  >
                                     <span style="font-size: 17px" class="glyphicon glyphicon-comment"></span>
+                                   
+                                   
                                     
                                                                        <?php
                                     
                                       $msg_counts = $member->get_count_message($user['user_id']);
-                                    if ($msg_counts) :
+                                    if ($msg_counts) {
+                                        $hide="";}
+                                        else{$hide="style='display:none'";}
                                        ?>
-                                       <span class="badgee" style="right:11px"><?= $msg_counts ?></span></a>
-                                 <?php endif ?>
+                                <span class="badgee" id="msg1" <?=$hide?> style="right:11px"><?=$msg_counts?></span></a>
+<!--                                       <span class="badgee" style="right:11px"><?=$msg_counts?></span></a>-->
+                                
                               </li>
                               
                               <li class="top_ico">
-                                 <a href="#" class="button popover-noti noti_count" data-toggle="popover" title="Notifications"  >
+                                 <a href="#" class="button popover-noti noti_count" data-remotecontent="popover.php?type=noti" data-toggle="popover" title="Notifications"  >
                                   <span style="font-size: 17px" class="glyphicon glyphicon-globe">
                               <?php 
                                             
                                             $noti_count = $obj_noti->getUserNotiCount();
                                     if($noti_count > 0)
                                     {
-                                         ?>
-                                  </span> <span class="badgee"><?=$noti_count;?></span></a>
-                                  <?php
+                                        $hide1="";
                                     }
-                                            
-                                    ?>
+                                     else{$hide1="style='display:none'";}  
+                                         ?>
+                                  </span> <span class="badgee" id="noti" <?=$hide1?>><?=$noti_count;?></span></a>
+                                
                                    
                               </li>
 
@@ -417,18 +424,35 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                              data: {action:'noti_count',user_id:<?=$user['user_id']?>},
                              success: function(data)
                              {
-
+                                    $("#noti").hide();
+                             }
+                          });
+             });
+             
+             ///////////////////// removing msgs badge ///////////////////////
+              $("#msg_a").click(function(){
+                  $.ajax(
+                          {
+                             async: false,
+                             url: 'ajax.php',
+                             type: "POST",
+                             data: {action:'msg_count',user_id:<?=$user['user_id']?>},
+                             success: function(data)
+                             {
+                                    $("#msg1").hide();
                              }
                           });
              });
              
              
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~///////////////////
             $(".popover-request").popover({
                placement: 'bottom',
                //title : '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
                html: 'true',
-               content: "<?= $member->get_data_requests($user['user_id']) ?>"
+               content: get_popover_content,
+               trigger: 'click'
             });
 
 
@@ -437,20 +461,51 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             $(".popover-messages").popover({
                placement: 'bottom',
                html: 'true',
-               content: "<?=$member->get_data_messages($user['user_id'])?>"
-
+               content:get_popover_content,
+               trigger: 'click'
+               
             });
-
-
+            
+           
 
             $(".popover-noti").popover({
                placement: 'bottom',
                html: 'true',
-               content: "<?=$obj_noti->getUserNoti()?>"
+               content: get_popover_content,
+               trigger: 'click'
 
             });
-
-
+            
+            function get_popover_content() {
+                if ($(this).attr('data-remotecontent')) {
+                    // using remote content, url in $(this).attr('data-remotecontent')
+                    //$(this).addClass("loading");
+                    var content = $.ajax({
+                        url: $(this).attr('data-remotecontent'),
+                        type: "GET",
+                        data: $(this).serialize(),
+                        dataType: "html",
+                        async: false,
+                        success: function() {
+                            // just get the response
+                        },
+                        error: function() {
+                            // nothing
+                        }
+                    }).responseText;
+                    var container = $(this).attr('data-rel');
+                   // $(this).removeClass("loading");
+                    if (typeof container !== 'undefined') {
+                        // show a specific element such as "#mydetails"
+                        return $(content).find(container);
+                    }
+                    // show the whole page
+                    return content;
+                }
+                // show standard popover content
+                return $(this).attr('data-content');
+            }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~///////////////////
             $(document).on('click','.btn_accept_top',function(){
                   
                     $(this).replaceWith('<select class="add_to_type" name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
@@ -528,7 +583,63 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
             });
 
 
+////////////////////////////////////////////////trigger/////////////////////////
 
+var Trigger = function(){
+    var jsondata={action:"trigger"};
+  CallAjaxPW('', jsondata, 'ajax_trigger.php', function callBack(data) {
+                              var parsed_data=  jQuery.parseJSON(data);
+                              
+                                if (parsed_data)
+                                   {
+                                     
+                                      if(parsed_data[0].messages>0){
+                                          
+                                          if($('#msg1').css('display')=='none'){
+                                            $('#msg1').show();
+                                            $('#msg1').text(parsed_data[0].messages);
+                                        }
+                                        else{
+                                           $('#msg1').text(parsed_data[0].messages); 
+                                        }
+                                          
+                                      }
+                                       if(parsed_data[0].friend_requests>0){
+                                          
+                                          if($('#friend_requests').css('display')=='none'){
+                                            $('#friend_requests').show();
+                                            $('#friend_requests').text(parsed_data[0].friend_requests);
+                                        }
+                                        else{
+                                           $('#friend_requests').text(parsed_data[0].friend_requests); 
+                                        }
+                                          
+                                      }
+                                      if(parsed_data[0].notifications>0){
+                                          
+                                          if($('#noti').css('display')=='none'){
+                                            $('#noti').show();
+                                            $('#noti').text(parsed_data[0].notifications);
+                                        }
+                                        else{
+                                           $('#noti').text(parsed_data[0].notifications); 
+                                        }
+                                          
+                                      }
+                                    
+                               }
+                                else
+                                   {
+                                   }
+                              });
+                          };
+                           
+/////////////////////////////Calling Trigger////////////////////////////////////
+                        
+setInterval(Trigger,5000);
+                            
+ 
+////////////////////////////////////////////////////////////////////////////////
 
 
 

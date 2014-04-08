@@ -88,8 +88,11 @@ FROM
 
             
              $sql = "INSERT INTO `tbl_msgs` (msg_send_by,msg_send_to,msg_data,msg_send_date)VALUES ('$sdr','$res','$msg',NOW());";
-             
-          $arr = $this->db->ex($sql);
+             /// Creating Log ////
+             $trigger_obj=$this->load_model('Trigger');
+             $trigger_obj->message_log($sdr,$res);
+             //~~~~~~~~~~~~~~/////
+             $arr = $this->db->ex($sql);
 
             if($arr)
                 

@@ -97,11 +97,17 @@ class Notification Extends Member {
                 $friends = $this->db->get_rows('tbl_friend', array('user_id' => $data['noti_from_user']));
                 if(!empty($friends))
                 {
+
                 foreach($friends as $friend)
                 {
-
+                    
                     $noti['noti_user_to']    = $friend['user_friend_id'];
-                    $this->db->insert('tbl_noti_user',$noti);                   
+                  
+                    $this->db->insert('tbl_noti_user',$noti);  
+                   // creating Log //// 
+                    $trigger_obj=$this->load_model('Trigger');
+                    $trigger_obj->notification_log($data['noti_from_user'],$friend['user_friend_id']);
+                    
                  }
                  return true;       
                 }
@@ -154,7 +160,7 @@ class Notification Extends Member {
                 }
                 if($row['noti_type']=='post' ){
                     $html.="<li><a href='".$this->config['web_path']."single_post.php?mod=sp&p_id=".$row['noti_data']."&nid=".$row['noti_user_id']."'>";
-                    $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$user_data['user_avatar']."' width='50px' height='50px'></span>";
+                    $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
                     $html.="<span class='message noti_message'>".$row['noti_title']."</span><BR><span class='time time_noti'>".$row['noti_date']."</span></a></li>";
                         
                 }

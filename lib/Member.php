@@ -366,7 +366,8 @@ WHERE (tbl_user.user_name LIKE '%$search%'
    }
 
    public function send_friend_request($user_id, $friend_id) {
-
+      $trigger_obj=$this->load_model('Trigger');
+      $trigger_obj->friend_request($user_id,$friend_id);
       $data['request_by'] = $user_id;
       $data['request_to'] = $friend_id;
       return $this->db->insert('tbl_friend_request', $data);
@@ -474,7 +475,8 @@ WHERE (tbl_user.user_name LIKE '%$search%'
                $noti['noti_from_user']   = $data['user_friend_id'];
                $noti['noti_date']   = $this->current_date_time();
                $noti_obj->getAddNoti($noti);
-                           
+               $trigger_obj=$this->load_model('Trigger');
+               $trigger_obj->notification_log($self_id,$friend_id);            
                /* End of noti area..........*/
                
                
@@ -483,9 +485,13 @@ WHERE (tbl_user.user_name LIKE '%$search%'
                return true;
             } else {
               
-               
-               $this->alert('success', "Friend added with success.");
-               
+                
+                $this->alert('success', "Friend added with success.");
+//                $trigger_obj=$this->load_model('Trigger');
+//                $trigger_obj->friend_request_accepted($self_id,$friend_id);
+                //$this->db->delete('tbl_log',array('noti_to_user_id'=>$self_id,'noti_by_user_id'=>$friend_id,'log_type'=>'friend_request_sent')); 
+                $trigger_obj=$this->load_model('Trigger');
+                $trigger_obj->remove_friend_request_log($self_id,$friend_id);
             }
          } else {
             return false;
@@ -495,7 +501,10 @@ WHERE (tbl_user.user_name LIKE '%$search%'
 
    public function reject_friends($self_id, $friend_id) {
       if ($this->remove_request($self_id, $friend_id)) {
-         $this->alert('warning', 'Friend request declined');
+         // $this->db->delete('tbl_log',array('noti_to_user_id'=>$self_id,'noti_by_user_id'=>$friend_id,'log_type'=>'friend_request_sent')); 
+          $trigger_obj=$this->load_model('Trigger');
+          $trigger_obj->remove_friend_request_log($self_id,$friend_id);
+          $this->alert('warning', 'Friend request declined');
       }
    }
 

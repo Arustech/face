@@ -619,6 +619,9 @@ var Trigger = function(){
                                         }
                                           
                                       }
+									    else if(parsed_data[0].friend_requests==0){
+                                           $('#friend_requests').hide();
+                                        }
                                       if(parsed_data[0].notifications>0){
                                           
                                           if($('#noti').css('display')=='none'){

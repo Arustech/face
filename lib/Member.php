@@ -954,7 +954,7 @@ WHERE (tbl_user.user_name LIKE '%$search%'
                $trigger_obj=$this->load_model('Trigger');
 
                $trigger_obj->notification_log($self_id,$friend_id);            
-
+               $trigger_obj->remove_friend_request_log($self_id,$friend_id);
                /* End of noti area..........*/
 
                
@@ -981,9 +981,9 @@ WHERE (tbl_user.user_name LIKE '%$search%'
 
                 //$this->db->delete('tbl_log',array('noti_to_user_id'=>$self_id,'noti_by_user_id'=>$friend_id,'log_type'=>'friend_request_sent')); 
 
-                $trigger_obj=$this->load_model('Trigger');
+              //  $trigger_obj=$this->load_model('Trigger');
 
-                $trigger_obj->remove_friend_request_log($self_id,$friend_id);
+               
 
             }
 

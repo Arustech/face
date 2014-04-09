@@ -160,10 +160,10 @@ class AdminProj extends Admin
                   {
                       if($key=='tbl_video')
                       {
-                          $obj_post->delUserVid($user_id);
+                          $obj_post->delUserVid(0,$user_id);
                       }elseif($key=='tbl_album')
                       {
-                          $albums   = $this->db->get_rows($key,array($dont=>'user_id'));
+                          $albums   = $this->db->get_rows($key,array($dont=>$user_id));
                           foreach($albums as $album)
                           {
                                $obj_album = $this->load_model('Album');
@@ -176,7 +176,7 @@ class AdminProj extends Admin
                           {
                                $this->db->delete('tbl_noti_user',array('noti_id'=>$noti['noti_id'])); 
                           }
-                          
+                          $this->db->delete($key,array($dont=>$user_id)); 
                       }else
                       {
                           $this->db->delete($key,array($dont=>$user_id));

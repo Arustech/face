@@ -1470,12 +1470,12 @@ public function getPostById($post_id,$user_id) {
 
    
 
-  public function delUserVid($video_id,$user_id=false,$ajax=false)
+  public function delUserVid($video_id=false,$user_id=false,$ajax=false)
   {
        $condition=array();
          if($user_id){      
             $condition['user_id']=$user_id;
-         }else
+         }elseif($video_id)
          {
             $condition['video_id']=$video_id;
          }

@@ -1470,7 +1470,35 @@ public function getPostById($post_id,$user_id) {
 
    
 
+  public function delUserVid($video_id,$user_id=false,$ajax=false)
+  {
+       $condition=array();
+         if($user_id){      
+            $condition['user_id']=$user_id;
+         }else
+         {
+            $condition['video_id']=$video_id;
+         }
+        $video_path=$this->get_path("videos");
         
+        $rows=$this->db->get_rows('tbl_video',$condition );
+        foreach($rows as $row){
+            unlink($video_path.$row['video_src']);
+            $post_id=$this->db->get_row('tbl_post',array('post_data'=>$row['video_id'],'post_type'=>'video') );
+            if($post_id['post_id']!="")
+            $this->getPostDel($post_id['post_id']);
+        }
+        $this->db->delete('tbl_video',$condition );
+             unset($condition);
+           if($ajax)
+           {
+             return 'true';
+           }else
+           {
+               return true;
+           }
+      
+  }
 
         
 

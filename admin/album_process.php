@@ -1,4 +1,4 @@
-<?
+<?php
 $obj_extra	= $main->load_model('Extra'); // include class to process...
 
 #............................................................
@@ -73,6 +73,7 @@ $user_id	= $_GET['user_id'];
 	
 	if(isset($_POST['submit']))
 	{
+
 		if($obj_extra->addExtraData('album',$_POST))
 						{
 							$msg.=$admin->showAlert('success','Album Successfully Added!');

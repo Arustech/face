@@ -135,6 +135,13 @@ $table_heading	= "Members List";
 		$msg	=$obj_member->delMember($user_type,$id);
 		
 	}
+        
+	if(isset($_GET['mod']) && $_GET['mod']=='del_user')
+	{
+		$user_id	=$_GET['user_id'];
+		$msg	=$adminProj->getDelUser($user_id);
+		
+	}
 	
 	
 	

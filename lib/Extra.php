@@ -90,7 +90,6 @@ class Extra Extends Main {
       $fields = $this->unsetA($data, $unset);
 
       $control = $this->db->update($tbl, $fields, $cond);
-
       #insertion process starts from Here....
       if ($control) {
          $result = true;

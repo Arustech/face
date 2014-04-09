@@ -153,6 +153,9 @@ include("member_process.php");
                                            <a href="cms_letter.php?mod=letter&user_id=<?= $user['user_id'] ?>" class="btn btn-xs bs-tooltip" title="Send newsletter">
                                              <i class="icon-fixed-width">&#xf003;</i> 
                                           </a>
+										  <a href="member.php?mod=del_user&user_id=<?= $user['user_id'] ?>" class="btn btn-xs bs-tooltip" title="Delete user permanatly">
+                                             <i class="icon-fixed-width">&#xf00d;</i> 
+                                          </a>
                                           
 
                                           <!-- 

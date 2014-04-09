@@ -118,7 +118,77 @@ class AdminProj extends Admin
              }
 
 
-
+        public function getDelUser($user_id)
+        {
+            $danger = array('tbl_profile_basic'=>'user_id','tbl_profile_contact'=>'user_id','tbl_profile_education'=>'user_id','tbl_profile_personal'=>'user_id','tbl_profile_work'=>'user_id');
+            $danger['tbl_user_hobbies'] = 'user_id'; 
+            $danger['tbl_noti'] = 'noti_from_user'; 
+            $danger['tbl_noti_user'] = 'noti_user_to'; 
+            $danger['tbl_remember'] = 'user_id'; 
+            $danger['tbl_report'] = 'report_submit_by'; 
+            $danger['tbl_msgs'] = array('msg_send_by','msg_send_to'); 
+            $danger['tbl_friend_request'] = array('request_by','request_to');
+            $danger['tbl_friend'] = array('user_id','user_friend_id');
+            $danger['tbl_album'] = 'user_id';
+            $danger['tbl_post'] = array('posted_by_user_id','posted_on_user_id');
+            $danger['tbl_video'] = 'user_id';
+            $danger['tbl_user'] = 'user_id';
+            
+            $obj_post = $this->load_model('Posts');
+            foreach($danger as $key=>$dont)
+            {
+                
+                  if(is_array($dont) && $key!='tbl_post')
+                  {
+                    foreach($dont as $do)
+                    {
+                         $this->db->delete($key,array($do=>$user_id));   
+                    }
+                  }elseif($key=='tbl_post')
+                  {
+                      foreach($dont as $do)
+                      {
+                          $posts    = $this->db->get_rows($key,array($do=>$user_id,'post_type'=>'msg'));                         
+                          foreach($posts as $post)
+                          {
+                              $this->getPostDel($post['post_id']);
+                          }
+                          
+                      }
+                      
+                  }else
+                  {
+                      if($key=='tbl_video')
+                      {
+                          $obj_post->delUserVid($user_id);
+                      }elseif($key=='tbl_album')
+                      {
+                          $albums   = $this->db->get_rows($key,array($dont=>'user_id'));
+                          foreach($albums as $album)
+                          {
+                               $obj_album = $this->load_model('Album');
+                               $obj_album->remove_album($album['album_id']);
+                          }
+                      }elseif($key=='tbl_noti')
+                      {
+                          $notiz    = $this->db->get_rows($key,array($dont=>$user_id));                         
+                          foreach($notiz as $noti)
+                          {
+                               $this->db->delete('tbl_noti_user',array('noti_id'=>$noti['noti_id'])); 
+                          }
+                          
+                      }else
+                      {
+                          $this->db->delete($key,array($dont=>$user_id));
+                      }
+                     
+                  }   
+               
+            }
+            return true;         
+            
+        }
+        
 
 
 

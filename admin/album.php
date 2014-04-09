@@ -51,31 +51,16 @@ include("album_process.php");
                                         <div class="col-md-10 input-width-large">
                                             <input type="text" name="album_name" value="<?=$album_name;?>"id="spinner-default" class="form-control required">
                                         </div>
-									</div>
-									
-									<div class="form-group">
-                                        <label class="col-md-2 control-label">Album Location:<span class="required">*</span></label>
-                                        <div class="col-md-10 input-width-large">
-                                            <input type="text" name="album_loc" value="<?=$album_loc;?>"id="spinner-default" class="form-control required">
-                                        </div>
-									</div>
-									
-									<div class="form-group">
-									<label class="col-md-2 control-label">Album Description : <span class="required">*</span></label>
-
-									<div class="col-md-10">
-									<textarea class="auto form-control " name="description" cols="5" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 87px;"><?=$description?></textarea>
-									</div>	
-
- 																			
-										<input type="hidden" name="user_id" value="<?=$user_id?>" />
+                                        <input type="hidden" name="user_id" value="<?=$user_id?>" />
 										<input type="hidden" name="album_id" value="<?=$album_id?>" />
 										<div class="col-md-4" style="float:right;margin-top:5px;">
 										
 										<input type="submit" value="<?=$btn_name?>" name="<?=$btn_name?>" class="btn btn-sm btn-primary"/> 
 										</div>
 									</div>
-																						
+	
+ 																			
+																				
                                  </form>
                             </div>
                         </div>
@@ -102,12 +87,11 @@ include("album_process.php");
                                         <tr>
 											
 											<th> Title</th>
-											<th> Location</th>
 											<th width="100px">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      <? 
+                                      <?php 
 									  if($rows!=""){
 									foreach($rows as $row)
 										{
@@ -117,8 +101,7 @@ include("album_process.php");
                                         <tr>
 
                                             <td><?=$row['album_name']?></td>
-                                            <td><?=$row['album_loc']?></td>
-                                            
+                                                                       
                                            <td class="align-center"> 
 										   <span class="btn-group">
 										   

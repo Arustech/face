@@ -533,7 +533,6 @@ class Member Extends Main {
    public function getUsers($sql = false, $id = false, $tbl = 'tbl_user') {
 
       $cond = "";
-
       if ($id)
 
          $cond = array("user_id" => $id);
@@ -545,7 +544,7 @@ class Member Extends Main {
       else
 
          $res = $this->db->get_rows($tbl, $cond);
-
+    
       return $res;
 
    }

@@ -34,19 +34,19 @@ class Posts Extends Main {
 
            //// adding notification '
 
-                    $this->load_model('member');
+                   $this->load_model('member');
 
-                    $noti_obj    = $this->load_model('Notification');
+                   $noti_obj    = $this->load_model('Notification');
 
-                    $noti['noti_type']          = 'post';
+                   $noti['noti_type']          = 'post';
 
-                    $noti['noti_data']          = $this->db->last_id;
+                   $noti['noti_data']          = $this->db->last_id;
 
-                    $noti['noti_from_user']     = $post['posted_by_user_id'];
+                   $noti['noti_from_user']     = $post['posted_by_user_id'];
 
-                    $noti['noti_date']          = $this->current_date_time();
+                   $noti['noti_date']          = $this->current_date_time();
 
-                    $noti['post_type']          = 'status';
+                   $noti['post_type']          = 'status';
 
                     
 
@@ -278,7 +278,7 @@ class Posts Extends Main {
 
 
 
-   public function get_all_comments($post_id) {
+   public function get_all_comments($post_id){
 
 
 
@@ -784,12 +784,8 @@ WHERE tbl_post_comment.post_id = '$post_id'";
    }
 
    
-
-   
-
-   
-
    public function get_post_message($data,$user_id) {
+       $this->initSession();
       $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 		
 
       extract($data);
@@ -874,84 +870,38 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
 
 
-   public function get_all_posts($user_id,$user_timeline=false) {
-
-      
-
+   public function get_all_posts($user_id,$user_timeline=false,$start = 0, $limit = 10) {
        $where   ="WHERE tbl_post.posted_by_user_id = $user_id 
-
                 OR (
-
                   tbl_post.post_user_access REGEXP '(^|,)($user_id)(,|$)' 
-
                   AND tbl_post.`post_access` != 'public'
-
                 ) 
-
                 OR (
-
                   (
-
                     tbl_post.`post_access` = 'public' 
-
                     OR tbl_post.`post_access` = 'family' 
-
                     OR tbl_post.`post_access` = 'friends'
-
                   ) 
-
                   AND tbl_post.`post_user_access` = '0'
-
                 ) 
-
-              ORDER BY tbl_post.post_id DESC";
-
-       
-
-       
-
+              ORDER BY tbl_post.post_id DESC LIMIT $limit OFFSET $start";
        if($user_timeline)
-
        {
-
-           $where="WHERE tbl_post.posted_by_user_id = $user_id  ORDER BY tbl_post.post_id DESC";
-
+           $where="WHERE tbl_post.posted_by_user_id = $user_id  ORDER BY tbl_post.post_id DESC LIMIT $limit OFFSET $start";
        }
-
-       
-
-       
-
-       
-
-
-
       $sql = "SELECT 
-
                 tbl_post.*,
-
                 tbl_user.user_avatar,
-
                 tbl_user.user_name,
-
                 `tbl_profile_basic`.`first_name`,
-
                 `tbl_profile_basic`.`last_name` 
-
               FROM
-
                 tbl_post 
-
                 LEFT JOIN tbl_user 
-
                   ON tbl_post.posted_by_user_id = tbl_user.user_id 
-
                 LEFT JOIN tbl_profile_basic 
-
                   ON tbl_post.posted_by_user_id = tbl_profile_basic.user_id 
-
                   $where
-
               ";
 
       
@@ -1500,9 +1450,7 @@ public function getPostById($post_id,$user_id) {
       
   }
 
-        
 
-        
 
 }
 

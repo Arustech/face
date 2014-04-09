@@ -133,4 +133,14 @@ if (isset($_POST['action'])) {
       
    }
    
+   
+   if($_POST['action']=='get_posts')
+   {
+             
+       $obj_posts = $main->load_model("Posts");
+        $user_id =$_GET['user_id'];
+       echo $obj_posts->get_all_posts($user_id,0,$_POST['offset'],$_POST['limit']);
+        
+   }
+   
 }

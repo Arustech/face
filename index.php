@@ -46,7 +46,9 @@ require('top_panel.php');
 <![endif]-->
 <!--  main JS Upload file -->
 <script src="plugins/jqupload/assets/js/script.js"></script>
-
+<link href="plugins/preloader/preloader.css" rel="stylesheet">
+<script src="plugins/preloader/jquery.isloading.js"></script>
+<script src="plugins/jscroll/jscroll.js"></script>
 <script language="JavaScript">
 
    function createCookie(name, value, days) {
@@ -343,11 +345,12 @@ require('top_panel.php');
 
 
                      <div class="divider"></div>
-
-                     <?php include('feed.php') ?>
-
+<div class="loop-container">
+                     <?php //include('feed.php') ?>
+</div>
                      <script>
-
+                         
+                         
 
                         $(document).on('click', '.btn_comment', function(e) {
                            e.preventDefault();
@@ -547,6 +550,33 @@ require('top_panel.php');
                                      fancyBoxMe(i);
                                  }); //bind      
                              }); //each
+                             
+                             
+                             
+               /// dynamic loading posts here...              
+                            $('body').scrollPagination({
+                            nop: 10, // The number of posts per scroll to be loaded
+                            offset: 0, // Initial offset, begins at 0 in this case
+                            delay: 2500, // When you scroll down the posts will load after a delayed amount of time.
+                            scroll: true, // The main bit, if set to false posts will not load as the user scrolls. 
+                            url: 'ajax_1.php?user_id=<?= $user['user_id'] ?>',
+                            gap:100,
+                            action:'get_posts',
+                            target :'.loop-container',
+
+
+                            complete: function() {
+                            // noty({type:'warning',text: 'No more friends'});
+                            },
+                            before: function() {
+                            preload_start($this);
+                            },
+                            after: function() {preload_stop($this);},
+                            });
+
+                             
+                             
+                             
                          }); // ready
                         
 

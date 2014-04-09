@@ -254,11 +254,12 @@ $('.make_btn_home:hover').css("color", "#0897B9");
      
     
  <?php $friend_list =($member->get_frnds_sugg($_SESSION['kfc_user_id']));
-         
+   if(!empty($friend_list))
+{   
  foreach ($friend_list as $frd){
      
     $asd = $member->get_users_data($frd['user_friend_id']);
-     //var_dump($asd);
+ }    //var_dump($asd);
      
      
 

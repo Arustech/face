@@ -258,7 +258,7 @@ require('top_panel.php');
                                 var user_access = $("#selected_users").val();
                                $("#file_upload").uploadify('settings','formData' ,{'post_title':  $("#status_area_video").val(),'post_access': $(".selectpicker").val(),'user_id':'<?=$user['user_id']?>',user_access:user_access});
                                $('#file_upload').uploadify('upload','*');
-                               location.reload(); 
+                               //location.reload(); 
                             });
                             
                         $(function() {

@@ -257,7 +257,7 @@ $member = $main->load_model("Member");
           
              var btn = $(this);
              var id = btn.attr('id');
-            $(this).replaceWith('<select id="'+id+'" class="add_to_type_all" name="friends"><option value="-1">Add to</option><option>Family</option><option>Friend</option></select>');
+            $(this).replaceWith('<select id="'+id+'" class="add_to_type_all" name="friends"><option value="-1">Add to</option><option value="family">Family</option><option value="friends">Friend</option></select>');
       });
       
       

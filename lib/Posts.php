@@ -1134,7 +1134,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
                     //// adding notification '
 
-                    $this->load_model('member');
+                    $this->load_model('Member');
 
                     $noti_obj    = $this->load_model('Notification');
 
@@ -1156,8 +1156,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
                     }
 
-
-
+					
                     $noti_obj->getAddNoti($noti);
 
 
@@ -1294,7 +1293,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
                     //// adding notification '
 
-                    $this->load_model('member');
+                    $this->load_model('Member');
 
                     $noti_obj    = $this->load_model('Notification');
 

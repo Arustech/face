@@ -154,7 +154,7 @@ if (isset($_POST['action'])) {
    if(isset($_REQUEST['action']) && $_REQUEST['action']=='post_imgz')
    {
        $obj_post   = $main->load_model('Posts'); 
-       $obj_post->post_photo($_POST);
+		$obj_post->post_photo($_POST);
       
     }
 //     if ($_POST['action'] == 'get_msg') {

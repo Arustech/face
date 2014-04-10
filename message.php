@@ -500,7 +500,7 @@ $obj_mbr = $main->load_model('Member');
                                 if (data)
                                    {
                                      
-                                       $('#msg').append(data);
+                                       $('#msg').prepend(data);
                                   
 
                                    }
@@ -556,14 +556,14 @@ $obj_mbr = $main->load_model('Member');
                                 if (data)
                                    {
                                      
-                                       $('#msg').append(data);
+                                       $('#msg').prepend(data);
                                   
 
                                    }
                                    else
                                    {
                                       
-                                        $('#msg').append('sending failed');
+                                        $('#msg').prepend('sending failed due to some serious problem');
                                    }
                              
                                    

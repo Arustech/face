@@ -155,13 +155,13 @@ class Notification Extends Member {
                {
                 $html.="<li><a href='javascript:;'>";
                 $html.="<div style='display:flex;display: -ms-flexbox;'><span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
-                $html.="<span style='margin-left:21px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:15px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
+                $html.="<span style='margin-left:21px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:30px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
         
                 }
                 if($row['noti_type']=='post' ){
                     $html.="<li><a href='".$this->config['web_path']."single_post.php?mod=sp&p_id=".$row['noti_data']."&nid=".$row['noti_user_id']."'>";
                     $html.="<div style='display:flex;display: -ms-flexbox;'><span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
-                    $html.="<span style='margin-left:15px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:15px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
+                    $html.="<span style='margin-left:15px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:33px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
                         
                 }
            

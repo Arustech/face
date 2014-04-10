@@ -58,7 +58,7 @@
 
         <li><a href="">Blog</a></li>
 
-        <li><a href="">Contact Us</a></li>
+        <li><a href="contact_us_loggedin.php">Contact Us</a></li>
         
         
 

@@ -567,6 +567,7 @@ require('top_panel.php');
 
                             complete: function() {
                             // noty({type:'warning',text: 'No more friends'});
+                            
                             },
                             before: function() {
                             preload_start($this);
@@ -578,7 +579,12 @@ require('top_panel.php');
                              
                              
                          }); // ready
-                        
+                        $(document).ready(function(){
+	  	$('.user-comm').rollbar({zIndex:80}); 
+                
+                $('.user-comm-msg').rollbar({zIndex:80}); 
+//	  	$('body').rollbar({zIndex:80});
+	  });
 
                      </script>
                      <?php include('footer.php')?>

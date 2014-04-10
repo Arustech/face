@@ -550,6 +550,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
    }
 
    public function get_post_photo($data, $user_id) {
+       $this->initSession();
       $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 
       //var_dump($data);exit;
       extract($data);

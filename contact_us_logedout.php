@@ -131,6 +131,15 @@ if ($member->check_user())
       if (isset($_GET['email_verify'])) {
       $main->alert('success', 'Check Your Email for Verification E-mail !');  
    }
+   
+   
+if(isset($_POST['btn_contact_us'])){
+  $email=$_POST['user_email'];
+  $subject="Contact us Message";
+  $message="<h3>Message from user:</h3>". $_POST['c_name']."<h3>User's Message</h3> ".$_POST['message'];
+  $main->contactEmail($email, $subject, $message); 
+}
+
    ?>
    <body>
       <!--<div class="topbar">
@@ -223,63 +232,28 @@ if ($member->check_user())
                </div>
                <div class="col-lg-5 col-right">
                   <div class="top-heading">
-                     <h1>Sign Up Now</h1>
-                     <p>It's free and always will be.
+                     <h1>Contact Us</h1>
+                     <p>How can we help you today?
                      </p>
                   </div>
-                  <form action="login" method="POST" name="frm_register" id="frm_register" class="sign-form">
+                   <form action="contact_us_logedout.php" method="POST" name="frm_contact_us" id="frm_contact_us" class="sign-form">
                      <div class="form-group">
-                        <label for="First Name" class="col-lg-4 control-label">First Name:</label>
-                        <div class="col-lg-8"><input id="user_first_name" name="user_first_name" type="text" size="" maxlength="12" class="form-control required"></div>
+                        <label for="First Name" class="col-lg-4 control-label">Your Name:</label>
+                        <div class="col-lg-8"><input id="c_name" name="c_name" type="text" size="" maxlength="12" class="form-control required"></div>
                      </div>
-                     <div class="form-group">
-                        <label for="Last Name" class="col-lg-4 control-label">Last Name:</label>
-                        <div class="col-lg-8"><input id="user_last_name" name="user_last_name" type="text" size="" maxlength="" class=" form-control required"></div>
-                     </div>
-                     <div class="form-group">
+                      <div class="form-group">
                         <label for="Your Email" class="col-lg-4 control-label">Your Email:</label>
                         <div class="col-lg-8"><input id="user_email_o" name="user_email" type="email" size="" maxlength="" class=" form-control required"></div>
                      </div>
-                     <div class="form-group">
-                        <label for="Re-enter Email" class="col-lg-4 control-label">Re-enter Email:</label>
-                        <div class="col-lg-8"><input id="user_email_c" name="user_email_c" type="email" size="" maxlength="" class=" form-control"></div>
+                     
+                      <div class="form-group">
+                        <label for="Your Message" class="col-lg-4 control-label">Message:</label>
+                        <div class="col-lg-8"><textarea  name="message" class="form-control required" rows="3"></textarea></div>
                      </div>
-                     <div class="form-group">
-                        <label for="Password" class="col-lg-4 control-label">Password:</label>
-                        <div class="col-lg-8"><input id="user_pwd" name="user_pwd" type="password" size="" maxlength="" class=" form-control required"></div>
-                     </div>
-
-                     <div class="form-group">
-                        <label for="I am" class="col-lg-4 control-label">I am:</label>
-                        <div class="col-lg-8">
-                           <select name="gender" class="select form-control" id="gender">
-                              <option value="Unspecified">Please select</option>
-                              <option  value="Male">Male</option>
-                              <option  value="Female">Female</option>
-                           </select>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <div class="col-lg-12">
-                           <label class="col-lg-4 control-label" id="optionsRadio">Account Type:</label>
-                           <div class="col-lg-8" style="margin-left: -23px;margin-top: 9px;">
-
-                              <label class="radio-inline">
-                                 <input type="radio" class="uniform required"  style="padding:0px;margin:0px" name="user_type" value="Personal">
-                                 <span class="radio-label">Personal</span>
-                              </label>
-                              <label class="radio-inline">
-                                 <input type="radio"  class="uniform required" style="padding:0px;margin:0px" name="user_type" value="" >
-                                 <span class="radio-label">Business</span></label>
-
-
-                           </div>
-
-
-                        </div>
-                     </div>
+                    
                      <div class="col-lg-12">
-                        <div class="signin"><button type="image" name="btn_register" class=""> <img src="img/signgup.png" alt="Search"></button></div>
+                         <br>
+                         <div class=""><button style="float:right" type="submit" name="btn_contact_us" class="btn btn-default btnn">Submit </button></div>
                      </div>
                   </form> 	
                </div>
@@ -450,36 +424,23 @@ if ($member->check_user())
             }); // closes validate()
 
 
-            $('#frm_register').validate({
+            $('#frm_contact_us').validate({
                onkeyup: false,
                rules: {
                   user_email: {
                      required: true,
                      email: true,
-                     remote: {
-                        url: "ajax.php",
-                        type: "post",
-                        data: {
-                           user_email: function() {
-                              return $('#user_email_o').val();
-                           },
-                           action: 'check_email_already'
-
-                        }
-                     },
+                    
                   },
-                  user_email_c: {
-                     equalTo: '#user_email_o'
-
-                  }
+                 
                },
                success: function(error) {
                   setTimeout(function() { // Use a mini timeout to make sure the tooltip is rendred before hiding it
-                     $('#frm_register').find('.valid').qtip('destroy');
+                     $('#frm_contact_us').find('.valid').qtip('destroy');
                   }, 1);
                },
                messages: {
-                  user_first_name: {required: 'Please enter your first name'},
+                  user_first_name: {required: 'Please enter name'},
                   user_last_name: {required: 'Please enter your last name'},
                   user_email: {required: 'Please enter your email', remote: 'This email already exists'},
                   user_pwd: {required: 'Please enter your password'},

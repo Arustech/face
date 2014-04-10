@@ -54,7 +54,7 @@ class Notification Extends Member {
     {
        $specific_friends   ="";
         $sender_full_name   = $this->get_full_name($data['noti_from_user']);
-        $data['noti_title'] = $sender_full_name.' post a new '. $data['post_type'];
+        $data['noti_title'] = $sender_full_name.' posted a new '. $data['post_type'];
        
         // unsetting post type and inserting data into noti table....
         unset($data['post_type']);
@@ -154,14 +154,14 @@ class Notification Extends Member {
                if($row['noti_type']=='friend_request_accept' && $row['noti_user_to']==$user_id)
                {
                 $html.="<li><a href='javascript:;'>";
-                $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
-                $html.="<span class='message noti_message'>".$row['noti_title']."</span><BR><span class='time time_noti'>".$row['noti_date']."</span></a></li>";
+                $html.="<div style='display:flex;display: -ms-flexbox;'><span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
+                $html.="<span style='margin-left:21px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:15px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
         
                 }
                 if($row['noti_type']=='post' ){
                     $html.="<li><a href='".$this->config['web_path']."single_post.php?mod=sp&p_id=".$row['noti_data']."&nid=".$row['noti_user_id']."'>";
-                    $html.="<span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
-                    $html.="<span class='message noti_message'>".$row['noti_title']."</span><BR><span class='time time_noti'>".$row['noti_date']."</span></a></li>";
+                    $html.="<div style='display:flex;display: -ms-flexbox;'><span><img src='".$this->config['upload_url'].'thumbs/'.$sender_avatar."' width='50px' height='50px'></span>";
+                    $html.="<span style='margin-left:15px' class='message noti_message'>".$row['noti_title']."</span></div><BR><span style='position:relative;bottom:15px' class='time time_noti'>".$row['noti_date']."</span></a></li>";
                         
                 }
            

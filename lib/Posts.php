@@ -125,9 +125,29 @@ class Posts Extends Main {
 
 
     public function post_comment($data){
-       // $this->db->insert('tbl_log',array());
-       return $this->db->insert('tbl_post_comment',$data);
-
+        
+// $this->db->insert('tbl_log',array());
+        $res  = $this->db->insert('tbl_post_comment',$data);
+        if($res)
+        {
+                $this->load_model('Member');
+                $obj_noti   = $this->load_model('Notification');
+                $obj_trigger   = $this->load_model('Trigger');
+                
+                $noti   =   array();
+                $noti['noti_type']          = 'post';
+                $noti['noti_data']          = $data['post_id'];
+                $noti['noti_from_user']     = $data['comment_by'];
+                $noti['noti_date']          = $this->current_date_time();
+                $noti['post_type']          = 'comment';
+                $obj_noti->getAddNoti($noti);
+                
+                
+                return $res;
+        }else
+        {
+            return false;            
+        }
       }
 
     

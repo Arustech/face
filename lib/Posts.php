@@ -680,6 +680,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
    }
 
    public function get_post_video($data, $user_id) {
+       $this->initSession();
       $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 
 
       extract($data);
@@ -702,31 +703,16 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       }
 
-      $html.='</div><div class="main-img" style="margin-top:7px;margin-right:37px;margin-bottom:10px"><script>CodoPlayer({title: "Knownfaces video",poster: "",src: "'.$this->get_uurl('videos').$video.'"
+      $html.='</div><div class="main-img" style="margin-top:7px;margin-right:37px;margin-bottom:10px"><video id="my_video_1" class="video-js vjs-default-skin" controls
+                preload="auto" width="393" height="222" poster="my_video_poster.png"
+                data-setup="{}">
+                <source src="'.$this->get_uurl('videos').$video.'" >
+                </video></div></div>';
+              
 
-		}, {	width: 400,
+		
 
-			height: 225,
-
-			volume: 80,
-
-			preload: false,
-
-			loadingImage: "../loader.gif",
-
-			logo: "../logo.png",
-
-			plugins: {
-
-				share: true
-
-			}
-
-		});
-
-		</script>
-
-              </div></div>';//pre 
+            
 
       $html.='<div class="lt-content">';
 

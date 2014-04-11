@@ -38,6 +38,8 @@ $profile_basic = $profile->getBasicProfileByID($user['user_id']);
       <script src="js/jquery.placeholder.js"></script>
       <script type="text/javascript" src="plugins/fancybox/jquery.fancybox.pack.js"></script>
       <link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css" media="screen" />
+      <link href="plugins/videojs/videojs.css" rel="stylesheet">
+      <script src="plugins/videojs/videojs.js"></script>
 
 
 
@@ -102,7 +104,17 @@ $profile_basic = $profile->getBasicProfileByID($user['user_id']);
 
 
    </head>
+
    <style>
+/* videojs player */
+  .vjs-default-skin { color: #c72424; }
+  .vjs-default-skin .vjs-play-progress,
+  .vjs-default-skin .vjs-volume-level { background-color: #0d7ab5 }
+  .vjs-default-skin .vjs-control-bar,
+  .vjs-default-skin .vjs-big-play-button { background: rgba(255,255,255,0.7) }
+  .vjs-default-skin .vjs-slider { background: rgba(255,255,255,0.2333333333333333) }
+  
+  
       label.error{
 
          font-size:11px;

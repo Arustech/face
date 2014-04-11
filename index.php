@@ -478,34 +478,7 @@ require('top_panel.php');
                            $.fancybox({closeClick:true});
                          });
                          
-                         $('.del_post').click(function() {
-                             
-                             var get_id = $(this).attr('id');
-                             get_id     = get_id.split('_');
-                             var id         = get_id[1];
-                             
-                             BootstrapDialog.confirm('Are you sure you want to delete?', function(result){
-            if(result) {
-                             var postData = {action: 'del_post',post_id:id};
-                              CallAjaxPW('', postData, 'ajax.php', function callBack(data) {
-                                 if (data == 'true')
-                                 {
-                                    $("#loop_"+id).hide();
-                                 }
-                                 else
-                                 {
-                                    noty({type: 'error', text: 'Our support team is working on it ! Thanks'});
-
-                                 }
-                              
-                           });
-                       }else
-                       {
-                           
-                       }
-                   });
-                           });
-                           
+                         
                            $(document).ready(function(){
                              $(".fancybox").fancybox({
                                 openEffect: "none",
@@ -585,6 +558,36 @@ require('top_panel.php');
                 $('.user-comm-msg').rollbar({zIndex:80}); 
 //	  	$('body').rollbar({zIndex:80});
 	  });
+          // $('.del_post').click
+          $(document).on('click','.del_post',function() {
+           
+                             
+                             var get_id = $(this).attr('id');
+                             get_id     = get_id.split('_');
+                             var id         = get_id[1];
+                             
+                             BootstrapDialog.confirm('Are you sure you want to delete?', function(result){
+            if(result) {
+                             var postData = {action: 'del_post',post_id:id};
+                              CallAjaxPW('', postData, 'ajax.php', function callBack(data) {
+                                 if (data == 'true')
+                                 {
+                                    $("#loop_"+id).hide();
+                                 }
+                                 else
+                                 {
+                                    noty({type: 'error', text: 'Our support team is working on it ! Thanks'});
 
+                                 }
+                              
+                           });
+                       }else
+                       {
+                           
+                       }
+                   });
+                           });
+                           
+                           
                      </script>
                      <?php include('footer.php')?>

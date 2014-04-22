@@ -120,6 +120,7 @@ transition: all 1500ms ease;
       <li><a id="tab_personal" href="#personal" data-toggle="tab">Personal</a></li>
       <li><a id="tab_contact" href="#contact" data-toggle="tab">Contact</a></li>
       <li><a id="tab_hobbies" href="#hobbies" data-toggle="tab">Hobbies</a></li>
+      <li><a id="tab_settings" href="#settings" data-toggle="tab">Settings</a></li>
    </ul>
 
    <div class="tab-content">
@@ -129,6 +130,7 @@ transition: all 1500ms ease;
       <div class="tab-pane fade" id="personal"><?php include("profile_personal.php"); ?></div>
       <div class="tab-pane fade" id="contact"><?php include("profile_contact.php"); ?></div>
       <div class="tab-pane fade" id="hobbies"><?php include("profile_hobbies.php"); ?></div>
+      <div class="tab-pane fade" id="settings"><?php include("profile_settings.php"); ?></div
    </div>
 
   

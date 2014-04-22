@@ -169,6 +169,15 @@ class Extra Extends Main {
       
       return json_encode($ret_hobbies);
    }
+   
+   public function save_noti_settings($data,$user_id){
+       
+     $res=  $this->db->update('tbl_user',array('user_noti'=>$data),array('user_id'=>$user_id));
+   if($res){
+   $this->alert('success', "Your Hobbies updated with success");    
+   }
+   
+   }
 
 }
 

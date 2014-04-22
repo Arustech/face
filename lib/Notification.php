@@ -94,7 +94,9 @@ class Notification Extends Member {
                  
              }else
              {
-                $friends = $this->db->get_rows('tbl_friend', array('user_id' => $data['noti_from_user']));
+                //$friends = $this->db->get_rows('tbl_friend', array('user_id' => $data['noti_from_user']));
+                $query="SELECT * FROM `tbl_friend`, `tbl_user` WHERE tbl_friend.`user_friend_id` = tbl_user.`user_id` AND tbl_user.`user_noti` = 1 AND tbl_friend.user_id = $data[noti_from_user] ";
+                $friends=$this->db->ex($query);
                 if(!empty($friends))
                 {
 

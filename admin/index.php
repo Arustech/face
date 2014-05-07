@@ -25,7 +25,7 @@
       <div class="page-header">
         <div class="page-title">
           <h3>Dashboard</h3>
-          <span>Good morning, <?=ucfirst($user['admin_username'])?>!</span> </div>
+          <span>Good Day, <?=ucfirst($user['admin_username'])?>!</span> </div>
         
       </div>
       <div class="row row-bg">
@@ -33,7 +33,7 @@
           <div class="statbox widget box box-shadow">
             <div class="widget-content">
               <div class="visual cyan"> <i class="icon-th-large"></i> </div>
-              <div class="title">Tota Users at KnownFaces</div>
+              <div class="title">Total Users at KnownFaces</div>
               <div class="value"><?=$adminProj->getTotal('user');?></div>
               <!--<a class="more" href="javascript:void(0);">View More <i class="pull-right icon-angle-right"></i></a>--> </div>
           </div>
@@ -70,7 +70,7 @@
         <div class="col-md-12">
           <div class="widget box">
             <div class="widget-header">
-              <h4><i class="icon-reorder"></i> Total Earnings $ (<span class="blue">+29%</span>)</h4>
+              <h4><i class="icon-reorder"></i> Total Users </h4>
               <div class="toolbar no-padding">
                 <div class="btn-group"> <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span> </div>
               </div>
@@ -81,10 +81,10 @@
             <div class="divider"></div>
             <div class="widget-content">
               <ul class="stats">
-                <li> <strong>4,853</strong> <small>Total Views</small> </li>
-                <li class="light hidden-xs"> <strong>271</strong> <small>Last 24 Hours</small> </li>
-                <li> <strong>1,025</strong> <small>Unique Users</small> </li>
-                <li class="light hidden-xs"> <strong>105</strong> <small>Last 24 Hours</small> </li>
+                <li> <strong><?=$main->getViews() ?></strong> <small>Total Views</small> </li>
+                <li class="light hidden-xs"> <strong><?=$main->getApprovedUsers() ?></strong> <small>Total Approved Users</small> </li>
+                <li> <strong><?=$main->getPendingUsers() ?></strong> <small>Total Pending Users</small> </li>
+                <li class="light hidden-xs"> <strong><?=$main->getUniqueUsers() ?></strong> <small>Unique Users(Last 24 hours)</small> </li>
               </ul>
             </div>
           </div>

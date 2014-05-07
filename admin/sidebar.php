@@ -42,6 +42,19 @@
 			                                          
           </ul>
 		 </li>
+                  <li> <a href="#"> <i class="icon-angle-right"></i> Reporting</a> 
+		   <ul class="sub-menu">
+			<li class="current"><a href="report_users.php"><i class="icon-user"></i> Users</a>
+			</li>
+			<li><a href="report_albums.php"><i class="icon-picture"></i> Albums</a>
+			</li>
+                        <li><a href="report_videos.php"><i class="icon-camera"></i> Videos</a>
+			</li>
+                        <li><a href="report_posts.php"><i class="icon-file-text"></i> Posts</a>
+			</li>
+                                          
+          </ul>
+		 </li>
 		 <li> <a href="hobby.php"> <i class="icon-angle-right"></i>Manage Hobbies</a> 
 		  </li>
 
@@ -50,6 +63,7 @@
                   <li> <a href="report.php"> <i class="icon-angle-right"></i>Manage Reports</a> 
 		  </li>
                   <li> <a href="manage_events.php"><i class="icon-angle-right"></i>Manage Event </a></li>
+                    
         <li> <a href="javascript:void(0);"> <i class="icon-edit"></i> CMS </a>
           <!--<ul class="sub-menu">
             

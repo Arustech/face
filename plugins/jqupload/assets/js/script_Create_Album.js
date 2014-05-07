@@ -18,7 +18,7 @@ $(function() {
               .test(window.navigator && navigator.userAgent),
       imageMaxWidth: 100,
       imageMaxHeight: 100,
-      maxFileSize: 5242880,
+      maxFileSize: 3145728,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       dropZone: $('#drop'),
       
@@ -32,7 +32,7 @@ $(function() {
          var size = data.files[0].size;
          if (type == 'image/jpeg' || type == 'image/png' || type == 'image/gif') {
 
-            if (size < 5242880)
+            if (size < 3145728)
             {
                //   var preview = '<img src="' + URL.createObjectURL(data.files[0]) + '"/>';
                var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"' +
@@ -74,7 +74,7 @@ $(function() {
 
             } else {
                 
-               noty({type: 'error', text: 'file exceeds limit of 5MB'});
+               noty({type: 'error', text: 'file exceeds limit of 3MB'});
             }//check for file type
 
          } else

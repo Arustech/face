@@ -2,6 +2,10 @@
 require('lib/Main.php');
 $main = new Main;
 $member = $main->load_model('Member');
+
+
+$main->setViews();
+
 if ($member->check_user())
    $main->go('index');
 ?>
@@ -159,6 +163,7 @@ if ($member->check_user())
                                  <h4 class="modal-title" id="myModalLabel"><h3>Forgot Password ?</h3></h4>
                               </div>
                               <div class="modal-body">
+                                
                                  <form method="post" action='#' name="frm_forgot" id="frm_forgot">
                                     <p><input type="email" class="form-control" name="user_email" autocomplete="off" id="user_email_forgot" placeholder="Email"></p>
 

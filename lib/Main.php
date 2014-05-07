@@ -1120,6 +1120,52 @@ class Main {
       }
   }
   
+  public function setViews(){
+      if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+      
+     $date= $this->current_date_time();
+     $res  = $this->db->insert('tbl_views',array('viewer_ip'=>$ip,'view_date'=>$date)); 
+  }
+  
+   public function getViews(){
+    $query="select count(*) as total from tbl_views group by viewer_ip ";
+    
+  $res= $this->db->ex($query); 
+     return $res[0]['total'];
+  }
+  
+  public function getApprovedUsers(){
+       
+       $query="select count(*) as total from tbl_user where user_status = 'approved'";
+         $res= $this->db->ex($query); 
+         
+     return $res[0]['total'];
+       
+   }
+    public function getPendingUsers(){
+       
+       $query="select count(*) as total from tbl_user where user_status = 'pending'";
+         $res= $this->db->ex($query); 
+         
+     return $res[0]['total'];
+       
+   }
+    public function getUniqueUsers(){
+       
+       $query="SELECT count(*) as total FROM `tbl_user` WHERE `user_register_date` > DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+         $res= $this->db->ex($query); 
+         
+     return $res[0]['total'];
+       
+   }
+  
+  
   public function getPostDel($post_id)
   {
       $res  = false;

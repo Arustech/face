@@ -28,6 +28,27 @@ class AdminProj extends Admin
 			return false;
 			
 		}
+                public function getReport($type='user')
+		{
+			
+			if($type=='user')
+				$query	= 'SELECT * FROM tbl_user';
+			elseif($type=='albums')
+				$query	= 'SELECT * FROM tbl_album, tbl_user where tbl_album.user_id = tbl_user.user_id' ; 
+			elseif($type=='videos')
+				$query	= 'SELECT * FROM tbl_video, tbl_user where tbl_video.user_id = tbl_user.user_id' ; 
+			elseif($type=='posts')
+				$query	= 'SELECT * FROM tbl_post, tbl_user where tbl_post.posted_by_user_id = tbl_user.user_id' ; 
+			
+			
+                           
+			$res	= $this->db->ex($query);
+			if(is_array($res))
+			return	$res;
+			else
+			return false;
+			
+		}
 		
                 
              public function getReligionHtml($religion_type=false){

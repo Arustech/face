@@ -2,7 +2,7 @@
 session_start();
 
 $subject="Invitation From Knownfaces";
-$message="Hello...<br>This is to invite you to the most rapidly spreading social network <strong>Knownfaces</strong>. Where you can stay in touch with your friends and share your happiness with them. <br> <a href='http://arustech.com/face/'>Click Here</a> to join and be a part of us.<br><br><strong>Thankyou</strong>";
+$message="Hello...<br>This is to invite you to the most rapidly spreading social network <strong>Knownfaces</strong>. Where you can stay in touch with your friends and share your happiness with them. <br> <a href='http://knownfaces.com'>Click Here</a> to join and be a part of us.<br><br><strong>Thankyou</strong>";
    
 
 ///////////////////////////////////////// MSN Mail //////////////////////////////////////////////

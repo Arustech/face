@@ -1,5 +1,7 @@
 <?php 
-require('header.php')
+require('header.php');
+$index_url=$main->config['web_path'];
+$timeline_wall_url=$main->config['web_path']."timeline_wall.php";
 ?>
   <link rel="icon" href="data:,">
 	
@@ -148,9 +150,9 @@ require('header.php')
                   success:function(data)
                   {
                   if(check==1)
-                      location.href = "index.php"
+                      location.href = "<?=$index_url?>"
                   else
-                      location.href = "timeline_wall.php"
+                      location.href = "<?=$timeline_wall_url?>"
 
 
                   },

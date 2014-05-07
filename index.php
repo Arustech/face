@@ -281,7 +281,7 @@ require('top_panel.php');
                                  'uploader': 'uploadify.php',
                                  'debug':false,
                                  'uploadLimit' : 1,
-                                 'fileSizeLimit' : '20480KB',
+                                 'fileSizeLimit' : '25600KB',
                                  'auto': false,
                               });
                            });

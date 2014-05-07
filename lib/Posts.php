@@ -461,8 +461,10 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
 
    public function get_post_album($data, $user_id) {
+       $this->initSession();
+       
 	  $user_own=$this->db->get_row('tbl_user',array('user_id'=>$_SESSION['kfc_user_id'])); 
-
+          
       extract($data);
 
       $photos = $this->db->get_rows('tbl_photo',array('album_id'=>$post_data));

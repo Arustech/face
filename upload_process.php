@@ -25,12 +25,12 @@ if(isset($_REQUEST['mod']) && $_REQUEST['mod']=='images_process')
     
         
         
-    <span>Create New Album<input style="margin-left:20px" type="radio" value="create" checked id="new" name="album"/></span>
+    <span>Create New Album<input  style="margin-left:20px" type="radio" value="create" checked id="new" name="album"/></span>
         <BR>
       <span>  Select Existing<input style="margin-left:50px" type="radio" value="exist" id="existing" name="album"/></span>
         <BR>
         <span   id="new_album">
-            <input style="margin-top:5px" type="text" name="album_name" value="" placeholder="Enter album name"/>   
+            <input required="" style="margin-top:5px" type="text" name="album_name" value="" placeholder="Enter album name"/>   
         </span>
         <BR>
         <span style="display:none" id="exist_album">

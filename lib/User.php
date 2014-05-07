@@ -5,6 +5,10 @@
 
 class User Extends Main {
 
+    
+    
+    
+    
    public function getTypeHtml() {
 
       // $types= array('company'=>'Basic membership, plus business directory','individual'=>'Basic membership');

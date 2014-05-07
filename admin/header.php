@@ -4,7 +4,8 @@ $main 		= new Main();
 $admin		= $main->load_model('Admin');  
 $adminProj	= $main->load_model('AdminProj');  
 $page  		= $main->load_model('Page');
-			
+
+
 if(isset($_GET['a']) && $_GET['a']=='o')
 {
 $main->Logout();	

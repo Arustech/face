@@ -5,7 +5,8 @@ $member = $main->load_model('Member');
 $profile = $main->load_model('BasicProfile');
 $obj_user = $main->load_model("User");
 $obj_noti = $main->load_model("Notification");
-
+$admin=$main->load_model('Admin');
+$adminProj = $main->load_model("AdminProj");
 $user = $member->check_user();
 if (!$user)
  $main->go('login');
@@ -350,7 +351,7 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                               <div class="user_name" >
                                   <li><a class="make_btn_home" href="index">Home</a></li>
                                   <li><a style="color: #4D7397"  class="make_btn frnds" href="friends">Friends</a></li>
-                                 <li><a style="color: #4D7397" class="make_btn" href="timeline_wall.php">Settings</a></li>
+                                 <li><a style="color: #4D7397" class="make_btn" href="<?=$main->config['web_path']?>profile">Settings</a></li>
 
                                  
                                  <li><a style="color: #4D7397" class="make_btn" href="<?=$main->config['web_path']?>logout.php">Logout</a></li>

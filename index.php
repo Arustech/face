@@ -405,14 +405,7 @@ require('top_panel.php');
                         $(function() {
 
 
-                            $('.banner-fade').each(function(){
-                                            
-                                       $(this).bjqs({
-                                        height: 367,
-                                        width: 365,
-                                        responsive: true
-                                        });
-                                        });
+                            
 
 
                            //var div = {'icon_msg':'canvas_msg','icon_picture':'canvas_picture','icon_video':'canvas_video'};
@@ -518,12 +511,7 @@ require('top_panel.php');
 
                          // bind click to each img tag 
                          $(document).ready(function () {
-                             $(".bjqs li img").each(function (i) {
-                                 $(this).bind('click', function () {
-                                     fancyBoxMe(i);
-                                 }); //bind      
-                             }); //each
-                             
+                            
                              
                              
                /// dynamic loading posts here...              
@@ -548,6 +536,21 @@ require('top_panel.php');
                             after: function() {preload_stop($this);},
                             });
 
+                            $('.banner-fade').each(function(){
+                                            
+                                       $(this).bjqs({
+                                        height: 367,
+                                        width: 365,
+                                        responsive: true
+                                        });
+                                        });
+                                        
+                               $(".bjqs li img").each(function (i) {
+                                 $(this).bind('click', function () {
+                                     fancyBoxMe(i);
+                                 }); //bind      
+                             }); //each
+                                       
                              
                              
                              

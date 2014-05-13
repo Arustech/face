@@ -50,7 +50,54 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 <!--        <script type="text/javascript" src="plugins/rollbar/js/jquery-1.7.2.min.js"></script>-->
 	<script type="text/javascript" src="plugins/rollbar/js/jquery.mousewheel.js"></script>
 	<script type="text/javascript" src="plugins/rollbar/js/jquery.rollbar.min.js"></script>
-	
+	<script language="JavaScript">
+
+   function createCookie(name, value, days) {
+      if (days) {
+         var date = new Date();
+         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+         var expires = "; expires=" + date.toGMTString();
+      }
+      else
+         var expires = "";
+      document.cookie = name + "=" + value + expires + "; path=/";
+   }
+
+   function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+         var c = ca[i];
+         while (c.charAt(0) == ' ')
+            c = c.substring(1, c.length);
+         if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+   }
+
+   function eraseCookie(name) {
+      createCookie(name, "", -1);
+   }
+
+   var backColor = new Array();
+
+
+   backColor[2] = '#E2E2E2';
+   backColor[3] = '#FFC0CB';
+   backColor[4] = '#FFFFFF';
+   backColor[5] = '#293541';
+
+
+   function changeBG(whichColor) {
+      document.body.style.backgroundColor = backColor[whichColor];
+      createCookie('backColor', whichColor);
+   }
+
+   if (readCookie('backColor'))
+      document.write('<style type="text/css">body {background-color: ' + backColor[readCookie("backColor")] + ';}<\/style>');
+
+</script>
       <script>
 
          // To test the @id toggling on password inputs in browsers that don’t support changing an input’s @type dynamically (e.g. Firefox 3.6 or IE), uncomment this:

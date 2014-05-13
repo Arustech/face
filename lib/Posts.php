@@ -196,7 +196,7 @@ class Posts Extends Main {
 
       {       
 
-      $str.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
+      $str.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Delete"></span></a></li></ul>';//pre 
 
       }          
 
@@ -485,7 +485,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       {       
 
-      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
+      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Delete"></span></a></li></ul>';//pre 
 
       }
 
@@ -493,7 +493,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       $html.='</div>';//pre 
 
-      $html.='<div class="main-img" style="margin-top:7px;margin-right:21px;margin-bottom:10px"> <a href="#" class="thumbnail" style="margin-top:7px;">'.$slider.'</a> </div></div>';//pre 
+      $html.='<div class="main-img" style="margin-top:7px;margin-right:21px;margin-bottom:10px"> <a  class="thumbnail" style="margin-top:7px;">'.$slider.'</a> </div></div>';//pre 
 
       $html.='<div class="lt-content">';
 
@@ -595,7 +595,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
       {       
 
-      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
+      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Delete"></span></a></li></ul>';//pre 
 
       }
 
@@ -701,7 +701,7 @@ WHERE tbl_post_comment.post_id = '$post_id'";
 
        if($loginuser_id==$posted_by_user_id)  {    
 
-      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Edit"></span></a></li></ul>';//pre 
+      $html.='<ul><li><a href="javascript:;" id="post_'.$post_id.'" class="del_post"><span class="glyphicon glyphicon-trash" title="Delete"></span></a></li></ul>';//pre 
 
       }
 

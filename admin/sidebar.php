@@ -28,41 +28,41 @@
         </ul>
       </div>
       <ul id="nav">
-        <li class="current"> <a href="index.php"> <i class="icon-dashboard"></i> Dashboard </a> </li>
+        <li class="current"> <a href="<?=$main->config['admin_path']?>index.php"> <i class="icon-dashboard"></i> Dashboard </a> </li>
         <li> <a href="javascript:void(0);"> <i class="icon-table"></i> Modules </a>
           <ul class="sub-menu">
            <li> <a href="#"> <i class="icon-angle-right"></i> Users Management</a> 
 		   <ul class="sub-menu">
-			<li class="current"><a href="member.php"><i class="icon-edit"></i> Manage Users Operations</a>
+			<li class="current"><a href="<?=$main->config['admin_path']?>member.php"><i class="icon-edit"></i> Manage Users Operations</a>
 			</li>
-			<li><a href="edit_member.php"><i class="icon-pencil"></i> Add User</a>
+			<li><a href="<?=$main->config['admin_path']?>edit_member.php"><i class="icon-pencil"></i> Add User</a>
 			</li>
-         <li><a href="cms_letter.php"><i class="icon-cloud"></i> Announcements</a>
+         <li><a href="<?=$main->config['admin_path']?>cms_letter.php"><i class="icon-cloud"></i> Announcements</a>
 			</li>
 			                                          
           </ul>
 		 </li>
                   <li> <a href="#"> <i class="icon-angle-right"></i> Reporting</a> 
 		   <ul class="sub-menu">
-			<li class="current"><a href="report_users.php"><i class="icon-user"></i> Users</a>
+			<li class="current"><a href="<?=$main->config['admin_path']?>report_users.php"><i class="icon-user"></i> Users</a>
 			</li>
-			<li><a href="report_albums.php"><i class="icon-picture"></i> Albums</a>
+			<li><a href="<?=$main->config['admin_path']?>report_albums.php"><i class="icon-picture"></i> Albums</a>
 			</li>
-                        <li><a href="report_videos.php"><i class="icon-camera"></i> Videos</a>
+                        <li><a href="<?=$main->config['admin_path']?>report_videos.php"><i class="icon-camera"></i> Videos</a>
 			</li>
-                        <li><a href="report_posts.php"><i class="icon-file-text"></i> Posts</a>
+                        <li><a href="<?=$main->config['admin_path']?>report_posts.php"><i class="icon-file-text"></i> Posts</a>
 			</li>
                                           
           </ul>
 		 </li>
-		 <li> <a href="hobby.php"> <i class="icon-angle-right"></i>Manage Hobbies</a> 
+		 <li> <a href="<?=$main->config['admin_path']?>hobby.php"> <i class="icon-angle-right"></i>Manage Hobbies</a> 
 		  </li>
 
-		  <li> <a href="country.php"> <i class="icon-angle-right"></i>Manage Countries</a> 
+		  <li> <a href="<?=$main->config['admin_path']?>country.php"> <i class="icon-angle-right"></i>Manage Countries</a> 
 		  </li>
-                  <li> <a href="report.php"> <i class="icon-angle-right"></i>Manage Reports</a> 
+                  <li> <a href="<?=$main->config['admin_path']?>report.php"> <i class="icon-angle-right"></i>Manage Reports</a> 
 		  </li>
-                  <li> <a href="manage_events.php"><i class="icon-angle-right"></i>Manage Event </a></li>
+                  <li> <a href="<?=$main->config['admin_path']?>manage_events.php"><i class="icon-angle-right"></i>Manage Event </a></li>
                     
         <li> <a href="javascript:void(0);"> <i class="icon-edit"></i> CMS </a>
           <!--<ul class="sub-menu">
@@ -137,3 +137,11 @@
     </div>
     <div id="divider" class="resizeable"></div>
   </div>
+
+<script>
+var current_url = $(location).attr('href');
+var target_li  = $('#nav li:has(a[href="'+current_url+'"])');
+target_li.addClass('current');
+target_li.parent('ul').parent('li').addClass('current');    
+</script>
+    

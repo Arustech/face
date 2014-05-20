@@ -469,4 +469,53 @@ echo  '<li class="right clearfix"><span class="chat-img pull-right">
                
     }
    
+    
+      if($_REQUEST['action']=='update_thread_comment')
+    {
+        $thread_id    = $_REQUEST['thread_id'];
+        $comment_id    = $_REQUEST['comment_id'];
+        $comment_data    = $_REQUEST['comment_data'];
+        
+        $forum_obj=$main->load_model('Forums');
+        $forum_obj->update_thread_comments($comment_id,$comment_data);
+        
+        
+               
+    }
+   
+    
+      if($_REQUEST['action']=='update_thread')
+    {
+        $thread_id    = $_REQUEST['thread_id'];
+        $thread_data    = $_REQUEST['thread_data'];
+        
+        $forum_obj=$main->load_model('Forums');
+        $forum_obj->update_thread($thread_id,$thread_data);
+        
+        
+               
+    }
+    
+    
+     if($_REQUEST['action']=='delete_thread_comment')
+    {
+        $comment_id    = $_REQUEST['comment_id'];
+      
+        $forum_obj=$main->load_model('Forums');
+        $forum_obj->delete_thread_comment($comment_id);
+        
+        
+               
+    }
+    
+     if($_REQUEST['action']=='delete_thread')
+    {
+        $thread_id  = $_REQUEST['thread_id'];
+      
+        $forum_obj=$main->load_model('Forums');
+        $forum_obj->delete_thread($thread_id);
+        
+        
+               
+    }
 }

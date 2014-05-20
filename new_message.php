@@ -21,11 +21,9 @@
     
     margin: 0 auto;
     width: 100%;
+    display: flex
     
 }
-
-
-
 
 .form-control1{
     background: transparent;
@@ -75,6 +73,7 @@
 .form1 textarea {
 	display: block;
 	resize: vertical;
+        padding: 8px 177px 10px 9px;
 }
 .form1.go-bottom input, .form1.go-bottom textarea {
 	padding: 12px 12px 12px 12px;

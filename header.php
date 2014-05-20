@@ -253,7 +253,8 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 .make_btn{
     
     background-color: #FFFFFF;
-    border-radius: 3px;
+    border-radius: 0px;
+    box-shadow: -1px 1px 2px black;
     margin: -2px;
     
    // color: #4D7397;
@@ -269,7 +270,8 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
 .make_btn_home{
     background-color: #0897B9;
-    border-radius: 3px;
+    border-radius: 0px;
+    box-shadow: -1px 1px 2px black;
     color:#FFFFFF;
     padding: 2px 4px;
     margin: -2px;
@@ -285,6 +287,22 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
     min-width: 8%;
     text-align: left !important;
 }
+.logomenu a{
+        background-color: #FFFFFF;
+    color: #4D7397 !important;
+    font-size: 11px;
+    font-weight: bold;
+    padding:  2px 6px;
+    box-shadow: -1px 1px 2px black;
+   font-family:tahoma;
+   text-decoration: none;
+}
+.logomenu a:hover{
+        background-color: #0897B9;
+        color: #fff !important;
+
+}
+
       
       </style>
       <?php
@@ -332,11 +350,30 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
 
                   <div class="col-lg-12" >
 
-                     <div class="col-lg-4 logo"> <img src="img/logo.png" alt="Knowfaces" > </div>
-                     <div class="col-lg-6 top-panel">
-                        <ul>
+                     <div class="col-lg-4 logo"> <img src="img/logo.png" alt="Knowfaces" >
+                     
+                                         
+    <div class="logomenu">
+   
+    <a href="">Home</a>
+    <a href="">Member</a>
+    <a href="">Photo</a>
+    <a href="">Blog</a>
+    <a href="forum.php">Forum</a>
 
-                           <li class="top_ico">
+
+   </div>
+                     </div>
+
+                     
+             
+    
+                     
+
+                        <div class="col-lg-8 login-panel">
+                            <div class="top-panel" style="float: left; margin-right: 9px;"> 
+                            <ul>
+                                 <li class="top_ico">
                                <a href="#" class="button popover-request" data-remotecontent="popover.php?type=friends" id="friends_a" data-toggle="popover" title="Friend Requests"  >
                                  <span style="font-size: 15px ; right: -12px ;position: relative" class="glyphicon glyphicon-user"></span>
                                     <span style="font-size: 17px" class="glyphicon glyphicon-user"></span>
@@ -385,6 +422,35 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                                 
                                    
                               </li>
+                                
+                            </ul>
+                                
+                                </div>
+
+                           <!--<div class="col-lg-10">-->
+                           <div style="width: 450px">
+                              <form method="POST" action="search">
+                                  <div  class="input-group custom-search-form">
+
+                                    <input style="height: 27px;" name="search" type="text" class="form-control" placeholder="Search for People...">
+
+
+                                    <span class="input-group-btn">
+
+                                       <button style="height: 27px; padding:3px 3px" class="btn" type="submit"> <span class=""><img src="img/search.png" height="20" alt=""></span> </button>
+
+                                    </span> </div></form>
+
+                              <!-- /input-group --> 
+
+                           </div>
+
+                        </div>
+                     <!---- panel AR ---->
+                        <div class="col-lg-6 top-panel">
+                        <ul>
+
+                          
 
                               <!--                        <li><a href="./">Home</a></li>-->
 
@@ -410,30 +476,10 @@ $visitor=0; // check if anyone wants to visit other's timeline... please view pr
                            </ul>
 
 
-                           </ul>
+                       
 
                         </div>
-
-                        <div class="col-lg-8 login-panel">
-
-                           <div class="col-lg-12">
-                              <form method="POST" action="search">
-                                  <div  class="input-group custom-search-form">
-
-                                    <input style="height: 27px;" name="search" type="text" class="form-control" placeholder="Search for People...">
-
-
-                                    <span class="input-group-btn">
-
-                                       <button style="height: 27px; padding:3px 3px" class="btn" type="submit"> <span class=""><img src="img/search.png" height="20" alt=""></span> </button>
-
-                                    </span> </div></form>
-
-                              <!-- /input-group --> 
-
-                           </div>
-
-                        </div>
+                     <!---- panel AR ---->
 
                      </div>
 

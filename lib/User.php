@@ -278,19 +278,27 @@ class User Extends Main {
       }
    }
 
-   public function getUserInfo($user_id, $type) {
-      if ($type == 'ind') {
-         $tbl = 'tbl_ind';
-      } elseif ($type == 'company') {
-         $tbl = 'tbl_company';
-      }
-
+   public function getUserInfo($user_id) {
       $cond = array('user_id' => $user_id);
-      $res = $this->db->get_row($tbl, $cond);
+      $res = $this->db->get_row('tbl_user', $cond);
       if ($res) {
          return $res;
       }
    }
+   
+//      public function getUserInfo($user_id, $type) {
+//      if ($type == 'ind') {
+//         $tbl = 'tbl_ind';
+//      } elseif ($type == 'company') {
+//         $tbl = 'tbl_company';
+//      }
+//
+//      $cond = array('user_id' => $user_id);
+//      $res = $this->db->get_row($tbl, $cond);
+//      if ($res) {
+//         return $res;
+//      }
+//   }
 
    public function searchListing($data, $type) {
 

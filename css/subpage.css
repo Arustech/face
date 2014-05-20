@@ -15,8 +15,9 @@ width: 585px;
 float: right;
 
 padding-right: 0px;
-padding-left: 218px;
-padding-top: 2px;
+padding-left: 120px;
+/*padding-left: 218px;*/
+padding-top: 17px;
 
 }
 
@@ -26,9 +27,9 @@ padding-bottom: 8px;
 
 float: right;
 
-padding-top: 8px;
+padding-top:2px;
 
-padding-right: 0;
+padding-right: 5px;
 
 }
 

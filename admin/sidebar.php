@@ -63,7 +63,15 @@
                   <li> <a href="<?=$main->config['admin_path']?>report.php"> <i class="icon-angle-right"></i>Manage Reports</a> 
 		  </li>
                   <li> <a href="<?=$main->config['admin_path']?>manage_events.php"><i class="icon-angle-right"></i>Manage Event </a></li>
-                    
+                   
+                  <li> <a href="#"> <i class="icon-angle-right"></i> Manage Forum</a> 
+		   <ul class="sub-menu">
+			<li ><a href="<?=$main->config['admin_path']?>add_forum_topic.php"><i class="icon-user"></i> Add Forum Topics</a>
+			</li>
+			<li><a href="<?=$main->config['admin_path']?>view_all_topics.php"><i class="icon-picture"></i> View All Thread</a>
+			</li>
+           </ul>
+		 </li>  
         <li> <a href="javascript:void(0);"> <i class="icon-edit"></i> CMS </a>
           <!--<ul class="sub-menu">
             
